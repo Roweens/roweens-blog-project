@@ -9,7 +9,7 @@ import { classNames } from './helpers/classNames/classNames';
 
 export const App = () => {
   const { theme, toggleTheme } = useTheme();
-
+  console.log('пенис');
   return (
     <div className={classNames('app', {}, [theme])}>
       <button onClick={toggleTheme}>Тема</button>
