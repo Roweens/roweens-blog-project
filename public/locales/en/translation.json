@@ -2,5 +2,8 @@
   "Текстовый перевод": "Test example",
   "Перевод": "Translate",
   "Язык": "English",
-  "Расширить": "Toggle"
+  "Расширить": "Toggle",
+  "Страница не найдена":"Page not found",
+  "Произошла непредвиденная ошибка":"Unexpected error",
+  "Обновить страницу":"Reload page"
 }
