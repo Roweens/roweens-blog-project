@@ -3,11 +3,11 @@ import {
     LOCAL_STORAGE_THEME_KEY,
     Theme,
     ThemeContext,
-} from 'app/providers/themeProvider/lib/themeContext';
+} from 'app/providers/ThemeProvider/lib/ThemeContext';
 
 interface UseThemeResult {
-  toggleTheme: () => void;
-  theme: Theme;
+    toggleTheme: () => void;
+    theme: Theme;
 }
 
 export function useTheme(): UseThemeResult {
