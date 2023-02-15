@@ -1,4 +1,4 @@
-import { ThemeProvider } from 'app/providers/themeProvider';
+import { ThemeProvider } from 'app/providers/ThemeProvider';
 import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { ErrorBoundary } from 'app/providers/ErrorBoundary';
@@ -13,5 +13,5 @@ render(
             </ThemeProvider>
         </ErrorBoundary>
     </BrowserRouter>,
-    document.getElementById('root'),
+    document.getElementById('root')
 );
