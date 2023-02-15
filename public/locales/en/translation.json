@@ -3,7 +3,9 @@
   "Перевод": "Translate",
   "Язык": "English",
   "Расширить": "Toggle",
-  "Страница не найдена":"Page not found",
-  "Произошла непредвиденная ошибка":"Unexpected error",
-  "Обновить страницу":"Reload page"
+  "Страница не найдена": "Page not found",
+  "Произошла непредвиденная ошибка": "Unexpected error",
+  "Обновить страницу": "Reload page",
+  "Главная": "Main",
+  "О сайте": "About"
 }
