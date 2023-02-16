@@ -7,7 +7,8 @@ import { FC } from 'react';
 import cls from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {
-    className?: string;
+    className?: string,
+
 }
 
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = (props) => {
