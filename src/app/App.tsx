@@ -1,8 +1,9 @@
-import './styles/index.scss';
+/* eslint-disable react/button-has-type */
+
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import { useTheme } from 'app/providers/themeProvider/lib/useTheme';
 import { AppRouter } from './providers/router';
 

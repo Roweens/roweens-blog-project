@@ -17,7 +17,7 @@
         "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
         "storybook": "start-storybook -p 6006 -c ./config/storybook",
         "storybook:build": "build-storybook -c ./config/storybook",
-        "test:ui:report":"npm run test:ui:json && npm run test:ui:html",
+        "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
         "test:ui:json": "node scripts/generate-visual-json-report.js",
         "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html"
     },
@@ -61,6 +61,7 @@
         "eslint-plugin-n": "^15.6.1",
         "eslint-plugin-promise": "^6.1.1",
         "eslint-plugin-react": "^7.29.2",
+        "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-storybook": "^0.6.10",
         "html-webpack-plugin": "^5.5.0",
         "identity-obj-proxy": "^3.0.0",
