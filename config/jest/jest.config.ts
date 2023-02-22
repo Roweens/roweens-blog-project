@@ -18,32 +18,20 @@ export default {
     // Automatically clear mock calls, instances and results before every test
     clearMocks: true,
     testEnvironment: 'jsdom',
-    coveragePathIgnorePatterns: [
-        '\\\\node_modules\\\\',
-    ],
-    moduleDirectories: [
-        'node_modules',
-    ],
+    coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
+    moduleDirectories: ['node_modules'],
 
-    moduleFileExtensions: [
-        'js',
-        'jsx',
-        'ts',
-        'tsx',
-        'json',
-        'node',
-    ],
-    modulePaths: [
-        '<rootDir>src',
-    ],
-    testMatch: [
-        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
-    ],
+    moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
+    modulePaths: ['<rootDir>src'],
+    testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
     rootDir: '../../',
     setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.js'],
     moduleNameMapper: {
         '\\.(s?css)$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    },
+    globals: {
+        __IS_DEV__: true,
     },
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
@@ -83,7 +71,6 @@ export default {
     // globalTeardown: undefined,
 
     // A set of global variables that need to be available in all test environments
-    // globals: {},
 
     // maxWorkers: "50%",
 
