@@ -1,5 +1,5 @@
 import {
-    ChangeEvent, FC, InputHTMLAttributes, memo, useEffect, useRef, useState,
+    ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
