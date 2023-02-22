@@ -6,12 +6,12 @@ import { MemoryRouter } from 'react-router-dom';
 import i18nForTests from 'shared/config/i18n/i18nForTests';
 import { DeepPartial } from '@reduxjs/toolkit';
 
-export interface ComponentRenderOptions {
-  route?: string
-  initialState?: DeepPartial<StateSchema>
+export interface componentRenderOptions {
+    route?: string;
+    initialState?: DeepPartial<StateSchema>;
 }
 
-export function ComponentRender(component: ReactNode, options:ComponentRenderOptions = {}) {
+export function ComponentRender(component: ReactNode, options:componentRenderOptions = {}) {
     const { route = '/', initialState } = options;
 
     return render(
