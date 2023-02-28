@@ -26,7 +26,7 @@ module.exports = {
         'react/jsx-filename-extension': [
             2,
             {
-                extensions: ['.js', '.jsx', '.tsx'],
+                extensions: ['.js', '.jsx', '.tsx', '.ts'],
             },
         ],
         'import/no-unresolved': 'off',
@@ -44,14 +44,14 @@ module.exports = {
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid', 'to'],
+                ignoreAttribute: ['data-testid', 'to', 'name'],
             },
         ],
         'max-len': [
             'error',
             {
                 ignoreComments: true,
-                code: 130,
+                code: 150,
             },
         ],
         'jsx-a11y/no-static-element-interactions': 'off',
@@ -59,6 +59,7 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
         'no-param-reassign': 'off',
+        'react/jsx-no-useless-fragment': 'warn',
     },
     globals: {
         __IS_DEV__: true,

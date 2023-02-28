@@ -1,31 +1,37 @@
-import { loginActions } from 'features/AuthByUsername';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { selectLoginPassword } from '../../model/selectors/selectLoginPassword/selectLoginPassword';
+import { selectLoginIsLoading } from '../../model/selectors/selectLoginIsLoading/selectLoginIsLoading';
+import { selectLoginError } from '../../model/selectors/selectLoginError/selectLoginError';
+import { selectLoginUsername } from '../../model/selectors/selectLoginUsername/selectLoginUsername';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { loginByUsername } from '../../model/services/LoginByUsername/loginByUsername';
-import { selectLoginState } from '../../model/selectors/selectLoginState/selectLoginState';
 import cls from './LoginForm.module.scss';
 
-interface LoginFormProps {
+export interface LoginFormProps {
   className?: string;
+  onSuccess: () => void
 }
 
-// enum LoginErrors {
-//     INCORRECT_DATA = '';
-//     SERVER_ERROR = ''
-// }
+const initialReducers: ReducersList = {
+    loginForm: loginReducer,
+};
 
-export const LoginForm = memo((props:LoginFormProps) => {
-    const { className } = props;
+const LoginForm = memo((props:LoginFormProps) => {
+    const { className, onSuccess } = props;
+    const dispatch = useAppDispatch();
 
-    const dispatch = useDispatch();
-    const {
-        password, username, isLoading, error,
-    } = useSelector(selectLoginState);
+    const username = useSelector(selectLoginUsername);
+    const password = useSelector(selectLoginPassword);
+    const isLoading = useSelector(selectLoginIsLoading);
+    const error = useSelector(selectLoginError);
 
     const onChangeUsername = useCallback((value: string) => {
         dispatch(loginActions.setUsername(value));
@@ -35,33 +41,46 @@ export const LoginForm = memo((props:LoginFormProps) => {
         dispatch(loginActions.setPassword(value));
     }, [dispatch]);
 
-    const onLoginClick = useCallback(() => {
-        dispatch(loginByUsername({ username, password }));
-    }, [dispatch, username, password]);
+    const onLoginClick = useCallback(async () => {
+        const result = await dispatch(loginByUsername({ username, password }));
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess();
+        }
+    }, [dispatch, username, password, onSuccess]);
 
     const { t } = useTranslation();
     return (
-        <div className={classNames(cls.loginForm, {}, [className])}>
-            <Text title={t('Форма авторизации')} />
-            {error && <Text theme={TextTheme.ERROR} text={t('Вы ввели неверный логин или пароль')} />}
-            <Input
-                type="text"
-                className={cls.input}
-                placeholder={t('Введите логин')}
-                autofocus
-                onChange={onChangeUsername}
-                value={username}
-            />
-            <Input
-                type="text"
-                className={cls.input}
-                placeholder={t('Введите пароль')}
-                onChange={onChangePassword}
-                value={password}
-            />
-            <Button className={cls.loginBtn} onClick={onLoginClick} disabled={isLoading}>
-                {t('Войти')}
-            </Button>
-        </div>
+        <DynamicModuleLoader reducers={initialReducers}>
+            <div className={classNames(cls.loginForm, {}, [className])}>
+                <Text title={t('Форма авторизации')} />
+                {error && <Text theme={TextTheme.ERROR} text={t('Вы ввели неверный логин или пароль')} />}
+                <Input
+                    type="text"
+                    className={cls.input}
+                    placeholder={t('Введите логин')}
+                    autofocus
+                    onChange={onChangeUsername}
+                    value={username}
+                />
+                <Input
+                    type="text"
+                    className={cls.input}
+                    placeholder={t('Введите пароль')}
+                    onChange={onChangePassword}
+                    value={password}
+                />
+                <Button
+                    className={cls.loginBtn}
+                    onClick={onLoginClick}
+                    disabled={
+                        typeof isLoading === 'boolean' ? isLoading : false
+                    }
+                >
+                    {t('Войти')}
+                </Button>
+            </div>
+        </DynamicModuleLoader>
     );
 });
+
+export default LoginForm;
