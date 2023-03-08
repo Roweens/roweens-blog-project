@@ -4,7 +4,6 @@ import { Countries } from 'entities/Country';
 import { Currencies } from 'entities/Currency';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import AvatarImg from 'shared/assets/tests/test.jpg';
 import ProfilePage from './ProfilePage';
 
 export default {
@@ -31,7 +30,7 @@ Light.decorators = [StoreDecorator({
             city: 'Moscow',
             age: 20,
             currency: Currencies.USD,
-            avatar: AvatarImg,
+            avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
         },
     },
 })];
@@ -48,7 +47,7 @@ Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
             city: 'Moscow',
             age: 20,
             currency: Currencies.USD,
-            avatar: AvatarImg,
+            avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
         },
     },
 })];
