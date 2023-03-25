@@ -11,7 +11,7 @@ const articleAdapter = createEntityAdapter<Article>({
 });
 
 export const getArticles = articleAdapter.getSelectors<StateSchema>(
-    (state) => state.articlePage || articleAdapter.getInitialState()
+    (state) => state.articlePage || articleAdapter.getInitialState(),
 );
 
 export const articlePageSlice = createSlice({
