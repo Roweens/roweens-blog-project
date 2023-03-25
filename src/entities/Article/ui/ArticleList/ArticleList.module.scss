@@ -1,0 +1,11 @@
+.Block {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.List {
+    .card {
+        margin-bottom: 30px;
+    }
+}

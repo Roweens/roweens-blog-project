@@ -19,6 +19,7 @@ export const Light = Template.bind({});
 Light.args = {};
 Light.decorators = [
     StoreDecorator({
+
     }),
 ];
 

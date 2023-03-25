@@ -60,6 +60,7 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'error',
         'no-param-reassign': 'off',
         'react/jsx-no-useless-fragment': 'warn',
+        'react/no-array-index-key': 'off',
     },
     globals: {
         __IS_DEV__: true,
