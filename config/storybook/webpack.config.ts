@@ -9,6 +9,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
         html: '',
         entry: '',
         src: path.resolve(__dirname, '..', '..', 'src'),
+        buildLocales: '',
+        locales: '',
     };
 
     config.resolve!.modules!.push(paths.src);
@@ -34,7 +36,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
             __IS_DEV__: true,
             __API__: JSON.stringify(''),
             __PROJECT__: JSON.stringify('storybook'),
-        }),
+        })
     );
 
     return config;
