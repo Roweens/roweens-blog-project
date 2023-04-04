@@ -16,4 +16,20 @@ body {
 
 .content-page {
     display: flex;
+    overflow: hidden;
+}
+
+*::-webkit-scrollbar {
+    width: 12px;
+    height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--card-bg);        /* цвет зоны отслеживания */
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--inverted-primary-color);    /* цвет бегунка */
+    border-radius: 20px;       /* округлось бегунка */
+    border: 3px solid var(--primary-color);  /* отступ вокруг бегунка */
 }
