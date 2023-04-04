@@ -17,7 +17,7 @@ interface ProfilePageHeaderProps {
 
 export const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
     const { className } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('profile');
 
     const readonly = useSelector(selectProfileReadonly);
     const authData = useSelector(selectUserAuthData);

@@ -15,5 +15,21 @@
   "Форма авторизации":"Authorization form",
   "Вы ввели неверный логин или пароль":"Login or password is not valid",
   "Выйти": "Logout",
-  "Профиль": "Profile"
+  "Профиль": "Profile",
+  "Статьи": "Articles",
+  "Создать статью": "Create article",
+  "Читать далее": "Read more",
+  "Поиск": "Search",
+  "Сортировать по": "Sort by",
+  "по": "by",
+  "возрастанию": "ascending",
+  "убыванию": "descending",
+  "дате создания": "creation date",
+  "названию": "title",
+  "количеству просмотров": "views",
+  "Отправить": "Send",
+  "Комментарии отсутствуют": "No comments found",
+  "Введите текст комментария": "Enter your comment",
+  "Укажите валюту": "Your currency",
+  "Укажите страну": "Your country"
 }

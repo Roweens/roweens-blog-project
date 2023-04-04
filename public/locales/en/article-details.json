@@ -1,4 +1,7 @@
 {
   "Статья не найдена":"Article not found",
-  "Произошла ошибка при загрузке статьи": "Error while loading article"
+  "Произошла ошибка при загрузке статьи": "Error while loading article",
+  "Назад к списку": "Back to list",
+  "Редактировать": "Edit",
+  "Комментарии": "Comments"
 }

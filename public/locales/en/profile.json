@@ -1,5 +1,10 @@
 {
   "Профиль": "Profile",
   "Редактировать": "Edit",
-  "Ваше имя": "Your name"
+  "Ваше имя": "Your name",
+  "Ваша фамилия": "Your surname",
+  "Ваш город": "Your city",
+  "Ваш возраст": "Your age",
+  "Введите имя пользователя": "Enter your username",
+  "Введите ссылку на аватар": "Link to your avatar"
 }
