@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -11,6 +11,7 @@ import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { selectArticleDetailsData, selectArticleDetailsError, selectArticleDetailsIsLoading } from '../../model/selectors/articleDetailsSelector';
@@ -71,18 +72,20 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     } else {
         content = (
             <>
-                <div className={cls.avatarWrapper}>
+                <HStack justify="center" max>
                     <Avatar size={200} src={article?.img} className={cls.avatar} />
-                </div>
-                <Text title={article?.title} text={article?.subtitle} className={cls.title} size={TextSize.L} />
-                <div className={cls.articleInfo}>
-                    <Icon Svg={EyeIcon} />
-                    <Text text={String(article?.views)} />
-                </div>
-                <div className={cls.articleInfo}>
-                    <Icon Svg={CalendarIcon} />
-                    <Text text={article?.createdAt} />
-                </div>
+                </HStack>
+                <VStack gap="4" max>
+                    <Text title={article?.title} text={article?.subtitle} className={cls.title} size={TextSize.L} />
+                    <HStack gap="8">
+                        <Icon Svg={EyeIcon} />
+                        <Text text={String(article?.views)} />
+                    </HStack>
+                    <HStack gap="8">
+                        <Icon Svg={CalendarIcon} />
+                        <Text text={article?.createdAt} />
+                    </HStack>
+                </VStack>
                 {article?.blocks.map(renderBlock)}
             </>
         );
@@ -90,7 +93,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     return (
         <DynamicModuleLoader removeAfterUnmount reducers={reducers}>
-            <div className={classNames(cls.articleDetails, {}, [className])}>{content}</div>
+            <VStack className={classNames(cls.articleDetails, {}, [className])} gap="16">{content}</VStack>
         </DynamicModuleLoader>
     );
 });

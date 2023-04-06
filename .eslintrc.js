@@ -18,7 +18,7 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
+    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'roweens-plugin'],
     rules: {
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
@@ -44,7 +44,7 @@ module.exports = {
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid', 'to', 'name', 'target'],
+                ignoreAttribute: ['data-testid', 'to', 'name', 'target', 'justify', 'align', 'direction', 'gap'],
             },
         ],
         'max-len': [
@@ -61,6 +61,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'react/jsx-no-useless-fragment': 'warn',
         'react/no-array-index-key': 'off',
+        'roweens-plugin/path-checker': 'error',
     },
     globals: {
         __IS_DEV__: true,

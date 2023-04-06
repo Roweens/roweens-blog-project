@@ -84,7 +84,7 @@
         }
       ]
     },
-     {
+    {
       "id": "3",
       "userId": "1",
       "title": "React news",
@@ -156,7 +156,7 @@
         }
       ]
     },
-     {
+    {
       "id": "1",
       "userId": "1",
       "title": "Javascript news",
@@ -228,8 +228,7 @@
         }
       ]
     },
-
-        {
+    {
       "id": "4",
       "userId": "1",
       "title": "Typescript news",
@@ -301,7 +300,7 @@
         }
       ]
     },
-     {
+    {
       "id": "5",
       "userId": "1",
       "title": "React news",
@@ -373,7 +372,7 @@
         }
       ]
     },
-     {
+    {
       "id": "6",
       "userId": "1",
       "title": "Javascript news",
@@ -445,9 +444,7 @@
         }
       ]
     },
-
-
-        {
+    {
       "id": "7",
       "userId": "1",
       "title": "Typescript news",
@@ -519,7 +516,7 @@
         }
       ]
     },
-     {
+    {
       "id": "8",
       "userId": "1",
       "title": "React news",
@@ -591,7 +588,7 @@
         }
       ]
     },
-     {
+    {
       "id": "9",
       "userId": "1",
       "title": "Javascript news",
@@ -663,8 +660,7 @@
         }
       ]
     },
-
-        {
+    {
       "id": "10",
       "userId": "1",
       "title": "Typescript news",
@@ -736,7 +732,7 @@
         }
       ]
     },
-     {
+    {
       "id": "11",
       "userId": "1",
       "title": "React news",
@@ -808,7 +804,7 @@
         }
       ]
     },
-     {
+    {
       "id": "12",
       "userId": "1",
       "title": "Javascript news",
@@ -880,8 +876,7 @@
         }
       ]
     },
-
-        {
+    {
       "id": "13",
       "userId": "1",
       "title": "Typescript news",
@@ -953,7 +948,7 @@
         }
       ]
     },
-     {
+    {
       "id": "14",
       "userId": "1",
       "title": "React news",
@@ -1025,7 +1020,7 @@
         }
       ]
     },
-     {
+    {
       "id": "15",
       "userId": "1",
       "title": "Javascript news",
@@ -1097,7 +1092,6 @@
         }
       ]
     }
-    
   ],
   "comments": [
     {
@@ -1137,7 +1131,7 @@
       "username": "admin",
       "password": "123",
       "role": "ADMIN",
-      "avatar": "https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj"
+      "avatar": "https://sun9-40.userapi.com/impg/W6zsHosFFhXEL0betSUyHtRIwxteKokdzTfjWQ/uDSMzG7RHQg.jpg?size=1080x1080&quality=96&sign=c54822e6e549b15abaf66e92709634cd&c_uniq_tag=TLhJ3AAVLSWEPZNy-xZa9fiJQAh2RQL_QSVHfQDTHpg&type=album"
     },
     {
       "id": "2",
@@ -1157,7 +1151,7 @@
       "country": "Belarus",
       "city": "Moscow",
       "username": "admin213",
-      "avatar": "https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj"
+      "avatar": "https://sun9-40.userapi.com/impg/W6zsHosFFhXEL0betSUyHtRIwxteKokdzTfjWQ/uDSMzG7RHQg.jpg?size=1080x1080&quality=96&sign=c54822e6e549b15abaf66e92709634cd&c_uniq_tag=TLhJ3AAVLSWEPZNy-xZa9fiJQAh2RQL_QSVHfQDTHpg&type=album"
     },
     {
       "id": "2",

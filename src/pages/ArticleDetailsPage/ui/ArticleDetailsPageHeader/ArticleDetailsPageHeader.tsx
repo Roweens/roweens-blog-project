@@ -1,5 +1,4 @@
 import { selectArticleDetailsData } from 'entities/Article';
-import { selectUserIsAuthor } from 'pages/ArticleDetailsPage/model/selectors/article';
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -7,7 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/button/Button';
-import cls from './ArticleDetailsPageHeader.module.scss';
+import { HStack } from 'shared/ui/Stack';
+import { selectUserIsAuthor } from '../../model/selectors/article';
 
 interface ArticleDetailsPageHeaderProps {
    className?: string;
@@ -29,9 +29,9 @@ export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = (prop
     }, [navigate, article]);
 
     return (
-        <div className={classNames(cls.articleDetailsPageHeader, {}, [className])}>
+        <HStack className={classNames('', {}, [className])} max justify="between">
             <Button onClick={onBackToList}>{t('Назад к списку')}</Button>
-            {isAuthor && <Button onClick={onEditList} className={cls.editBtn}>{t('Редактировать')}</Button>}
-        </div>
+            {isAuthor && <Button onClick={onEditList}>{t('Редактировать')}</Button>}
+        </HStack>
     );
 };

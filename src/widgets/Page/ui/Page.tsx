@@ -19,6 +19,8 @@ interface PageProps {
    onScrollEnd?: () => void;
 }
 
+export const PAGE_ID = 'PAGE_ID';
+
 export const Page: FC<PageProps> = (props) => {
     const { className, children, onScrollEnd } = props;
     const wrapperRef = useRef() as MutableRefObject<HTMLElement>;
@@ -45,7 +47,7 @@ export const Page: FC<PageProps> = (props) => {
     }, 550);
 
     return (
-        <section ref={wrapperRef} className={classNames(cls.page, {}, [className])} onScroll={onScroll}>
+        <section ref={wrapperRef} className={classNames(cls.page, {}, [className])} onScroll={onScroll} id={PAGE_ID}>
             {children}
             {onScrollEnd ? <div ref={triggerRef} className={cls.trigger} /> : null}
         </section>
