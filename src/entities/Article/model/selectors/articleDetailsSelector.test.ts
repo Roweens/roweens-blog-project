@@ -1,6 +1,6 @@
-import { StateSchema } from 'app/providers/StoreProvider';
-import { Countries } from 'entities/Country';
-import { Currencies } from 'entities/Currency';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { Countries } from '@/entities/Country';
+import { Currencies } from '@/entities/Currency';
 import {
     selectArticleDetailsData,
     selectArticleDetailsError,

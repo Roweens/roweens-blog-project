@@ -1,4 +1,38 @@
 {
+    "notifications": [
+    {
+      "id": "1",
+      "title": "Уведомление 1",
+      "description": "Произошло какое-то событие",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "Уведомление 2",
+      "description": "Произошло какое-то событие",
+      "userId": "1",
+      "href": "http://localhost:3000/admin"
+    },
+    {
+      "id": "3",
+      "title": "Уведомление 3",
+      "description": "Произошло какое-то событие",
+      "userId": "1",
+      "href": "http://localhost:3000/admin"
+    },
+    {
+      "id": "4",
+      "title": "Уведомление 4",
+      "description": "Произошло какое-то событие",
+      "userId": "1"
+    },
+    {
+      "id": "5",
+      "title": "Уведомление 1",
+      "description": "Произошло какое-то событие",
+      "userId": "2"
+    }
+  ],
   "posts": [
     {
       "id": "1",
@@ -1130,15 +1164,23 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
-      "avatar": "https://sun9-40.userapi.com/impg/W6zsHosFFhXEL0betSUyHtRIwxteKokdzTfjWQ/uDSMzG7RHQg.jpg?size=1080x1080&quality=96&sign=c54822e6e549b15abaf66e92709634cd&c_uniq_tag=TLhJ3AAVLSWEPZNy-xZa9fiJQAh2RQL_QSVHfQDTHpg&type=album"
+      "roles": ["ADMIN"],
+      "avatar": "https://us.123rf.com/450wm/anatolir/anatolir2011/anatolir201105528/159470802-jurist-avatar-icon-flat-style.jpg?ver=6"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER",
-      "avatar": "https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj"
+      "roles":  ["USER"],
+      "avatar": "https://img.freepik.com/free-icon/user_318-159711.jpg"
+    }
+    ,
+    {
+      "id": "3",
+      "username": "manager",
+      "password": "123",
+      "roles":  ["MANAGER"],
+      "avatar": "https://us.123rf.com/450wm/anatolir/anatolir2011/anatolir201105528/159470802-jurist-avatar-icon-flat-style.jpg?ver=6"
     }
   ],
   "profile": [

@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { selectArticleDetailsData } from 'entities/Article';
-import { selectUserAuthData } from 'entities/User';
+import { selectArticleDetailsData } from '@/entities/Article';
+import { selectUserAuthData } from '@/entities/User';
 
 export const selectUserIsAuthor = createSelector(
     selectArticleDetailsData,

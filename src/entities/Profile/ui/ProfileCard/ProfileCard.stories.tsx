@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Countries } from 'entities/Country';
-import { Currencies } from 'entities/Currency';
+import { Countries } from '@/entities/Country';
+import { Currencies } from '@/entities/Currency';
 import { ProfileCard } from './ProfileCard';
 
 export default {

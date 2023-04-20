@@ -1,9 +1,10 @@
 import { FC, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { SortOrder } from 'shared/types';
-import { Select, SelectOption } from 'shared/ui/Select/Select';
-import { ArticleSortField } from '../../model/types/article';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { SortOrder } from '@/shared/types';
+import { ListBox } from '@/shared/ui/Popups';
+import { ListBoxItem } from '@/shared/ui/Popups/ui/ListBox/ListBox';
+import { ArticleSortField } from '../../model/consts/articleConsts';
 import cls from './ArticleSortSelector.module.scss';
 
 interface ArticleSortSelectorProps {
@@ -20,7 +21,7 @@ export const ArticleSortSelector: FC<ArticleSortSelectorProps> = (props) => {
     } = props;
     const { t } = useTranslation();
 
-    const orderOptions = useMemo<SelectOption<SortOrder>[]>(() => [
+    const orderOptions = useMemo<ListBoxItem<SortOrder>[]>(() => [
         {
             value: 'asc',
             content: t('возрастанию'),
@@ -31,7 +32,7 @@ export const ArticleSortSelector: FC<ArticleSortSelectorProps> = (props) => {
         },
     ], [t]);
 
-    const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(() => [
+    const sortFieldOptions = useMemo<ListBoxItem<ArticleSortField>[]>(() => [
         {
             value: ArticleSortField.CREATED,
             content: t('дате создания'),
@@ -48,8 +49,8 @@ export const ArticleSortSelector: FC<ArticleSortSelectorProps> = (props) => {
 
     return (
         <div className={classNames(cls.articleSortSelector, {}, [className])}>
-            <Select<ArticleSortField> options={sortFieldOptions} label={t('Сортировать по')} value={sort} onChange={onChangeSort} />
-            <Select<SortOrder> options={orderOptions} label={t('по')} value={order} onChange={onChangeOrder} className={cls.order} />
+            <ListBox items={sortFieldOptions} label={t('Сортировать по')} value={sort} onChange={onChangeSort} />
+            <ListBox items={orderOptions} label={t('по')} value={order} onChange={onChangeOrder} className={cls.order} />
         </div>
     );
 };

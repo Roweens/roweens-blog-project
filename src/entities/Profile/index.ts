@@ -1,10 +1,2 @@
-export { Profile, ProfileSchema, ValidateProfileError } from './model/types/profile';
-export { profileActions, profileReducer } from './model/slice/profileSlice';
-export { fetchProfileData } from '../Profile/model/services/fetchProfileData/fetchProfileData';
-export { updateProfileData } from '../Profile/model/services/updateProfileData/updateProfileData';
+export type { Profile } from './model/types/profile';
 export { ProfileCard } from '../Profile/ui/ProfileCard/ProfileCard';
-export { selectProfileData } from './model/selectors/selectProfileData/selectProfileData';
-export { selectProfileError } from './model/selectors/selectProfileError/selectProfileError';
-export { selectProfileIsLoading } from './model/selectors/selectProfileIsLoading/selectProfileIsLoading';
-export { selectProfileReadonly } from './model/selectors/selectProfileReadonly/selectProfileReadonly';
-export { selectProfileValidateErrors } from './model/selectors/selectProfileValidateErrors/selectProfileValidateErrors';

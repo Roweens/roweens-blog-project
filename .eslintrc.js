@@ -44,7 +44,7 @@ module.exports = {
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid', 'to', 'name', 'target', 'justify', 'align', 'direction', 'gap'],
+                ignoreAttribute: ['data-testid', 'to', 'name', 'target', 'justify', 'align', 'direction', 'gap', 'role', 'as', 'border'],
             },
         ],
         'max-len': [
@@ -62,6 +62,7 @@ module.exports = {
         'react/jsx-no-useless-fragment': 'warn',
         'react/no-array-index-key': 'off',
         'roweens-plugin/path-checker': 'error',
+        'implicit-arrow-linebreak': 'warn',
     },
     globals: {
         __IS_DEV__: true,
