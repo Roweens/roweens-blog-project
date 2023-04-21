@@ -110,7 +110,6 @@ NormalBlock.args = {
         ...article,
         id: String(index),
     })),
-
     view: 'Block',
 };
 

@@ -63,6 +63,7 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'roweens-plugin/path-checker': 'error',
         'implicit-arrow-linebreak': 'warn',
+        'no-unsafe-optional-chaining': 'warn',
     },
     globals: {
         __IS_DEV__: true,

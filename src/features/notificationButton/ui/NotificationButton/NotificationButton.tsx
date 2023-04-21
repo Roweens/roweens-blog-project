@@ -37,11 +37,11 @@ export const NotificationButton: FC<NotificationButtonProps> = (props) => {
         <div>
             <MobileView>
                 {trigger}
-                <AnimationProvider>
-                    <Drawer isOpen={isOpen} onClose={onCloseHandle}>
-                        <NotificationList className={cls.notifications} />
-                    </Drawer>
-                </AnimationProvider>
+
+                <Drawer isOpen={isOpen} onClose={onCloseHandle}>
+                    <NotificationList className={cls.notifications} />
+                </Drawer>
+
             </MobileView>
             <BrowserView>
                 <Popover

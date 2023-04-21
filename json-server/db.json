@@ -1,5 +1,5 @@
 {
-    "notifications": [
+  "notifications": [
     {
       "id": "1",
       "title": "Уведомление 1",
@@ -1164,22 +1164,27 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://us.123rf.com/450wm/anatolir/anatolir2011/anatolir201105528/159470802-jurist-avatar-icon-flat-style.jpg?ver=6"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "roles":  ["USER"],
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://img.freepik.com/free-icon/user_318-159711.jpg"
-    }
-    ,
+    },
     {
       "id": "3",
       "username": "manager",
       "password": "123",
-      "roles":  ["MANAGER"],
+      "roles": [
+        "MANAGER"
+      ],
       "avatar": "https://us.123rf.com/450wm/anatolir/anatolir2011/anatolir201105528/159470802-jurist-avatar-icon-flat-style.jpg?ver=6"
     }
   ],
@@ -1205,6 +1210,93 @@
       "city": "Moscow",
       "username": "admin213",
       "avatar": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png"
+    }
+  ],
+  "article-ratings": [
+    {
+      "id": 1,
+      "rating": 4,
+      "feedback": "Качественная статья",
+      "userId": 1,
+      "articleId": 1
+    },
+    {
+      "id": 2,
+      "rating": 1,
+      "feedback": "Ужасная статья",
+      "userId": 2,
+      "articleId": 2
+    },
+    {
+      "id": 3,
+      "rating": 3,
+      "feedback": "Не понравилась статья",
+      "userId": 3,
+      "articleId": 3
+    },
+    {
+      "id": 4,
+      "rating": 5,
+      "feedback": "Лучшая статья!!!",
+      "userId": 4,
+      "articleId": 4
+    },
+    {
+      "userId": "2",
+      "articleId": "3",
+      "rating": 3,
+      "feedback": "",
+      "id": 5
+    },
+    {
+      "userId": "2",
+      "articleId": "1",
+      "rating": 4,
+      "id": 6
+    },
+    {
+      "userId": "1",
+      "articleId": "3",
+      "rating": 4,
+      "feedback": "Nice article",
+      "id": 7
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": 1,
+      "rating": 4,
+      "feedback": "Качественная статья",
+      "userId": 1,
+      "profileId": 1
+    },
+    {
+      "id": 2,
+      "rating": 1,
+      "feedback": "Ужасная статья",
+      "userId": 2,
+      "profileId": 1
+    },
+    {
+      "id": 3,
+      "rating": 3,
+      "feedback": "Не понравилась статья",
+      "userId": 3,
+      "profileId": 1
+    },
+    {
+      "id": 4,
+      "rating": 5,
+      "feedback": "Лучшая статья!!!",
+      "userId": 4,
+      "profileId": 1
+    },
+    {
+      "userId": "1",
+      "profileId": "2",
+      "rating": 4,
+      "feedback": "asasdsada",
+      "id": 5
     }
   ]
 }
