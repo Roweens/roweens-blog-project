@@ -1,8 +1,8 @@
-import { FC, memo, useCallback } from 'react';
+import {
+    FC, MutableRefObject, memo, useCallback, useRef,
+} from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
-import { ArticleList } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -10,10 +10,7 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { Page } from '@/widgets/Page/ui/Page';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
-import {
-    selectArticlesPageError, selectArticlesPageIsLoading, selectArticlesPageView,
-} from '../../model/selectors/articlePageSelectors';
-import { articlesPageReducer, getArticles } from '../../model/slices/articlePageSlice';
+import { articlesPageReducer } from '../../model/slices/articlePageSlice';
 import cls from './ArticlesPage.module.scss';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
@@ -31,6 +28,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const [searchParams] = useSearchParams();
+    const scrollRef = useRef() as MutableRefObject<HTMLDivElement>;
 
     const onNextPageLoad = useCallback(() => {
         if (__PROJECT__ !== 'storybook') {
@@ -44,15 +42,11 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page
-                className={classNames(cls.articlesPage, {}, [className])}
-                onScrollEnd={onNextPageLoad}
-            >
+            <Page scrollRef={scrollRef} onScrollEnd={onNextPageLoad}>
                 <ArticlesPageFilters />
-                <ArticleInfiniteList className={cls.list} />
+                <ArticleInfiniteList className={cls.list} scrollRef={scrollRef} />
             </Page>
         </DynamicModuleLoader>
-
     );
 };
 

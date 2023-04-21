@@ -19,3 +19,27 @@
         margin-bottom: 30px;
     }
 }
+
+.gridWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 0 30px;
+}
+
+.itemContainer {
+    width: 230px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+
+    @media (max-width: 1024px) {
+        width: 50%;
+    }
+
+    @media (max-width: 300px) {
+        width: 100%;
+    }
+}

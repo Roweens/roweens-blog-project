@@ -49,8 +49,19 @@ export const ArticleSortSelector: FC<ArticleSortSelectorProps> = (props) => {
 
     return (
         <div className={classNames(cls.articleSortSelector, {}, [className])}>
-            <ListBox items={sortFieldOptions} label={t('Сортировать по')} value={sort} onChange={onChangeSort} />
-            <ListBox items={orderOptions} label={t('по')} value={order} onChange={onChangeOrder} className={cls.order} />
+            <ListBox
+                items={sortFieldOptions}
+                label={t('Сортировать по')}
+                value={sort}
+                onChange={onChangeSort}
+            />
+            <ListBox
+                items={orderOptions}
+                label={t('по')}
+                value={order}
+                onChange={onChangeOrder}
+                className={cls.order}
+            />
         </div>
     );
 };

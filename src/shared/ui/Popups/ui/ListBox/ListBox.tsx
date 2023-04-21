@@ -1,4 +1,4 @@
-import { Fragment, ReactNode } from 'react';
+import { Fragment, ReactNode, useMemo } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
@@ -15,7 +15,7 @@ export interface ListBoxItem <T extends string> {
 }
 
 interface ListBoxProps<T extends string> {
-   items?: ListBoxItem<T>[] ;
+   items: ListBoxItem<T>[] ;
    className?: string;
    value?: T;
     defaultValue?: string;

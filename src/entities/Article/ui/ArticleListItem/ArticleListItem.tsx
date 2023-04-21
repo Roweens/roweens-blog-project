@@ -1,4 +1,4 @@
-import { FC, HTMLAttributeAnchorTarget } from 'react';
+import { FC, HTMLAttributeAnchorTarget, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Icon } from '@/shared/ui/Icon/Icon';
@@ -21,11 +21,13 @@ interface ArticleListItemProps {
    article: Article
    view: ArticleView;
    target?: HTMLAttributeAnchorTarget;
+   onViewArticle?: (articleIndex: number) => void;
+   index?: number;
 }
 
 export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
     const {
-        className, article, view, target,
+        className, article, view, target, onViewArticle, index,
     } = props;
     const { t } = useTranslation();
 
@@ -36,6 +38,12 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
             <Icon Svg={EyeIcon} />
         </>
     );
+
+    const onViewHandle = useCallback((index: number) => () => {
+        if (onViewArticle) {
+            onViewArticle(index);
+        }
+    }, [onViewArticle]);
 
     if (view === 'List') {
         const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
@@ -56,7 +64,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
                     )}
                     <div className={cls.footer}>
                         <AppLink to={RoutePath.article_details + article.id} target={target}>
-                            <Button>
+                            <Button onClick={onViewHandle(index ?? 0)}>
                                 {t('Читать далее')}
                             </Button>
                         </AppLink>
@@ -68,7 +76,12 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
     }
 
     return (
-        <AppLink to={RoutePath.article_details + article.id} className={classNames(cls.articleListItem, {}, [className, cls[view]])} target={target}>
+        <AppLink
+            to={RoutePath.article_details + article.id}
+            className={classNames(cls.articleListItem, {}, [className, cls[view]])}
+            target={target}
+            onClick={onViewHandle(index ?? 0)}
+        >
             <Card>
                 <div className={cls.imageWrapper}>
                     <img src={article.img} className={cls.img} alt={article.title} />

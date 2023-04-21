@@ -15,6 +15,7 @@ import cls from './Page.module.scss';
 
 interface PageProps {
    className?: string;
+   scrollRef?: MutableRefObject<HTMLDivElement>
    children: ReactNode
    onScrollEnd?: () => void;
 }
@@ -22,7 +23,9 @@ interface PageProps {
 export const PAGE_ID = 'PAGE_ID';
 
 export const Page: FC<PageProps> = (props) => {
-    const { className, children, onScrollEnd } = props;
+    const {
+        className, children, onScrollEnd, scrollRef,
+    } = props;
     const wrapperRef = useRef() as MutableRefObject<HTMLElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
@@ -47,7 +50,17 @@ export const Page: FC<PageProps> = (props) => {
     }, 550);
 
     return (
-        <main ref={wrapperRef} className={classNames(cls.page, {}, [className])} onScroll={onScroll} id={PAGE_ID}>
+        <main
+            ref={(el: HTMLDivElement) => {
+                wrapperRef.current = el;
+                if (scrollRef) {
+                    scrollRef.current = el;
+                }
+            }}
+            className={classNames(cls.page, {}, [className])}
+            onScroll={onScroll}
+            id={PAGE_ID}
+        >
             {children}
             {onScrollEnd ? <div ref={triggerRef} className={cls.trigger} /> : null}
         </main>
