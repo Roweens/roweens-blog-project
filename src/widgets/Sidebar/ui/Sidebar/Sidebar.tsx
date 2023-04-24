@@ -4,7 +4,7 @@ import {
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonSize, ThemeButton } from '@/shared/ui/button/Button';
-import { LangSwitcher } from '@/widgets/langSwitcher/LangSwitcher';
+import { LangSwitcher } from '@/widgets/langSwitcher';
 import { ThemeSwitcher } from '@/widgets/themeSwitcher';
 import { VStack } from '@/shared/ui/Stack/VStack/VStack';
 import { selectSidebarItems } from '../../model/selectors/selectSidebarItems';

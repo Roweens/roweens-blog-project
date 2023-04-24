@@ -4,3 +4,4 @@ export {
     selectScrollSaveByPath,
     selectScrollSavePosition,
 } from './model/selectors/ScrollSaveSelectors';
+export { Page } from './ui/Page';

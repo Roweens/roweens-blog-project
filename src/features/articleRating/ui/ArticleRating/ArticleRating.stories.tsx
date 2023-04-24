@@ -25,7 +25,7 @@ const Template: ComponentStory<typeof ArticleRating> = (args) => <ArticleRating 
 
 export const Normal = Template.bind({});
 Normal.args = {
-
+    articleId: '1',
 };
 Normal.decorators = [StoreDecorator({ user: { authData: { id: '1', username: 'ADMIN' } } })];
 Normal.parameters = {
@@ -39,9 +39,25 @@ Normal.parameters = {
     ],
 };
 
+export const WithoutRate = Template.bind({});
+WithoutRate.args = {
+    articleId: '1',
+};
+WithoutRate.decorators = [StoreDecorator({ user: { authData: { id: '1', username: 'ADMIN' } } })];
+WithoutRate.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/article-ratings`,
+            method: 'GET',
+            status: 200,
+            response: [],
+        },
+    ],
+};
+
 export const Dark = Template.bind({});
 Dark.args = {
-
+    articleId: '1',
 };
 Dark.decorators = [StoreDecorator({ user: { authData: { id: '1', username: 'ADMIN' } } }), ThemeDecorator(Theme.DARK)];
 Dark.parameters = {
@@ -57,7 +73,7 @@ Dark.parameters = {
 
 export const Red = Template.bind({});
 Red.args = {
-
+    articleId: '1',
 };
 Red.decorators = [StoreDecorator({ user: { authData: { id: '1', username: 'ADMIN' } } }), ThemeDecorator(Theme.RED)];
 Red.parameters = {

@@ -61,7 +61,11 @@ module.exports = {
         'no-param-reassign': 'off',
         'react/jsx-no-useless-fragment': 'warn',
         'react/no-array-index-key': 'off',
-        'roweens-plugin/path-checker': 'error',
+        'roweens-plugin/path-checker': ['error', { alias: '@' }],
+        'roweens-plugin/fsd-public-api-imports': ['error', {
+            alias: '@',
+            testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'],
+        }],
         'implicit-arrow-linebreak': 'warn',
         'no-unsafe-optional-chaining': 'warn',
     },
