@@ -66,6 +66,13 @@ module.exports = {
             alias: '@',
             testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'],
         }],
+        'roweens-plugin/upper-layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
         'implicit-arrow-linebreak': 'warn',
         'no-unsafe-optional-chaining': 'warn',
     },

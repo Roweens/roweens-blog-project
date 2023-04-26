@@ -1,10 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
-import { Theme } from '@/app/providers/themeProvider';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import ArticleDetailsPage from './ArticleDetailsPage';
 import { Article } from '@/entities/Article';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'pages/ArticleDetailsPage/ArticleDetailsPage',

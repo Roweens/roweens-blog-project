@@ -7,13 +7,13 @@ import { AvatarDropdown } from '@/features/avatarDropdown';
 import {
     selectUserAuthData,
 } from '@/entities/User';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from '@/shared/ui/appLink/AppLink';
-import { Button, ThemeButton } from '@/shared/ui/button/Button';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
+import { Button, ThemeButton } from '@/shared/ui/Button';
+import { Text, TextTheme } from '@/shared/ui/Text';
 import { HStack } from '@/shared/ui/Stack';
 import cls from './Navbar.module.scss';
+import { RoutePath } from '@/shared/const/router';
 
 interface NavbarProps {
   className?: string;

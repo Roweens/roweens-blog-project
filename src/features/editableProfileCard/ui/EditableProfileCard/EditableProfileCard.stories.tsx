@@ -5,7 +5,7 @@ import { Profile } from '@/entities/Profile';
 import { Countries } from '@/entities/Country';
 import { Currencies } from '@/entities/Currency';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/themeProvider';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'features/editableProfileCard',

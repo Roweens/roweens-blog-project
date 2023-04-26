@@ -4,7 +4,7 @@ import ArticleRating from './ArticleRating';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Rating } from '@/entities/Rating';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/themeProvider';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'features/ArticleRating',
