@@ -6,8 +6,8 @@ import { Text } from '@/shared/ui/Text';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { Card } from '@/shared/ui/Card';
 import { Avatar } from '@/shared/ui/Avatar';
-import { Button } from '@/shared/ui/Button';
-import { AppLink } from '@/shared/ui/AppLink';
+import { Button } from '@/shared/ui/Button/index';
+import { AppLink } from '@/shared/ui/AppLink/index';
 import { ArticleBlockType } from '../../model/consts/articleConsts';
 import {
     Article, ArticleTextBlock, ArticleView,

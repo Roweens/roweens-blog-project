@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card, CardTheme } from '@/shared/ui/Card';
 import { Text } from '@/shared/ui/Text';
-import { AppLink } from '@/shared/ui/AppLink';
+import { AppLink } from '@/shared/ui/AppLink/index';
 import cls from './NotificationItem.module.scss';
 import { Notification } from '../../model/types/notifications';
 
