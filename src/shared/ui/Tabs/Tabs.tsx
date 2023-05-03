@@ -16,7 +16,7 @@ interface TabsProps {
    onTabClick: (tab: TabItem) => void;
 }
 
-export const Tabs: FC<TabsProps> = (props) => {
+export const Tabs: FC<TabsProps> = (props: TabsProps) => {
     const {
         className, onTabClick, tabs, value,
     } = props;

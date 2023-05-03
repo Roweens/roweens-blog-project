@@ -7,7 +7,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
 import { selectUserIsAuthor } from '../../model/selectors/article';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 
 interface ArticleDetailsPageHeaderProps {
    className?: string;
@@ -21,11 +21,13 @@ export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = (prop
     const article = useSelector(selectArticleDetailsData);
 
     const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
+        navigate(getRouteArticles());
     }, [navigate]);
 
     const onEditList = useCallback(() => {
-        navigate(`${RoutePath.article_details}${article?.id}/edit`);
+        if (article) {
+            navigate(getRouteArticleEdit(article?.id));
+        }
     }, [navigate, article]);
 
     return (

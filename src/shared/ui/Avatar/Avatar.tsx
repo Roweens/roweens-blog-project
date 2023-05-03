@@ -1,18 +1,22 @@
 import { CSSProperties, FC, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Avatar.module.scss';
+import { AppImage } from '../AppImage';
+import UserIcon from '../../assets/icons/user-filled.svg';
+import { Icon } from '../Icon';
+import { Skeleton } from '../Skeleton';
 
 interface AvatarProps {
   className?: string;
   src?: string;
   alt?: string;
   size?: number
+  fallbackInverted?: boolean
 }
 
 export const Avatar: FC<AvatarProps> = (props) => {
     const {
-        className, src, alt = '', size,
+        className, src, alt = '', size, fallbackInverted = false,
     } = props;
 
     const styles = useMemo<CSSProperties>(() => ({
@@ -22,7 +26,17 @@ export const Avatar: FC<AvatarProps> = (props) => {
 
     const mods: Mods = {};
 
+    const fallback = <Skeleton width={size} height={src} border="50%" />;
+    const errorFallback = <Icon Svg={UserIcon} width={size} height={src} inverted={fallbackInverted} />;
+
     return (
-        <img src={src} alt={alt} style={styles} className={classNames(cls.Avatar, mods, [className])} />
+        <AppImage
+            fallback={fallback}
+            errorFallback={errorFallback}
+            src={src}
+            alt={alt}
+            style={styles}
+            className={classNames(cls.Avatar, mods, [className])}
+        />
     );
 };

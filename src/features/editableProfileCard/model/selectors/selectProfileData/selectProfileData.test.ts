@@ -4,7 +4,7 @@ import { Currencies } from '@/entities/Currency';
 import { selectProfileData } from './selectProfileData';
 
 describe('selectProfileData.test', () => {
-    test('should return error', () => {
+    test('should return data', () => {
         const data = {
             firstname: 'Roweens',
             lastname: 'Roweens',

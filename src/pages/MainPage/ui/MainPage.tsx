@@ -11,7 +11,7 @@ const MainPage: FC = () => {
     };
 
     return (
-        <Page>
+        <Page data-testid="MainPage">
             {t('Главная страница')}
         </Page>
     );

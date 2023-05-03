@@ -12,8 +12,9 @@ import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 import { selectScrollSaveByPath } from '../model/selectors/ScrollSaveSelectors';
 import { scrollSaveActions } from '../model/slice/ScrollSaveSlice';
 import cls from './Page.module.scss';
+import { TestProps } from '@/shared/types/tests';
 
-interface PageProps {
+interface PageProps extends TestProps{
    className?: string;
    scrollRef?: MutableRefObject<HTMLDivElement>
    children: ReactNode
@@ -60,6 +61,7 @@ export const Page: FC<PageProps> = (props) => {
             className={classNames(cls.page, {}, [className])}
             onScroll={onScroll}
             id={PAGE_ID}
+            data-testid={props['data-testid'] ?? 'Page'}
         >
             {children}
             {onScrollEnd ? <div ref={triggerRef} className={cls.trigger} /> : null}

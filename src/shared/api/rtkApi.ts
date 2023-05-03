@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { AUTH_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
-
+import 'isomorphic-fetch';
 // Define a service using a base URL and expected endpoints
 export const rtkApi = createApi({
     reducerPath: 'api',

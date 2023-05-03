@@ -1,11 +1,10 @@
 import { FC, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { SortOrder } from '@/shared/types';
-import { ListBox } from '@/shared/ui/Popups';
-import { ListBoxItem } from '@/shared/ui/Popups';
-import { ArticleSortField } from '../../model/consts/articleConsts';
+import { SortOrder } from '@/shared/types/sort';
+import { ListBox, ListBoxItem } from '@/shared/ui/Popups';
 import cls from './ArticleSortSelector.module.scss';
+import { ArticleSortField } from '@/entities/Article';
 
 interface ArticleSortSelectorProps {
    className?: string;

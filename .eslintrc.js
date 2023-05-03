@@ -18,10 +18,11 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'roweens-plugin'],
+    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'roweens-plugin', 'unused-imports'],
     rules: {
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
+        'unused-imports/no-unused-imports': 'error',
         indent: [2, 4],
         'react/jsx-filename-extension': [
             2,
@@ -75,6 +76,7 @@ module.exports = {
         ],
         'implicit-arrow-linebreak': 'warn',
         'no-unsafe-optional-chaining': 'warn',
+        'react/destructuring-assignment': 'warn',
     },
     globals: {
         __IS_DEV__: true,

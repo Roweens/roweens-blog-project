@@ -9,7 +9,7 @@ import {
     isUserAdmin, isUserManager, selectUserAuthData, userActions,
 } from '@/entities/User';
 import cls from './AvatarDropdown.module.scss';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
 
 interface AvatarDropdownProps {
    className?: string;
@@ -44,7 +44,7 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = (props) => {
             items={[
                 ...(isAdminPanelAvailable ? [{
                     content: t('Админ'),
-                    href: RoutePath.admin_panel,
+                    href: getRouteAdmin(),
                 }] : []),
                 {
                     content: t('Выйти'),
@@ -53,11 +53,11 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = (props) => {
 
                 {
                     content: t('Профиль'),
-                    href: RoutePath.profile + authData.id,
+                    href: getRouteProfile(authData.id),
                 },
 
             ]}
-            trigger={<Avatar size={30} src={authData.avatar} />}
+            trigger={<Avatar size={30} src={authData.avatar} fallbackInverted />}
         />
     );
 };

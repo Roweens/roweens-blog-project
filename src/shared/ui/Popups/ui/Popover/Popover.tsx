@@ -1,5 +1,4 @@
-import { FC, ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
+import { ReactNode } from 'react';
 import { Popover as PopoverComponent } from '@headlessui/react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';

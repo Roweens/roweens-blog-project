@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, useMemo } from 'react';
+import { Fragment, ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
@@ -42,7 +42,7 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
                 value={value}
                 onChange={onChange}
             >
-                <HListBox.Button className={popupCls.trigger} disabled={readonly}>
+                <HListBox.Button className={popupCls.trigger} as="div">
                     <Button disabled={readonly}>
                         {value ?? defaultValue}
                     </Button>
