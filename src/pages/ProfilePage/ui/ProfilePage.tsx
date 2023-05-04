@@ -9,12 +9,12 @@ import { ProfileRating } from '@/features/profileRating';
 import { Text } from '@/shared/ui/Text';
 
 interface ProfilePageProps {
-  className?: string;
+    className?: string;
 }
 
 const ProfilePage: FC<ProfilePageProps> = (props) => {
     const { className } = props;
-    const { id } = useParams<{id: string}>();
+    const { id } = useParams<{ id: string }>();
     const { t } = useTranslation('profile');
 
     if (!id) {
@@ -22,14 +22,15 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
     }
 
     return (
-
-        <Page className={classNames('', {}, [className])} data-testid="ProfilePage">
+        <Page
+            className={classNames('', {}, [className])}
+            data-testid="ProfilePage"
+        >
             <VStack gap="16" max>
                 <EditableProfileCard id={id} />
                 <ProfileRating profileId={id} />
             </VStack>
         </Page>
-
     );
 };
 

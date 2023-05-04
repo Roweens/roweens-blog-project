@@ -1,11 +1,11 @@
 import { Countries } from '@/entities/Country';
 import { Currencies } from '@/entities/Currency';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
+import { EditableProfileCardSchema } from '../types/editableProfileCardSchema';
 import {
-    EditableProfileCardSchema,
-
-} from '../types/editableProfileCardSchema';
-import { editableProfileCardActions, editableProfileCardReducer } from './editableProfileCardSlice';
+    editableProfileCardActions,
+    editableProfileCardReducer,
+} from './editableProfileCardSlice';
 import { ValidateProfileError } from '../consts/consts';
 
 const data = {
@@ -20,7 +20,9 @@ const data = {
 
 describe('profileSlice.test', () => {
     test('test set readonly', () => {
-        const state: DeepPartial<EditableProfileCardSchema> = { readonly: false };
+        const state: DeepPartial<EditableProfileCardSchema> = {
+            readonly: false,
+        };
         expect(
             editableProfileCardReducer(
                 state as EditableProfileCardSchema,
@@ -31,7 +33,10 @@ describe('profileSlice.test', () => {
         });
     });
     test('test cancel edit', () => {
-        const state: DeepPartial<EditableProfileCardSchema> = { data, form: { username: '' } };
+        const state: DeepPartial<EditableProfileCardSchema> = {
+            data,
+            form: { username: '' },
+        };
         expect(
             editableProfileCardReducer(
                 state as EditableProfileCardSchema,
@@ -45,11 +50,15 @@ describe('profileSlice.test', () => {
         });
     });
     test('test update profile', () => {
-        const state: DeepPartial<EditableProfileCardSchema> = { form: { username: '123' } };
+        const state: DeepPartial<EditableProfileCardSchema> = {
+            form: { username: '123' },
+        };
         expect(
             editableProfileCardReducer(
                 state as EditableProfileCardSchema,
-                editableProfileCardActions.updateProfile({ username: '123456' }),
+                editableProfileCardActions.updateProfile({
+                    username: '123456',
+                }),
             ),
         ).toEqual({
             form: { username: '123456' },

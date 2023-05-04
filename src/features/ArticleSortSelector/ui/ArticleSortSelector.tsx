@@ -7,44 +7,48 @@ import cls from './ArticleSortSelector.module.scss';
 import { ArticleSortField } from '@/entities/Article';
 
 interface ArticleSortSelectorProps {
-   className?: string;
-   sort: ArticleSortField;
-   order: SortOrder;
-   onChangeOrder: (newOrder: SortOrder) => void;
-   onChangeSort: (newSort: ArticleSortField) => void
+    className?: string;
+    sort: ArticleSortField;
+    order: SortOrder;
+    onChangeOrder: (newOrder: SortOrder) => void;
+    onChangeSort: (newSort: ArticleSortField) => void;
 }
 
 export const ArticleSortSelector: FC<ArticleSortSelectorProps> = (props) => {
-    const {
-        className, onChangeOrder, onChangeSort, order, sort,
-    } = props;
+    const { className, onChangeOrder, onChangeSort, order, sort } = props;
     const { t } = useTranslation();
 
-    const orderOptions = useMemo<ListBoxItem<SortOrder>[]>(() => [
-        {
-            value: 'asc',
-            content: t('возрастанию'),
-        },
-        {
-            value: 'desc',
-            content: t('убыванию'),
-        },
-    ], [t]);
+    const orderOptions = useMemo<ListBoxItem<SortOrder>[]>(
+        () => [
+            {
+                value: 'asc',
+                content: t('возрастанию'),
+            },
+            {
+                value: 'desc',
+                content: t('убыванию'),
+            },
+        ],
+        [t],
+    );
 
-    const sortFieldOptions = useMemo<ListBoxItem<ArticleSortField>[]>(() => [
-        {
-            value: ArticleSortField.CREATED,
-            content: t('дате создания'),
-        },
-        {
-            value: ArticleSortField.TITLE,
-            content: t('названию'),
-        },
-        {
-            value: ArticleSortField.VIEWS,
-            content: t('количеству просмотров'),
-        },
-    ], [t]);
+    const sortFieldOptions = useMemo<ListBoxItem<ArticleSortField>[]>(
+        () => [
+            {
+                value: ArticleSortField.CREATED,
+                content: t('дате создания'),
+            },
+            {
+                value: ArticleSortField.TITLE,
+                content: t('названию'),
+            },
+            {
+                value: ArticleSortField.VIEWS,
+                content: t('количеству просмотров'),
+            },
+        ],
+        [t],
+    );
 
     return (
         <div className={classNames(cls.articleSortSelector, {}, [className])}>
@@ -53,6 +57,7 @@ export const ArticleSortSelector: FC<ArticleSortSelectorProps> = (props) => {
                 label={t('Сортировать по')}
                 value={sort}
                 onChange={onChangeSort}
+                testid="SortField"
             />
             <ListBox
                 items={orderOptions}
@@ -60,6 +65,7 @@ export const ArticleSortSelector: FC<ArticleSortSelectorProps> = (props) => {
                 value={order}
                 onChange={onChangeOrder}
                 className={cls.order}
+                testid="SortOrder"
             />
         </div>
     );

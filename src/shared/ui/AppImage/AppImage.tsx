@@ -1,12 +1,16 @@
 import {
-    FC, ImgHTMLAttributes, ReactElement, useLayoutEffect, useState,
+    FC,
+    ImgHTMLAttributes,
+    ReactElement,
+    useLayoutEffect,
+    useState,
 } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement>{
-   className?: string;
-   fallback?: ReactElement;
-   errorFallback?: ReactElement;
+interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
+    className?: string;
+    fallback?: ReactElement;
+    errorFallback?: ReactElement;
 }
 
 export const AppImage: FC<AppImageProps> = (props) => {

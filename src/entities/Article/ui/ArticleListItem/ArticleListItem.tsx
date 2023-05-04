@@ -10,7 +10,9 @@ import { Button } from '@/shared/ui/Button/index';
 import { AppLink } from '@/shared/ui/AppLink/index';
 import { ArticleBlockType } from '../../model/consts/articleConsts';
 import {
-    Article, ArticleTextBlock, ArticleView,
+    Article,
+    ArticleTextBlock,
+    ArticleView,
 } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
@@ -19,18 +21,16 @@ import { AppImage } from '@/shared/ui/AppImage';
 import { Skeleton } from '@/shared/ui/Skeleton';
 
 interface ArticleListItemProps {
-   className?: string;
-   article: Article
-   view: ArticleView;
-   target?: HTMLAttributeAnchorTarget;
-   onViewArticle?: (articleIndex: number) => void;
-   index?: number;
+    className?: string;
+    article: Article;
+    view: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
+    onViewArticle?: (articleIndex: number) => void;
+    index?: number;
 }
 
 export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
-    const {
-        className, article, view, target, onViewArticle, index,
-    } = props;
+    const { className, article, view, target, onViewArticle, index } = props;
     const { t } = useTranslation();
 
     const types = <Text text={article.type.join(',')} className={cls.types} />;
@@ -41,21 +41,35 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
         </>
     );
 
-    const onViewHandle = useCallback((index: number) => () => {
-        if (onViewArticle) {
-            onViewArticle(index);
-        }
-    }, [onViewArticle]);
+    const onViewHandle = useCallback(
+        (index: number) => () => {
+            if (onViewArticle) {
+                onViewArticle(index);
+            }
+        },
+        [onViewArticle],
+    );
 
     if (view === 'List') {
-        const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
+        const textBlock = article.blocks.find(
+            (block) => block.type === ArticleBlockType.TEXT,
+        ) as ArticleTextBlock;
 
         return (
-            <div className={classNames(cls.articleListItem, {}, [className, cls[view]])}>
+            <div
+                className={classNames(cls.articleListItem, {}, [
+                    className,
+                    cls[view],
+                ])}
+                data-testid="ArticleListItem.List"
+            >
                 <Card>
                     <div className={cls.header}>
                         <Avatar size={40} src={article.user.avatar} />
-                        <Text text={article.user.username} className={cls.username} />
+                        <Text
+                            text={article.user.username}
+                            className={cls.username}
+                        />
                         <Text text={article.createdAt} className={cls.date} />
                     </div>
                     <Text title={article.title} className={cls.title} />
@@ -67,10 +81,16 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
                         alt={article.title}
                     />
                     {textBlock && (
-                        <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
+                        <ArticleTextBlockComponent
+                            block={textBlock}
+                            className={cls.textBlock}
+                        />
                     )}
                     <div className={cls.footer}>
-                        <AppLink to={getRouteArticleDetails(article.id)} target={target}>
+                        <AppLink
+                            to={getRouteArticleDetails(article.id)}
+                            target={target}
+                        >
                             <Button onClick={onViewHandle(index ?? 0)}>
                                 {t('Читать далее')}
                             </Button>
@@ -85,9 +105,13 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
     return (
         <AppLink
             to={getRouteArticleDetails(article.id)}
-            className={classNames(cls.articleListItem, {}, [className, cls[view]])}
+            className={classNames(cls.articleListItem, {}, [
+                className,
+                cls[view],
+            ])}
             target={target}
             onClick={onViewHandle(index ?? 0)}
+            data-testid="ArticleListItem.Block"
         >
             <Card>
                 <div className={cls.imageWrapper}>

@@ -5,27 +5,34 @@ import cls from './Card.module.scss';
 
 export enum CardTheme {
     NORMAL = 'normal',
-    OUTLINED = 'outlined'
+    OUTLINED = 'outlined',
 }
-interface CardProps extends HTMLAttributes<HTMLDivElement>{
-   className?: string;
-   children: ReactNode;
-   theme?: CardTheme;
-   fullWidth?: boolean;
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
+    className?: string;
+    children: ReactNode;
+    theme?: CardTheme;
+    fullWidth?: boolean;
 }
 
 export const Card: FC<CardProps> = (props) => {
     const {
-        className, children, theme = CardTheme.NORMAL, fullWidth, ...otherProps
+        className,
+        children,
+        theme = CardTheme.NORMAL,
+        fullWidth,
+        ...otherProps
     } = props;
     const { t } = useTranslation();
 
-    const mods:Mods = {
+    const mods: Mods = {
         [cls.max]: fullWidth,
     };
 
     return (
-        <div className={classNames(cls.card, mods, [className, cls[theme]])} {...otherProps}>
+        <div
+            className={classNames(cls.card, mods, [className, cls[theme]])}
+            {...otherProps}
+        >
             {children}
         </div>
     );

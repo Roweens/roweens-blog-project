@@ -6,13 +6,16 @@ import { Dropdown } from '@/shared/ui/Popups';
 import { Avatar } from '@/shared/ui/Avatar';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
-    isUserAdmin, isUserManager, selectUserAuthData, userActions,
+    isUserAdmin,
+    isUserManager,
+    selectUserAuthData,
+    userActions,
 } from '@/entities/User';
 import cls from './AvatarDropdown.module.scss';
 import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
 
 interface AvatarDropdownProps {
-   className?: string;
+    className?: string;
 }
 
 export const AvatarDropdown: FC<AvatarDropdownProps> = (props) => {
@@ -42,10 +45,14 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = (props) => {
             direction="bottom left"
             className={classNames(cls.avatarDropdown, {}, [className])}
             items={[
-                ...(isAdminPanelAvailable ? [{
-                    content: t('Админ'),
-                    href: getRouteAdmin(),
-                }] : []),
+                ...(isAdminPanelAvailable
+                    ? [
+                          {
+                              content: t('Админ'),
+                              href: getRouteAdmin(),
+                          },
+                      ]
+                    : []),
                 {
                     content: t('Выйти'),
                     onClick: onLogout,
@@ -55,9 +62,10 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = (props) => {
                     content: t('Профиль'),
                     href: getRouteProfile(authData.id),
                 },
-
             ]}
-            trigger={<Avatar size={30} src={authData.avatar} fallbackInverted />}
+            trigger={
+                <Avatar size={30} src={authData.avatar} fallbackInverted />
+            }
         />
     );
 };

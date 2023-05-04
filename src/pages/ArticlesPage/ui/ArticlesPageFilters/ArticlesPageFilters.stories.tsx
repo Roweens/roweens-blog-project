@@ -11,18 +11,20 @@ export default {
     },
 } as ComponentMeta<typeof ArticlesPageFilters>;
 
-const Template: ComponentStory<typeof ArticlesPageFilters> = (args) => <ArticlesPageFilters {...args} />;
+const Template: ComponentStory<typeof ArticlesPageFilters> = (args) => (
+    <ArticlesPageFilters {...args} />
+);
 
 export const Normal = Template.bind({});
-Normal.args = {
-
-};
-Normal.decorators = [StoreDecorator({
-    articlePage: {
-        view: 'Block',
-        sort: ArticleSortField.CREATED,
-        order: 'asc',
-        search: '',
-        type: ArticleType.ALL,
-    },
-})];
+Normal.args = {};
+Normal.decorators = [
+    StoreDecorator({
+        articlePage: {
+            view: 'Block',
+            sort: ArticleSortField.CREATED,
+            order: 'asc',
+            search: '',
+            type: ArticleType.ALL,
+        },
+    }),
+];

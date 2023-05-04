@@ -1,5 +1,11 @@
 import {
-    FC, HTMLAttributeAnchorTarget, MutableRefObject, memo, useCallback, useEffect, useRef,
+    FC,
+    HTMLAttributeAnchorTarget,
+    MutableRefObject,
+    memo,
+    useCallback,
+    useEffect,
+    useRef,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
@@ -11,24 +17,39 @@ import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkele
 import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
-   className?: string;
-   articles: Article[]
-   isLoading?: boolean;
-   view?: ArticleView;
-   target?: HTMLAttributeAnchorTarget;
-   virtualized?: boolean;
+    className?: string;
+    articles: Article[];
+    isLoading?: boolean;
+    view?: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
+    virtualized?: boolean;
     scrollRef?: MutableRefObject<HTMLDivElement>;
     onViewArticle?: (articleIndex: number) => void;
-    articleViewIndex?: number
+    articleViewIndex?: number;
 }
 
-const getSkeletons = (view: ArticleView) => new Array(view === 'Block' ? 9 : 3)
-    .fill(0)
-    .map((item, index) => <ArticleListItemSkeleton view={view} className={cls.card} key={index} />);
+const getSkeletons = (view: ArticleView) =>
+    new Array(view === 'Block' ? 9 : 3)
+        .fill(0)
+        .map((item, index) => (
+            <ArticleListItemSkeleton
+                view={view}
+                className={cls.card}
+                key={index}
+            />
+        ));
 
 export const ArticleList: FC<ArticleListProps> = (props) => {
     const {
-        className, articles, view = 'Block', isLoading, target, virtualized = true, scrollRef, onViewArticle, articleViewIndex = 0,
+        className,
+        articles,
+        view = 'Block',
+        isLoading,
+        target,
+        virtualized = false,
+        scrollRef,
+        onViewArticle,
+        articleViewIndex = 0,
     } = props;
 
     const { t } = useTranslation();
@@ -49,22 +70,29 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
         return () => clearTimeout(timeoutId);
     }, [articleViewIndex, view]);
 
-    const rowRender = useCallback((article: Article, index: number) => (
-        <ArticleListItem
-            article={articles[index]}
-            view={view}
-            className={cls.card}
-            target={target}
-            key={articles[index].id}
-            index={index}
-            onViewArticle={onViewArticle}
-        />
-    ), [articles, onViewArticle, target, view]);
+    const rowRender = useCallback(
+        (article: Article, index: number) => (
+            <ArticleListItem
+                article={articles[index]}
+                view={view}
+                className={cls.card}
+                target={target}
+                key={articles[index].id}
+                index={index}
+                onViewArticle={onViewArticle}
+            />
+        ),
+        [articles, onViewArticle, target, view],
+    );
 
     const Footer = memo(() => {
         if (isLoading) {
             return (
-                <div className={classNames('', {}, [view === 'Block' ? cls.Block : cls.List])}>
+                <div
+                    className={classNames('', {}, [
+                        view === 'Block' ? cls.Block : cls.List,
+                    ])}
+                >
                     {getSkeletons(view)}
                 </div>
             );
@@ -73,15 +101,29 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
     });
 
     // eslint-disable-next-line react/no-unstable-nested-components
-    const ItemContainerComp: FC<{height: number, width: number, index: number}> = ({ height, width, index }) => (
+    const ItemContainerComp: FC<{
+        height: number;
+        width: number;
+        index: number;
+    }> = ({ height, width, index }) => (
         <div className={cls.itemContainer}>
-            <ArticleListItemSkeleton key={index} view={view} className={cls.card} />
+            <ArticleListItemSkeleton
+                key={index}
+                view={view}
+                className={cls.card}
+            />
         </div>
     );
 
     if (!isLoading && !articles.length) {
         return (
-            <div className={classNames(cls.articleList, {}, [className, cls[view]])}>
+            <div
+                className={classNames(cls.articleList, {}, [
+                    className,
+                    cls[view],
+                ])}
+                data-testid="ArticleList.NotFound"
+            >
                 <Text title={t('Статьи не найдены')} size={TextSize.L} />
             </div>
         );
@@ -126,12 +168,15 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
     }
 
     return (
-        <div className={classNames(cls.articleList, {}, [className, cls[view]])}>
+        <div
+            className={classNames(cls.articleList, {}, [className, cls[view]])}
+            data-testid="ArticleList"
+        >
             {virtualized ? (
                 virtualizedList
-            )
-                : (
-                    articles.map((article) => (
+            ) : (
+                <>
+                    {articles.map((article) => (
                         <ArticleListItem
                             article={article}
                             view={view}
@@ -139,9 +184,10 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
                             key={article.id}
                             className={cls.card}
                         />
-                    ))
-                )}
+                    ))}
+                    {isLoading && getSkeletons(view)}
+                </>
+            )}
         </div>
-
     );
 };

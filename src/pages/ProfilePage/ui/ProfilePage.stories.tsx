@@ -15,39 +15,46 @@ export default {
     },
 } as ComponentMeta<typeof ProfilePage>;
 
-const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />;
+const Template: ComponentStory<typeof ProfilePage> = (args) => (
+    <ProfilePage {...args} />
+);
 
 export const Light = Template.bind({});
 
 Light.args = {};
-Light.decorators = [StoreDecorator({
-    editableProfileCard: {
-        form: {
-            firstname: 'Roweens',
-            lastname: 'Roweens',
-            country: Countries.Russia,
-            username: 'Cognus',
-            city: 'Moscow',
-            age: 20,
-            currency: Currencies.USD,
-            avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+Light.decorators = [
+    StoreDecorator({
+        editableProfileCard: {
+            form: {
+                firstname: 'Roweens',
+                lastname: 'Roweens',
+                country: Countries.Russia,
+                username: 'Cognus',
+                city: 'Moscow',
+                age: 20,
+                currency: Currencies.USD,
+                avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+            },
         },
-    },
-})];
+    }),
+];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-    editableProfileCard: {
-        form: {
-            firstname: 'Roweens',
-            lastname: 'Roweens',
-            country: Countries.Russia,
-            username: 'Cognus',
-            city: 'Moscow',
-            age: 20,
-            currency: Currencies.USD,
-            avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+Dark.decorators = [
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({
+        editableProfileCard: {
+            form: {
+                firstname: 'Roweens',
+                lastname: 'Roweens',
+                country: Countries.Russia,
+                username: 'Cognus',
+                city: 'Moscow',
+                age: 20,
+                currency: Currencies.USD,
+                avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+            },
         },
-    },
-})];
+    }),
+];

@@ -10,10 +10,12 @@ import { selectUserIsAuthor } from '../../model/selectors/article';
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 
 interface ArticleDetailsPageHeaderProps {
-   className?: string;
+    className?: string;
 }
 
-export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = (props) => {
+export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = (
+    props,
+) => {
     const { className } = props;
     const { t } = useTranslation('article-details');
     const navigate = useNavigate();
@@ -31,9 +33,15 @@ export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = (prop
     }, [navigate, article]);
 
     return (
-        <HStack className={classNames('', {}, [className])} max justify="between">
+        <HStack
+            className={classNames('', {}, [className])}
+            max
+            justify="between"
+        >
             <Button onClick={onBackToList}>{t('Назад к списку')}</Button>
-            {isAuthor && <Button onClick={onEditList}>{t('Редактировать')}</Button>}
+            {isAuthor && (
+                <Button onClick={onEditList}>{t('Редактировать')}</Button>
+            )}
         </HStack>
     );
 };

@@ -21,7 +21,9 @@ describe('articleDetailsSelector.test', () => {
     });
     test('should work with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(selectArticleDetailsData(state as StateSchema)).toEqual(undefined);
+        expect(selectArticleDetailsData(state as StateSchema)).toEqual(
+            undefined,
+        );
     });
     test('should return isLoading', () => {
         const state: DeepPartial<StateSchema> = {
@@ -29,7 +31,9 @@ describe('articleDetailsSelector.test', () => {
                 isLoading: true,
             },
         };
-        expect(selectArticleDetailsIsLoading(state as StateSchema)).toEqual(true);
+        expect(selectArticleDetailsIsLoading(state as StateSchema)).toEqual(
+            true,
+        );
     });
     test('should return error', () => {
         const state: DeepPartial<StateSchema> = {
@@ -37,6 +41,8 @@ describe('articleDetailsSelector.test', () => {
                 error: 'some error',
             },
         };
-        expect(selectArticleDetailsError(state as StateSchema)).toEqual('some error');
+        expect(selectArticleDetailsError(state as StateSchema)).toEqual(
+            'some error',
+        );
     });
 });

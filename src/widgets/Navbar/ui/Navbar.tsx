@@ -4,9 +4,7 @@ import { useSelector } from 'react-redux';
 import { LoginModal } from '@/features/AuthByUsername';
 import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
-import {
-    selectUserAuthData,
-} from '@/entities/User';
+import { selectUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
 import { Button, ThemeButton } from '@/shared/ui/Button';
@@ -16,7 +14,7 @@ import cls from './Navbar.module.scss';
 import { getRouteArticleCreate } from '@/shared/const/router';
 
 interface NavbarProps {
-  className?: string;
+    className?: string;
 }
 
 export const Navbar = memo(({ className }: NavbarProps) => {
@@ -35,24 +33,27 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <div className={classNames(cls.Navbar, {}, [className])}>
-                <Text className={cls.appName} title={t('Cognus app')} theme={TextTheme.INVERTED} />
-                <AppLink to={getRouteArticleCreate()} theme={AppLinkTheme.SECONDARY}>
+                <Text
+                    className={cls.appName}
+                    title={t('Cognus app')}
+                    theme={TextTheme.INVERTED}
+                />
+                <AppLink
+                    to={getRouteArticleCreate()}
+                    theme={AppLinkTheme.SECONDARY}
+                >
                     {t('Создать статью')}
                 </AppLink>
                 <HStack gap="16" className={cls.actions}>
-
                     <NotificationButton />
                     <AvatarDropdown />
-
                 </HStack>
-
             </div>
         );
     }
 
     return (
         <header className={classNames(cls.Navbar, {}, [className])}>
-
             <Button
                 className={cls.links}
                 theme={ThemeButton.CLEAR_INVERTED}
@@ -60,7 +61,9 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             >
                 {t('Войти')}
             </Button>
-            { isAuthOpen && <LoginModal isOpen={isAuthOpen} onClose={onCloseModal} />}
+            {isAuthOpen && (
+                <LoginModal isOpen={isAuthOpen} onClose={onCloseModal} />
+            )}
         </header>
     );
 });

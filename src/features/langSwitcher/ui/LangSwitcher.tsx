@@ -5,8 +5,8 @@ import { Button, ThemeButton } from '@/shared/ui/Button';
 import cls from './LangSwitcher.module.scss';
 
 interface LangSwitcherProps {
-  className?: string;
-    short?: boolean,
+    className?: string;
+    short?: boolean;
 }
 
 export const LangSwitcher = memo((props: LangSwitcherProps) => {

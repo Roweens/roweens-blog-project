@@ -26,46 +26,50 @@ const profile: Profile = {
     avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
 };
 
-const Template: ComponentStory<typeof EditableProfileCard> = (args) => <EditableProfileCard {...args} />;
+const Template: ComponentStory<typeof EditableProfileCard> = (args) => (
+    <EditableProfileCard {...args} />
+);
 
 export const Light = Template.bind({});
-Light.args = {
-
-};
-Light.decorators = [StoreDecorator({
-    editableProfileCard: {
-        data: profile,
-        error: undefined,
-        readonly: true,
-        form: profile,
-        isLoading: false,
-    },
-})];
+Light.args = {};
+Light.decorators = [
+    StoreDecorator({
+        editableProfileCard: {
+            data: profile,
+            error: undefined,
+            readonly: true,
+            form: profile,
+            isLoading: false,
+        },
+    }),
+];
 
 export const Dark = Template.bind({});
-Dark.args = {
-
-};
-Dark.decorators = [StoreDecorator({
-    editableProfileCard: {
-        data: profile,
-        error: undefined,
-        readonly: true,
-        form: profile,
-        isLoading: false,
-    },
-}), ThemeDecorator(Theme.DARK)];
+Dark.args = {};
+Dark.decorators = [
+    StoreDecorator({
+        editableProfileCard: {
+            data: profile,
+            error: undefined,
+            readonly: true,
+            form: profile,
+            isLoading: false,
+        },
+    }),
+    ThemeDecorator(Theme.DARK),
+];
 
 export const Red = Template.bind({});
-Red.args = {
-
-};
-Red.decorators = [StoreDecorator({
-    editableProfileCard: {
-        data: profile,
-        error: undefined,
-        readonly: true,
-        form: profile,
-        isLoading: false,
-    },
-}), ThemeDecorator(Theme.RED)];
+Red.args = {};
+Red.decorators = [
+    StoreDecorator({
+        editableProfileCard: {
+            data: profile,
+            error: undefined,
+            readonly: true,
+            form: profile,
+            isLoading: false,
+        },
+    }),
+    ThemeDecorator(Theme.RED),
+];

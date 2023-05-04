@@ -5,8 +5,8 @@ import { UserRole, selectUserRoles } from '@/entities/User';
 import { getRouteForbidden } from '@/shared/const/router';
 
 interface RoleCheckerProps {
-  children: JSX.Element,
-  requiredRoles?: UserRole[]
+    children: JSX.Element;
+    requiredRoles?: UserRole[];
 }
 
 export function RoleChecker(props: RoleCheckerProps) {
@@ -27,7 +27,13 @@ export function RoleChecker(props: RoleCheckerProps) {
     }, [requiredRoles, userRoles]);
 
     if (!hasRequiredRoles) {
-        return <Navigate to={getRouteForbidden()} state={{ from: location }} replace />;
+        return (
+            <Navigate
+                to={getRouteForbidden()}
+                state={{ from: location }}
+                replace
+            />
+        );
     }
 
     return children;

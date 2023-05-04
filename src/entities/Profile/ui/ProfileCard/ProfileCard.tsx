@@ -13,19 +13,19 @@ import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
-  className?: string;
-  data?:Profile;
-  isLoading?: boolean;
-  error?: string;
-  readonly?: boolean;
-  onChangeLastname?: (value?: string) => void;
-  onChangeFirstname?: (value?: string) => void;
-  onChangeCity?: (value?: string) => void;
-  onChangeAge?: (value?: string) => void;
-  onChangeUsername?:(value?: string) => void;
-  onChangeAvatar?:(value?: string) => void;
-  onChangeCurrency?:(currency: Currencies) => void;
-  onChangeCountry?:(country: Countries) => void;
+    className?: string;
+    data?: Profile;
+    isLoading?: boolean;
+    error?: string;
+    readonly?: boolean;
+    onChangeLastname?: (value?: string) => void;
+    onChangeFirstname?: (value?: string) => void;
+    onChangeCity?: (value?: string) => void;
+    onChangeAge?: (value?: string) => void;
+    onChangeUsername?: (value?: string) => void;
+    onChangeAvatar?: (value?: string) => void;
+    onChangeCurrency?: (currency: Currencies) => void;
+    onChangeCountry?: (country: Countries) => void;
 }
 
 export const ProfileCard: FC<ProfileCardProps> = (props) => {
@@ -48,7 +48,15 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 
     if (isLoading) {
         return (
-            <HStack className={classNames(cls.ProfileCard, { [cls.loading]: true }, [className])} justify="center" max>
+            <HStack
+                className={classNames(
+                    cls.ProfileCard,
+                    { [cls.loading]: true },
+                    [className],
+                )}
+                justify="center"
+                max
+            >
                 <Loader />
             </HStack>
         );
@@ -56,7 +64,14 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 
     if (error) {
         return (
-            <HStack className={classNames(cls.ProfileCard, { [cls.loading]: true }, [className, cls.error])} justify="center">
+            <HStack
+                className={classNames(
+                    cls.ProfileCard,
+                    { [cls.loading]: true },
+                    [className, cls.error],
+                )}
+                justify="center"
+            >
                 <Text
                     title={t('Произошла неожиданная ошибка')}
                     text={t('Попробуйте обновить страницу')}
@@ -72,8 +87,11 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
     };
 
     return (
-        <VStack className={classNames(cls.ProfileCard, mods, [className])} gap="16" max>
-
+        <VStack
+            className={classNames(cls.ProfileCard, mods, [className])}
+            gap="16"
+            max
+        >
             {data?.avatar && (
                 <HStack className={cls.avatarWrapper} justify="center" max>
                     <Avatar src={data?.avatar} />
@@ -130,9 +148,18 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                 readonly={readonly}
                 data-testid="ProfileCard.avatar"
             />
-            <CurrencySelect value={data?.currency} onChange={onChangeCurrency} readonly={readonly} className={cls.input} />
-            <CountrySelect value={data?.country} onChange={onChangeCountry} readonly={readonly} className={cls.input} />
-
+            <CurrencySelect
+                value={data?.currency}
+                onChange={onChangeCurrency}
+                readonly={readonly}
+                className={cls.input}
+            />
+            <CountrySelect
+                value={data?.country}
+                onChange={onChangeCountry}
+                readonly={readonly}
+                className={cls.input}
+            />
         </VStack>
     );
 };

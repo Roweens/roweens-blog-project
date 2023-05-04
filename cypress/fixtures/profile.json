@@ -1,0 +1,11 @@
+{
+    "id": "1",
+    "firstname": "test",
+    "lastname": "testLast",
+    "age": 465,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Moscow",
+    "username": "test",
+    "avatar": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png"
+}

@@ -6,9 +6,9 @@ import { LoginFormAsync } from '../LoginForm/LoginForm.async';
 import cls from './LoginModal.module.scss';
 
 interface LoginModalProps {
-  className?: string;
-  isOpen: boolean;
-  onClose: () => void;
+    className?: string;
+    isOpen: boolean;
+    onClose: () => void;
 }
 
 export const LoginModal: FC<LoginModalProps> = (props) => {
@@ -24,7 +24,6 @@ export const LoginModal: FC<LoginModalProps> = (props) => {
             <Suspense fallback={<Loader />}>
                 <LoginFormAsync onSuccess={onClose} />
             </Suspense>
-
         </Modal>
     );
 };

@@ -86,21 +86,23 @@ const article: Article = {
     ],
 };
 
-const Template: ComponentStory<typeof ArticleInfiniteList> = (args) => <ArticleInfiniteList {...args} />;
+const Template: ComponentStory<typeof ArticleInfiniteList> = (args) => (
+    <ArticleInfiniteList {...args} />
+);
 
 export const Normal = Template.bind({});
-Normal.args = {
-
-};
-Normal.decorators = [StoreDecorator({
-    articlePage: {
-        ids: [1, 2, 3],
-        isLoading: false,
-        error: undefined,
-        entities: {
-            1: { ...article, id: '1' },
-            2: { ...article, id: '2' },
-            3: { ...article, id: '3' },
+Normal.args = {};
+Normal.decorators = [
+    StoreDecorator({
+        articlePage: {
+            ids: [1, 2, 3],
+            isLoading: false,
+            error: undefined,
+            entities: {
+                1: { ...article, id: '1' },
+                2: { ...article, id: '2' },
+                3: { ...article, id: '3' },
+            },
         },
-    },
-})];
+    }),
+];

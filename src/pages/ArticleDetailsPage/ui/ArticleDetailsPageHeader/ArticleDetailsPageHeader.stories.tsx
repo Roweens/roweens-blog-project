@@ -11,7 +11,9 @@ export default {
     },
 } as ComponentMeta<typeof ArticleDetailsPageHeader>;
 
-const Template: ComponentStory<typeof ArticleDetailsPageHeader> = (args) => <ArticleDetailsPageHeader {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsPageHeader> = (args) => (
+    <ArticleDetailsPageHeader {...args} />
+);
 
 const article = {
     id: '1',
@@ -25,9 +27,7 @@ const article = {
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
     createdAt: '26.02.2022',
-    type: [
-        'IT',
-    ],
+    type: ['IT'],
     blocks: [
         {
             id: '1',
@@ -91,23 +91,23 @@ const article = {
 } as Article;
 
 export const CanEdit = Template.bind({});
-CanEdit.args = {
-
-};
-CanEdit.decorators = [StoreDecorator({
-    user: { authData: { id: '1', username: 'Cognus' } },
-    articleDetails: {
-        data: article,
-    },
-})];
+CanEdit.args = {};
+CanEdit.decorators = [
+    StoreDecorator({
+        user: { authData: { id: '1', username: 'Cognus' } },
+        articleDetails: {
+            data: article,
+        },
+    }),
+];
 
 export const NoEdit = Template.bind({});
-NoEdit.args = {
-
-};
-NoEdit.decorators = [StoreDecorator({
-    user: { authData: { id: '2', username: 'Cognus' } },
-    articleDetails: {
-        data: article,
-    },
-})];
+NoEdit.args = {};
+NoEdit.decorators = [
+    StoreDecorator({
+        user: { authData: { id: '2', username: 'Cognus' } },
+        articleDetails: {
+            data: article,
+        },
+    }),
+];

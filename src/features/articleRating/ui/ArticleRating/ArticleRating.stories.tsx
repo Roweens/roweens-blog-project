@@ -19,13 +19,17 @@ const rating: Rating = {
     feedback: 'Nice article',
 };
 
-const Template: ComponentStory<typeof ArticleRating> = (args) => <ArticleRating {...args} />;
+const Template: ComponentStory<typeof ArticleRating> = (args) => (
+    <ArticleRating {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {
     articleId: '1',
 };
-Normal.decorators = [StoreDecorator({ user: { authData: { id: '1', username: 'ADMIN' } } })];
+Normal.decorators = [
+    StoreDecorator({ user: { authData: { id: '1', username: 'ADMIN' } } }),
+];
 Normal.parameters = {
     mockData: [
         {
@@ -41,7 +45,9 @@ export const WithoutRate = Template.bind({});
 WithoutRate.args = {
     articleId: '1',
 };
-WithoutRate.decorators = [StoreDecorator({ user: { authData: { id: '1', username: 'ADMIN' } } })];
+WithoutRate.decorators = [
+    StoreDecorator({ user: { authData: { id: '1', username: 'ADMIN' } } }),
+];
 WithoutRate.parameters = {
     mockData: [
         {
@@ -57,7 +63,10 @@ export const Dark = Template.bind({});
 Dark.args = {
     articleId: '1',
 };
-Dark.decorators = [StoreDecorator({ user: { authData: { id: '1', username: 'ADMIN' } } }), ThemeDecorator(Theme.DARK)];
+Dark.decorators = [
+    StoreDecorator({ user: { authData: { id: '1', username: 'ADMIN' } } }),
+    ThemeDecorator(Theme.DARK),
+];
 Dark.parameters = {
     mockData: [
         {
@@ -73,7 +82,10 @@ export const Red = Template.bind({});
 Red.args = {
     articleId: '1',
 };
-Red.decorators = [StoreDecorator({ user: { authData: { id: '1', username: 'ADMIN' } } }), ThemeDecorator(Theme.RED)];
+Red.decorators = [
+    StoreDecorator({ user: { authData: { id: '1', username: 'ADMIN' } } }),
+    ThemeDecorator(Theme.RED),
+];
 Red.parameters = {
     mockData: [
         {

@@ -1,6 +1,4 @@
-import {
-    DetailedHTMLProps, FC, HTMLAttributes, ReactNode,
-} from 'react';
+import { DetailedHTMLProps, FC, HTMLAttributes, ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Flex.module.scss';
@@ -35,16 +33,19 @@ const gapClasses: Record<FlexGap, string> = {
     32: cls.gap32,
 };
 
-type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+type DivProps = DetailedHTMLProps<
+    HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+>;
 
-export interface FlexProps extends DivProps{
-   className?: string;
-   children: ReactNode;
-   justify?: FlexJustify;
-   align?: FlexAlign;
-   direction: FlexDirection;
-   gap?: FlexGap;
-   max?: boolean;
+export interface FlexProps extends DivProps {
+    className?: string;
+    children: ReactNode;
+    justify?: FlexJustify;
+    align?: FlexAlign;
+    direction: FlexDirection;
+    gap?: FlexGap;
+    max?: boolean;
 }
 
 export const Flex: FC<FlexProps> = (props) => {
@@ -56,6 +57,7 @@ export const Flex: FC<FlexProps> = (props) => {
         justify = 'start',
         gap,
         max,
+        ...otherProps
     } = props;
 
     const { t } = useTranslation();
@@ -73,7 +75,7 @@ export const Flex: FC<FlexProps> = (props) => {
     };
 
     return (
-        <div className={classNames(cls.flex, mods, styles)}>
+        <div className={classNames(cls.flex, mods, styles)} {...otherProps}>
             {children}
         </div>
     );

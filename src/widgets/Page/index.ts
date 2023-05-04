@@ -1,5 +1,8 @@
 export type { ScrollSaveSchema } from './model/types/PageScrollSaveSchema';
-export { scrollSaveReducer, scrollSaveActions } from './model/slice/ScrollSaveSlice';
+export {
+    scrollSaveReducer,
+    scrollSaveActions,
+} from './model/slice/ScrollSaveSlice';
 export {
     selectScrollSaveByPath,
     selectScrollSavePosition,

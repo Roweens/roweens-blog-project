@@ -8,7 +8,7 @@ import cls from './NotificationList.module.scss';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 
 interface NotificationListProps {
-   className?: string;
+    className?: string;
 }
 
 export const NotificationList: FC<NotificationListProps> = (props) => {

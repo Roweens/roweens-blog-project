@@ -37,14 +37,17 @@ export const RatingCard: FC<RatingCardProps> = (props) => {
     const [starsCount, setStarsCount] = useState(rating);
     const [feedback, setFeedback] = useState('');
 
-    const onSelectStars = useCallback((selectedStarsCount: number) => {
-        setStarsCount(selectedStarsCount);
-        if (hasFeedBack) {
-            setIsModalOpen(true);
-        } else {
-            onAccept?.(selectedStarsCount);
-        }
-    }, [hasFeedBack, onAccept]);
+    const onSelectStars = useCallback(
+        (selectedStarsCount: number) => {
+            setStarsCount(selectedStarsCount);
+            if (hasFeedBack) {
+                setIsModalOpen(true);
+            } else {
+                onAccept?.(selectedStarsCount);
+            }
+        },
+        [hasFeedBack, onAccept],
+    );
 
     const acceptHandle = useCallback(() => {
         setIsModalOpen(false);
@@ -59,12 +62,25 @@ export const RatingCard: FC<RatingCardProps> = (props) => {
     const popupContent = (
         <VStack gap="32" max>
             <Text title={starsCount ? t('Спасибо за оценку') : feedbackTitle} />
-            <Input value={feedback} onChange={setFeedback} placeholder={t('Ваш отзыв')} />
+            <Input
+                value={feedback}
+                onChange={setFeedback}
+                placeholder={t('Ваш отзыв')}
+                data-testid="RatingCard.Input"
+            />
             <HStack max gap="16">
-                <Button theme={ThemeButton.OUTLINE_RED} onClick={cancelHandle}>
+                <Button
+                    theme={ThemeButton.OUTLINE_RED}
+                    onClick={cancelHandle}
+                    data-testid="RatingCard.CloseBtn"
+                >
                     {t('Закрыть')}
                 </Button>
-                <Button theme={ThemeButton.OUTLINE} onClick={acceptHandle}>
+                <Button
+                    theme={ThemeButton.OUTLINE}
+                    onClick={acceptHandle}
+                    data-testid="RatingCard.SendBtn"
+                >
                     {t('Отправить')}
                 </Button>
             </HStack>
@@ -72,10 +88,18 @@ export const RatingCard: FC<RatingCardProps> = (props) => {
     );
 
     return (
-        <Card className={classNames('', {}, [className])} fullWidth>
+        <Card
+            className={classNames('', {}, [className])}
+            fullWidth
+            data-testid="RatingCard"
+        >
             <VStack align="center" gap="8">
                 <Text title={title} />
-                <StarRating size={40} onSelect={onSelectStars} selectedStars={starsCount} />
+                <StarRating
+                    size={40}
+                    onSelect={onSelectStars}
+                    selectedStars={starsCount}
+                />
             </VStack>
             <BrowserView>
                 <Modal isOpen={isModalOpen} lazy>

@@ -10,7 +10,7 @@ import cls from './NotificationButton.module.scss';
 import NotificationIcon from '../../../../shared/assets/icons/notification-20-20.svg';
 
 interface NotificationButtonProps {
-   className?: string;
+    className?: string;
 }
 
 export const NotificationButton: FC<NotificationButtonProps> = (props) => {
@@ -40,13 +40,14 @@ export const NotificationButton: FC<NotificationButtonProps> = (props) => {
                 <Drawer isOpen={isOpen} onClose={onCloseHandle}>
                     <NotificationList className={cls.notifications} />
                 </Drawer>
-
             </MobileView>
             <BrowserView>
                 <Popover
                     trigger={trigger}
                     direction="bottom left"
-                    className={classNames(cls.NotificationButton, {}, [className])}
+                    className={classNames(cls.NotificationButton, {}, [
+                        className,
+                    ])}
                 >
                     <NotificationList className={cls.notifications} />
                 </Popover>

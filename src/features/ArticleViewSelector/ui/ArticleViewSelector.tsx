@@ -1,6 +1,4 @@
-import {
-    memo,
-} from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import ListIcon from '@/shared/assets/icons/list-24-24.svg';
@@ -11,14 +9,14 @@ import cls from './ArticleViewSelector.module.scss';
 import { ArticleView } from '@/entities/Article';
 
 interface ArticleViewSelectorProps {
-   className?: string;
-   view?: ArticleView;
-   onViewClick?: (view: ArticleView) => void
+    className?: string;
+    view?: ArticleView;
+    onViewClick?: (view: ArticleView) => void;
 }
 
 interface viewType {
-   view: ArticleView,
-   icon: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
+    view: ArticleView;
+    icon: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
 }
 
 const viewTypes: viewType[] = [
@@ -47,11 +45,18 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
                     key={viewType.view}
                     theme={ThemeButton.CLEAR}
                     onClick={onClick(viewType.view)}
+                    data-testid={`ArticleViewSelector.${viewType.view}`}
                 >
-                    <Icon Svg={viewType.icon} className={classNames('', { [cls.notSelected]: viewType.view !== view }, [])} />
+                    <Icon
+                        Svg={viewType.icon}
+                        className={classNames(
+                            '',
+                            { [cls.notSelected]: viewType.view !== view },
+                            [],
+                        )}
+                    />
                 </Button>
             ))}
-
         </div>
     );
 });

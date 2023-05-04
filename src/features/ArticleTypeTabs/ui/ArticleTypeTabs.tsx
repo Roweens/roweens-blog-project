@@ -5,9 +5,9 @@ import { TabItem, Tabs } from '@/shared/ui/Tabs';
 import { ArticleType } from '@/entities/Article';
 
 interface ArticleTypeTabsProps {
-   className?: string;
-   value: ArticleType;
-   onChangeType: (type: ArticleType) => void
+    className?: string;
+    value: ArticleType;
+    onChangeType: (type: ArticleType) => void;
 }
 
 export const ArticleTypeTabs: FC<ArticleTypeTabsProps> = (props) => {
@@ -15,17 +15,23 @@ export const ArticleTypeTabs: FC<ArticleTypeTabsProps> = (props) => {
     const { t } = useTranslation();
 
     const typeTabs = useMemo<TabItem[]>(
-        () => Object.values(ArticleType).reduce((acc: TabItem[], type) => (
-            [...acc,
-                { value: type, content: t(type, { ns: 'articles' }) },
-            ]
-        ), []),
+        () =>
+            Object.values(ArticleType).reduce(
+                (acc: TabItem[], type) => [
+                    ...acc,
+                    { value: type, content: t(type, { ns: 'articles' }) },
+                ],
+                [],
+            ),
         [t],
     );
 
-    const onTabClick = useCallback((tab: TabItem) => {
-        onChangeType(tab.value as ArticleType);
-    }, [onChangeType]);
+    const onTabClick = useCallback(
+        (tab: TabItem) => {
+            onChangeType(tab.value as ArticleType);
+        },
+        [onChangeType],
+    );
 
     return (
         <Tabs
@@ -33,7 +39,6 @@ export const ArticleTypeTabs: FC<ArticleTypeTabsProps> = (props) => {
             value={value}
             onTabClick={onTabClick}
             className={classNames('', {}, [className])}
-
         />
     );
 };

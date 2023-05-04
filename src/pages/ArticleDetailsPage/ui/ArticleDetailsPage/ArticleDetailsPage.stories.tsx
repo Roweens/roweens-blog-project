@@ -26,9 +26,7 @@ const article = {
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
     createdAt: '26.02.2022',
-    type: [
-        'IT',
-    ],
+    type: ['IT'],
     blocks: [
         {
             id: '1',
@@ -91,7 +89,9 @@ const article = {
     ],
 } as Article;
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = () => <ArticleDetailsPage />;
+const Template: ComponentStory<typeof ArticleDetailsPage> = () => (
+    <ArticleDetailsPage />
+);
 
 export const Light = Template.bind({});
 Light.args = {};
@@ -103,4 +103,9 @@ Light.decorators = [
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({ articleDetails: { data: article, error: undefined, isLoading: false } })];
+Dark.decorators = [
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({
+        articleDetails: { data: article, error: undefined, isLoading: false },
+    }),
+];

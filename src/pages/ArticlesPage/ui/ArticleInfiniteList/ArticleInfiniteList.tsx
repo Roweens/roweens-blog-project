@@ -4,14 +4,20 @@ import { useSelector } from 'react-redux';
 import { ArticleList } from '@/entities/Article';
 import { Text } from '@/shared/ui/Text';
 import {
-    selectArticleViewIndex, selectArticlesPageError, selectArticlesPageIsLoading, selectArticlesPageView,
+    selectArticleViewIndex,
+    selectArticlesPageError,
+    selectArticlesPageIsLoading,
+    selectArticlesPageView,
 } from '../../model/selectors/articlePageSelectors';
-import { articlesPageActions, getArticles } from '../../model/slices/articlePageSlice';
+import {
+    articlesPageActions,
+    getArticles,
+} from '../../model/slices/articlePageSlice';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 interface ArticleInfiniteListProps {
-   className?: string;
-   scrollRef?: MutableRefObject<HTMLDivElement>;
+    className?: string;
+    scrollRef?: MutableRefObject<HTMLDivElement>;
 }
 
 export const ArticleInfiniteList: FC<ArticleInfiniteListProps> = (props) => {
@@ -26,9 +32,12 @@ export const ArticleInfiniteList: FC<ArticleInfiniteListProps> = (props) => {
     const articleViewIndex = useSelector(selectArticleViewIndex);
     const view = useSelector(selectArticlesPageView);
 
-    const onViewArticle = useCallback((articleIndex: number) => {
-        dispatch(articlesPageActions.setArticleViewIndex(articleIndex));
-    }, [dispatch]);
+    const onViewArticle = useCallback(
+        (articleIndex: number) => {
+            dispatch(articlesPageActions.setArticleViewIndex(articleIndex));
+        },
+        [dispatch],
+    );
 
     if (error) {
         return <Text title={t('Произошла ошибка при загрузке статей')} />;

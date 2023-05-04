@@ -15,11 +15,13 @@ import { selectArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 
 interface ArticleDetailsCommentsProps {
-   className?: string;
-   id?: string;
+    className?: string;
+    id?: string;
 }
 
-export const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = (props) => {
+export const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = (
+    props,
+) => {
     const { className, id } = props;
     const { t } = useTranslation();
     const comments = useSelector(getArticleComments.selectAll);
@@ -30,9 +32,12 @@ export const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = (props) =
         dispatch(fetchCommentsByArticleId(id));
     });
 
-    const onSendComment = useCallback((text: string) => {
-        dispatch(addCommentForArticle(text));
-    }, [dispatch]);
+    const onSendComment = useCallback(
+        (text: string) => {
+            dispatch(addCommentForArticle(text));
+        },
+        [dispatch],
+    );
 
     return (
         <VStack className={classNames('', {}, [className])} max gap="16">

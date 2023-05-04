@@ -1,7 +1,11 @@
 import { screen } from '@testing-library/react';
 import { ComponentRender } from '@/shared/lib/tests/componentRender/componentRender';
 import AppRouter from './AppRouter';
-import { getRouteAbout, getRouteAdmin, getRouteProfile } from '@/shared/const/router';
+import {
+    getRouteAbout,
+    getRouteAdmin,
+    getRouteProfile,
+} from '@/shared/const/router';
 import { UserRole } from '@/entities/User';
 
 describe('app/router/AppRoute', () => {
@@ -36,7 +40,10 @@ describe('app/router/AppRoute', () => {
         ComponentRender(<AppRouter />, {
             route: getRouteProfile('1'),
             initialState: {
-                user: { _mounted: true, authData: { id: '1', username: 'Cognus' } },
+                user: {
+                    _mounted: true,
+                    authData: { id: '1', username: 'Cognus' },
+                },
             },
         });
 

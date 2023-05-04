@@ -46,6 +46,7 @@ const articleRatingApi = rtkApi.injectEndpoints({
     }),
 });
 
-export const useGetProfileUserRating = articleRatingApi.useGetProfileUserRatingQuery;
+export const useGetProfileUserRating =
+    articleRatingApi.useGetProfileUserRatingQuery;
 export const useGetProfileRating = articleRatingApi.useGetProfileRatingQuery;
 export const useRateProfile = articleRatingApi.useRateProfileMutation;

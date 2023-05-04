@@ -15,18 +15,10 @@ export const Row = Template.bind({});
 Row.args = {
     children: (
         <>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
+            <div>Text</div>
+            <div>Text</div>
+            <div>Text</div>
+            <div>Text</div>
         </>
     ),
 };
@@ -36,18 +28,10 @@ RowGap4.args = {
     gap: '4',
     children: (
         <>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
+            <div>Text</div>
+            <div>Text</div>
+            <div>Text</div>
+            <div>Text</div>
         </>
     ),
 };
@@ -57,18 +41,10 @@ RowGap8.args = {
     gap: '8',
     children: (
         <>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
+            <div>Text</div>
+            <div>Text</div>
+            <div>Text</div>
+            <div>Text</div>
         </>
     ),
 };
@@ -78,18 +54,10 @@ RowGap16.args = {
     gap: '16',
     children: (
         <>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
+            <div>Text</div>
+            <div>Text</div>
+            <div>Text</div>
+            <div>Text</div>
         </>
     ),
 };
@@ -99,18 +67,10 @@ RowGap32.args = {
     gap: '32',
     children: (
         <>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
+            <div>Text</div>
+            <div>Text</div>
+            <div>Text</div>
+            <div>Text</div>
         </>
     ),
 };
@@ -120,18 +80,10 @@ Column.args = {
     direction: 'column',
     children: (
         <>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
+            <div>Text</div>
+            <div>Text</div>
+            <div>Text</div>
+            <div>Text</div>
         </>
     ),
 };
@@ -142,18 +94,10 @@ ColumnAlignCenter.args = {
     direction: 'column',
     children: (
         <>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
+            <div>Text</div>
+            <div>Text</div>
+            <div>Text</div>
+            <div>Text</div>
         </>
     ),
 };
@@ -164,18 +108,10 @@ ColumnAlignEnd.args = {
     direction: 'column',
     children: (
         <>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
+            <div>Text</div>
+            <div>Text</div>
+            <div>Text</div>
+            <div>Text</div>
         </>
     ),
 };
@@ -186,18 +122,10 @@ ColumnGap4.args = {
     direction: 'column',
     children: (
         <>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
+            <div>Text</div>
+            <div>Text</div>
+            <div>Text</div>
+            <div>Text</div>
         </>
     ),
 };
@@ -208,18 +136,10 @@ ColumnGap8.args = {
     direction: 'column',
     children: (
         <>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
+            <div>Text</div>
+            <div>Text</div>
+            <div>Text</div>
+            <div>Text</div>
         </>
     ),
 };
@@ -230,18 +150,10 @@ ColumnGap16.args = {
     direction: 'column',
     children: (
         <>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
+            <div>Text</div>
+            <div>Text</div>
+            <div>Text</div>
+            <div>Text</div>
         </>
     ),
 };
@@ -251,18 +163,10 @@ ColumnGap32.args = {
     direction: 'column',
     children: (
         <>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
-            <div>
-                Text
-            </div>
+            <div>Text</div>
+            <div>Text</div>
+            <div>Text</div>
+            <div>Text</div>
         </>
     ),
 };

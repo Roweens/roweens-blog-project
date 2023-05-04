@@ -17,12 +17,12 @@ const notification: Notification = {
     title: 'Notification title',
 };
 
-const Template: ComponentStory<typeof NotificationList> = (args) => <NotificationList {...args} />;
+const Template: ComponentStory<typeof NotificationList> = (args) => (
+    <NotificationList {...args} />
+);
 
 export const Normal = Template.bind({});
-Normal.args = {
-
-};
+Normal.args = {};
 Normal.decorators = [StoreDecorator({})];
 Normal.parameters = {
     mockData: [
@@ -30,7 +30,11 @@ Normal.parameters = {
             url: `${__API__}/notifications`,
             method: 'GET',
             status: 200,
-            response: [{ ...notification, id: '1' }, { ...notification, id: '2' }, { ...notification, id: '3' }],
+            response: [
+                { ...notification, id: '1' },
+                { ...notification, id: '2' },
+                { ...notification, id: '3' },
+            ],
         },
     ],
 };
