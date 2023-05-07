@@ -15,7 +15,7 @@ import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
 import { ArticlePageSchema } from '@/pages/ArticlesPage';
 import { rtkApi } from '@/shared/api/rtkApi';
 import { ScrollSaveSchema } from '@/widgets/Page';
-import { ArticleCreateSchema } from '@/widgets/ArticleCreateForm';
+import { ArticleCreateSchema } from '@/widgets/ArticleEditForm';
 
 export interface StateSchema {
     user: UserSchema;
