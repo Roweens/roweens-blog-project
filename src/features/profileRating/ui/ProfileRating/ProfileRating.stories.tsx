@@ -26,7 +26,7 @@ const Template: ComponentStory<typeof ProfileRating> = (args) => (
 export const Normal = Template.bind({});
 Normal.args = {};
 Normal.decorators = [
-    StoreDecorator({ user: { authData: { id: '1', username: 'ADMIN' } } }),
+    StoreDecorator({ user: { authData: { id: 1, username: 'ADMIN' } } }),
 ];
 Normal.parameters = {
     mockData: [
@@ -42,7 +42,7 @@ Normal.parameters = {
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [
-    StoreDecorator({ user: { authData: { id: '1', username: 'ADMIN' } } }),
+    StoreDecorator({ user: { authData: { id: 1, username: 'ADMIN' } } }),
     ThemeDecorator(Theme.DARK),
 ];
 Dark.parameters = {
@@ -59,7 +59,7 @@ Dark.parameters = {
 export const Red = Template.bind({});
 Red.args = {};
 Red.decorators = [
-    StoreDecorator({ user: { authData: { id: '1', username: 'ADMIN' } } }),
+    StoreDecorator({ user: { authData: { id: 1, username: 'ADMIN' } } }),
     ThemeDecorator(Theme.RED),
 ];
 Red.parameters = {

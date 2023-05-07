@@ -29,7 +29,7 @@ describe('app/router/AppRoute', () => {
 
     test('Redirect not authorized', async () => {
         ComponentRender(<AppRouter />, {
-            route: getRouteProfile('1'),
+            route: getRouteProfile(1),
         });
 
         const page = await screen.findByTestId('MainPage');
@@ -38,11 +38,11 @@ describe('app/router/AppRoute', () => {
 
     test('Auth user access to private page', async () => {
         ComponentRender(<AppRouter />, {
-            route: getRouteProfile('1'),
+            route: getRouteProfile(1),
             initialState: {
                 user: {
                     _mounted: true,
-                    authData: { id: '1', username: 'Cognus' },
+                    authData: { id: 1, username: 'Cognus' },
                 },
             },
         });

@@ -28,7 +28,7 @@ Normal.args = {
     articleId: '1',
 };
 Normal.decorators = [
-    StoreDecorator({ user: { authData: { id: '1', username: 'ADMIN' } } }),
+    StoreDecorator({ user: { authData: { id: 1, username: 'ADMIN' } } }),
 ];
 Normal.parameters = {
     mockData: [
@@ -46,7 +46,7 @@ WithoutRate.args = {
     articleId: '1',
 };
 WithoutRate.decorators = [
-    StoreDecorator({ user: { authData: { id: '1', username: 'ADMIN' } } }),
+    StoreDecorator({ user: { authData: { id: 1, username: 'ADMIN' } } }),
 ];
 WithoutRate.parameters = {
     mockData: [
@@ -64,7 +64,7 @@ Dark.args = {
     articleId: '1',
 };
 Dark.decorators = [
-    StoreDecorator({ user: { authData: { id: '1', username: 'ADMIN' } } }),
+    StoreDecorator({ user: { authData: { id: 1, username: 'ADMIN' } } }),
     ThemeDecorator(Theme.DARK),
 ];
 Dark.parameters = {
@@ -83,7 +83,7 @@ Red.args = {
     articleId: '1',
 };
 Red.decorators = [
-    StoreDecorator({ user: { authData: { id: '1', username: 'ADMIN' } } }),
+    StoreDecorator({ user: { authData: { id: 1, username: 'ADMIN' } } }),
     ThemeDecorator(Theme.RED),
 ];
 Red.parameters = {

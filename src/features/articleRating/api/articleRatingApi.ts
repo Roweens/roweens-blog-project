@@ -2,12 +2,12 @@ import { Rating } from '@/entities/Rating';
 import { rtkApi } from '@/shared/api/rtkApi';
 
 interface getArticleRatingArgs {
-    userId: string;
+    userId: number;
     articleId: string;
 }
 
 interface rateArticleArgs {
-    userId: string;
+    userId: number;
     articleId: string;
     rating: number;
     feedback?: string;

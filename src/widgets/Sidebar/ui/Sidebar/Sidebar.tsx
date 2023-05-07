@@ -23,8 +23,7 @@ export const Sidebar = memo((props: SidebarProps) => {
     };
 
     const itemsList = useMemo(
-        () =>
-            sidebarItemList.map((item) => (
+        () => sidebarItemList.map((item) => (
                 <SidebarItem
                     item={item}
                     collapsed={collapsed}

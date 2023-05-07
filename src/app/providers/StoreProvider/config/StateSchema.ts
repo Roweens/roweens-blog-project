@@ -15,6 +15,7 @@ import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
 import { ArticlePageSchema } from '@/pages/ArticlesPage';
 import { rtkApi } from '@/shared/api/rtkApi';
 import { ScrollSaveSchema } from '@/widgets/Page';
+import { ArticleCreateSchema } from '@/widgets/ArticleCreateForm';
 
 export interface StateSchema {
     user: UserSchema;
@@ -26,6 +27,7 @@ export interface StateSchema {
     addCommentForm?: AddCommentFormSchema;
     articlePage?: ArticlePageSchema;
     articleDetailsPage?: ArticleDetailsPageSchema;
+    articleCreateForm?: ArticleCreateSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

@@ -24,6 +24,7 @@ interface ListBoxProps<T extends string> {
     direction?: DropdownDirection;
     label?: string;
     testid?: string;
+    multiple?: boolean;
 }
 
 export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
@@ -37,6 +38,7 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
         direction = 'bottom right',
         label,
         testid,
+        multiple = false,
     } = props;
 
     const optionsClasses = [mapDirectionClass[direction]];
@@ -53,13 +55,16 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
                 ])}
                 value={value}
                 onChange={onChange}
+                multiple={multiple}
             >
                 <HListBox.Button className={popupCls.trigger} as="div">
                     <Button
                         disabled={readonly}
                         data-testid={`ListBox.Button.${testid}`}
                     >
-                        {value ?? defaultValue}
+                        {!multiple
+                            ? value ?? defaultValue
+                            : value?.length || defaultValue}
                     </Button>
                 </HListBox.Button>
                 <HListBox.Options

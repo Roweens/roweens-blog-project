@@ -15,9 +15,9 @@ const Template: ComponentStory<typeof ArticleListItem> = (args) => (
 );
 
 const article = {
-    id: '1',
+    id: 1,
     user: {
-        id: '1',
+        id: 1,
         username: 'Cognus',
         avatar: 'https://img.championat.com/news/big/k/e/avatar-put-vody-zarabotal-1-7-mlrd-eto-sedmoj-rezultat-v-istorii-kino_16732055081875195205.jpg',
     },
@@ -29,7 +29,7 @@ const article = {
     type: ['IT'],
     blocks: [
         {
-            id: '1',
+            id: 1,
             type: 'TEXT',
             title: 'Заголовок этого блока',
             paragraphs: [
@@ -39,12 +39,12 @@ const article = {
             ],
         },
         {
-            id: '4',
+            id: 4,
             type: 'CODE',
             code: '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;',
         },
         {
-            id: '5',
+            id: 5,
             type: 'TEXT',
             title: 'Заголовок этого блока',
             paragraphs: [
@@ -53,18 +53,18 @@ const article = {
             ],
         },
         {
-            id: '2',
+            id: 2,
             type: 'IMAGE',
             src: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
             title: 'Рисунок 1 - скриншот сайта',
         },
         {
-            id: '3',
+            id: 3,
             type: 'CODE',
             code: "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);",
         },
         {
-            id: '7',
+            id: 7,
             type: 'TEXT',
             title: 'Заголовок этого блока',
             paragraphs: [
@@ -73,13 +73,13 @@ const article = {
             ],
         },
         {
-            id: '8',
+            id: 8,
             type: 'IMAGE',
             src: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
             title: 'Рисунок 1 - скриншот сайта',
         },
         {
-            id: '9',
+            id: 9,
             type: 'TEXT',
             title: 'Заголовок этого блока',
             paragraphs: [

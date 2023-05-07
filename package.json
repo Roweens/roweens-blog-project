@@ -28,7 +28,10 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": ["prettier --list-different", "eslint"]
+    "**/*.{ts,tsx}": [
+      "prettier --list-different",
+      "eslint"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -122,6 +125,7 @@
     "@use-gesture/react": "^10.2.26",
     "axios": "^0.26.1",
     "concurrently": "^7.0.0",
+    "fecha": "^4.2.3",
     "i18next": "^21.9.0",
     "i18next-browser-languagedetector": "^6.1.3",
     "i18next-http-backend": "^1.3.2",

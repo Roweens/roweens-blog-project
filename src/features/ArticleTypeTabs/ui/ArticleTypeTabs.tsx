@@ -14,10 +14,10 @@ export const ArticleTypeTabs: FC<ArticleTypeTabsProps> = (props) => {
     const { className, value, onChangeType } = props;
     const { t } = useTranslation();
 
-    const typeTabs = useMemo<TabItem[]>(
+    const typeTabs = useMemo<TabItem<ArticleType>[]>(
         () =>
             Object.values(ArticleType).reduce(
-                (acc: TabItem[], type) => [
+                (acc: TabItem<ArticleType>[], type) => [
                     ...acc,
                     { value: type, content: t(type, { ns: 'articles' }) },
                 ],
@@ -27,7 +27,7 @@ export const ArticleTypeTabs: FC<ArticleTypeTabsProps> = (props) => {
     );
 
     const onTabClick = useCallback(
-        (tab: TabItem) => {
+        (tab: TabItem<ArticleType>) => {
             onChangeType(tab.value as ArticleType);
         },
         [onChangeType],

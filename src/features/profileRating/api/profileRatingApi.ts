@@ -2,17 +2,17 @@ import { Rating } from '@/entities/Rating';
 import { rtkApi } from '@/shared/api/rtkApi';
 
 interface getProfileUserRatingArgs {
-    userId: string;
-    profileId: string;
+    userId: number;
+    profileId: number;
 }
 
 interface getProfileRatingArgs {
-    profileId: string;
+    profileId: number;
 }
 
 interface rateProfileArgs {
-    userId: string;
-    profileId: string;
+    userId: number;
+    profileId: number;
     rating: number;
     feedback?: string;
 }

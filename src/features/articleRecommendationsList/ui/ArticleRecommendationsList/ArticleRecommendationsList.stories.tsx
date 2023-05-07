@@ -12,11 +12,11 @@ export default {
 } as ComponentMeta<typeof ArticleRecommendationsList>;
 
 const article: Article = {
-    id: '1',
+    id: 1,
     img: '',
     createdAt: '',
     views: 142124,
-    user: { id: '1', username: 'user' },
+    user: { id: 1, username: 'user' },
     blocks: [],
     type: [],
     subtitle: '123',

@@ -65,9 +65,9 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
             >
                 <Card>
                     <div className={cls.header}>
-                        <Avatar size={40} src={article.user.avatar} />
+                        <Avatar size={40} src={article.user?.avatar} />
                         <Text
-                            text={article.user.username}
+                            text={article.user?.username}
                             className={cls.username}
                         />
                         <Text text={article.createdAt} className={cls.date} />

@@ -21,7 +21,7 @@ User.decorators = [
     StoreDecorator({
         user: {
             authData: {
-                id: '1',
+                id: 1,
                 username: 'User',
                 avatar: 'https://us.123rf.com/450wm/anatolir/anatolir2011/anatolir201105528/159470802-jurist-avatar-icon-flat-style.jpg?ver=6',
                 roles: [UserRole.USER],
@@ -36,7 +36,7 @@ Admin.decorators = [
     StoreDecorator({
         user: {
             authData: {
-                id: '1',
+                id: 1,
                 username: 'User',
                 avatar: 'https://us.123rf.com/450wm/anatolir/anatolir2011/anatolir201105528/159470802-jurist-avatar-icon-flat-style.jpg?ver=6',
                 roles: [UserRole.ADMIN],
@@ -51,7 +51,7 @@ Manager.decorators = [
     StoreDecorator({
         user: {
             authData: {
-                id: '1',
+                id: 1,
                 username: 'User',
                 avatar: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
                 roles: [UserRole.MANAGER],

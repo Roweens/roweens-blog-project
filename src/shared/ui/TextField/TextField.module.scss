@@ -1,0 +1,21 @@
+.textField {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    width: 100%;
+    color: transparent;
+    text-shadow: 0 0 0 var(--primary-color);
+
+    &:focus {
+        outline: none;
+        border: 1px solid var(--inverted-secondary-color);
+    }
+}
+
+.readonly {
+    opacity: 0.7;
+
+    &:focus {
+        outline: none;
+        border: 1px solid var(--primary-color);
+    }
+}

@@ -100,11 +100,11 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
         return null;
     });
 
-    // eslint-disable-next-line react/no-unstable-nested-components
     const ItemContainerComp: FC<{
         height: number;
         width: number;
         index: number;
+        // eslint-disable-next-line react/no-unstable-nested-components
     }> = ({ height, width, index }) => (
         <div className={cls.itemContainer}>
             <ArticleListItemSkeleton

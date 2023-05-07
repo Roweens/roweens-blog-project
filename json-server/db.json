@@ -1125,6 +1125,40 @@
           ]
         }
       ]
+    },
+    {
+      "id": "Abzlg_J",
+      "blocks": [
+        {
+          "id": 3,
+          "title": "Первый тест блок текст",
+          "paragraphs": [
+            "12312 а вцасфывафвцыафвыафЦУАВ34Я132Я41234Я123УАФЫВАФЫАФ"
+          ],
+          "type": "TEXT"
+        },
+        {
+          "id": 2,
+          "title": "БЛОК КАРТИНКА",
+          "src": "https://img1.goodfon.ru/wallpaper/nbig/a/69/kartinka-3d-dikaya-koshka.jpg",
+          "type": "IMAGE"
+        },
+        {
+          "id": 1,
+          "code": "const path = require('path');\\n\\nconst server = jsonServer.create();\\n\\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\\n\\nserver.use(jsonServer.defaults({}));\\nserver.use(jsonServer.bodyParser);",
+          "type": "CODE"
+        }
+      ],
+      "createdAt": "07.05.2023",
+      "img": "https://img1.goodfon.ru/wallpaper/nbig/a/69/kartinka-3d-dikaya-koshka.jpg",
+      "subtitle": "Заголовок тест",
+      "title": "Тестовая статья",
+      "type": [
+        "IT",
+        "ECONOMICS"
+      ],
+      "views": 0,
+      "userId": "1"
     }
   ],
   "comments": [

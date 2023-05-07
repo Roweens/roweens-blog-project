@@ -27,17 +27,17 @@ Normal.decorators = [
                     1: {
                         id: '1',
                         text: 'Comment text',
-                        user: { id: '1', username: 'Admin' },
+                        user: { id: 1, username: 'Admin' },
                     },
                     2: {
                         id: '3',
                         text: 'Comment text',
-                        user: { id: '1', username: 'Admin' },
+                        user: { id: 1, username: 'Admin' },
                     },
                     3: {
                         id: '3',
                         text: 'Comment text',
-                        user: { id: '1', username: 'Admin' },
+                        user: { id: 1, username: 'Admin' },
                     },
                 },
             },

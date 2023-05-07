@@ -23,7 +23,7 @@ const ArticleRating: FC<ArticleRatingProps> = (props) => {
 
     const { data, isLoading } = useGetArticleRating({
         articleId,
-        userId: authData?.id ?? '',
+        userId: Number(authData?.id),
     });
     const [rateArticleQuery] = useRateArticle();
 
@@ -33,7 +33,7 @@ const ArticleRating: FC<ArticleRatingProps> = (props) => {
         (starsCount: number, feedback?: string) => {
             try {
                 rateArticleQuery({
-                    userId: authData?.id ?? '',
+                    userId: Number(authData?.id),
                     articleId,
                     rating: starsCount,
                     feedback,

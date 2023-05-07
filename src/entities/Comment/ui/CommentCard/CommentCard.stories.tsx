@@ -19,7 +19,7 @@ Normal.args = {
         id: '1',
         text: 'some text',
         user: {
-            id: '1',
+            id: 1,
             username: 'User',
         },
     },
@@ -32,7 +32,7 @@ Loading.args = {
         id: '1',
         text: 'some text',
         user: {
-            id: '1',
+            id: 1,
             username: 'User',
         },
     },

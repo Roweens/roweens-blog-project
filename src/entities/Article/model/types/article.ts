@@ -2,7 +2,7 @@ import { User } from '@/entities/User';
 import { ArticleBlockType, ArticleType } from '../consts/articleConsts';
 
 export interface ArticleBlockBase {
-    id: string;
+    id?: number;
     type: ArticleBlockType;
 }
 
@@ -29,8 +29,8 @@ export type ArticleBlock =
     | ArticleCodeBlock;
 
 export interface Article {
-    id: string;
-    user: User;
+    id: number;
+    user?: User;
     title: string;
     subtitle: string;
     img: string;

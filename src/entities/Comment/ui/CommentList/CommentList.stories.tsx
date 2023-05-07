@@ -20,7 +20,7 @@ Normal.args = {
             id: '1',
             text: 'some text',
             user: {
-                id: '1',
+                id: 1,
                 username: 'User',
             },
         },
@@ -28,7 +28,7 @@ Normal.args = {
             id: '2',
             text: 'some text',
             user: {
-                id: '2',
+                id: 2,
                 username: 'User',
             },
         },
@@ -43,7 +43,7 @@ Loading.args = {
             id: '1',
             text: 'some text',
             user: {
-                id: '1',
+                id: 1,
                 username: 'User',
             },
         },
@@ -51,7 +51,7 @@ Loading.args = {
             id: '2',
             text: 'some text',
             user: {
-                id: '2',
+                id: 2,
                 username: 'User',
             },
         },

@@ -15,7 +15,7 @@ import { Text } from '@/shared/ui/Text';
 
 export interface ProfileRatingProps {
     className?: string;
-    profileId: string;
+    profileId: number;
 }
 
 const ProfileRating: FC<ProfileRatingProps> = (props) => {
@@ -44,7 +44,7 @@ const ProfileRating: FC<ProfileRatingProps> = (props) => {
     const {
         data: profileUserRatingData,
         isLoading: profileUserRatingIsLoading,
-    } = useGetProfileUserRating({ profileId, userId: authData?.id ?? '' });
+    } = useGetProfileUserRating({ profileId, userId: Number(authData?.id) });
 
     const [rateProfileQuery] = useRateProfile();
 
@@ -54,7 +54,7 @@ const ProfileRating: FC<ProfileRatingProps> = (props) => {
         (starsCount: number, feedback?: string) => {
             try {
                 rateProfileQuery({
-                    userId: authData?.id ?? '',
+                    userId: Number(authData?.id),
                     profileId,
                     rating: starsCount,
                     feedback,

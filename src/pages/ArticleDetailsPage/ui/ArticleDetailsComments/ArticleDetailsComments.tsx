@@ -29,7 +29,7 @@ export const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = (
     const dispatch = useAppDispatch();
 
     useInitialEffect(() => {
-        dispatch(fetchCommentsByArticleId(id));
+        dispatch(fetchCommentsByArticleId(Number(id)));
     });
 
     const onSendComment = useCallback(
