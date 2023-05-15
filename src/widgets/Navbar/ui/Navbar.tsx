@@ -41,6 +41,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 <AppLink
                     to={getRouteArticleCreate()}
                     theme={AppLinkTheme.SECONDARY}
+                    data-testid="Navbar.createArticleBtn"
                 >
                     {t('Создать статью')}
                 </AppLink>
@@ -58,6 +59,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 className={cls.links}
                 theme={ThemeButton.CLEAR_INVERTED}
                 onClick={onOpenModal}
+                data-testid="Navbar.loginBtn"
             >
                 {t('Войти')}
             </Button>

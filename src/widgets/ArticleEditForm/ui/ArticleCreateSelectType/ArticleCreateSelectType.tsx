@@ -1,4 +1,4 @@
-import { FC, useMemo } from 'react';
+import { FC, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleCreateSelectType.module.scss';
@@ -16,18 +16,29 @@ export const ArticleCreateSelectType: FC<ArticleCreateSelectTypeProps> = (
     props,
 ) => {
     const { className, onTypeSelect, types } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('article-edit');
+
+    const getTypeTranslation = useCallback(
+        (type: ArticleType) =>
+            ({
+                [ArticleType.ALL]: t('Все статьи'),
+                [ArticleType.ECONOMICS]: t('Экономика'),
+                [ArticleType.IT]: t('Айти'),
+                [ArticleType.SCIENCE]: t('Наука'),
+            }[type]),
+        [t],
+    );
 
     const typeOptions = useMemo<TabItem<ArticleType>[]>(
         () =>
             Object.values(ArticleType).reduce(
                 (acc: TabItem<ArticleType>[], type) => [
                     ...acc,
-                    { value: type, content: t(type, { ns: 'articles' }) },
+                    { value: type, content: getTypeTranslation(type) },
                 ],
                 [],
             ),
-        [t],
+        [getTypeTranslation],
     );
 
     return (
@@ -41,6 +52,7 @@ export const ArticleCreateSelectType: FC<ArticleCreateSelectTypeProps> = (
                 multiple
                 label={t('Выберите категории статьи')}
                 defaultValue={t('Выберите категории статьи')}
+                testid="ArticleCreateSelectType"
                 // @ts-ignore
                 onChange={onTypeSelect}
             />

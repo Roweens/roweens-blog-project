@@ -44,7 +44,10 @@ export const StarRating: FC<StarRatingProps> = (props) => {
     };
 
     return (
-        <div className={classNames(cls.starRating, {}, [className])}>
+        <div
+            className={classNames(cls.starRating, {}, [className])}
+            data-testid="StarRating"
+        >
             {stars.map((starNumber) => (
                 <Icon
                     Svg={StarIcon}

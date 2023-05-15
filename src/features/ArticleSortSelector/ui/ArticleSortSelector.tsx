@@ -16,7 +16,7 @@ interface ArticleSortSelectorProps {
 
 export const ArticleSortSelector: FC<ArticleSortSelectorProps> = (props) => {
     const { className, onChangeOrder, onChangeSort, order, sort } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('articles');
 
     const orderOptions = useMemo<ListBoxItem<SortOrder>[]>(
         () => [
@@ -58,6 +58,7 @@ export const ArticleSortSelector: FC<ArticleSortSelectorProps> = (props) => {
                 value={sort}
                 onChange={onChangeSort}
                 testid="SortField"
+                defaultValue={t('дате создания')}
             />
             <ListBox
                 items={orderOptions}
@@ -66,6 +67,7 @@ export const ArticleSortSelector: FC<ArticleSortSelectorProps> = (props) => {
                 onChange={onChangeOrder}
                 className={cls.order}
                 testid="SortOrder"
+                defaultValue={t('убыванию')}
             />
         </div>
     );

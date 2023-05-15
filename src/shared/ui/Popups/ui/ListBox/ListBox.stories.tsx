@@ -27,6 +27,8 @@ Normal.args = {
         { content: 'Test test', value: '123' },
         { content: 'Test test', value: '123' },
     ],
+    defaultValue: 'Test defaultValue',
+    label: 'Test label',
 };
 
 export const TopLeft = Template.bind({});
@@ -37,6 +39,8 @@ TopLeft.args = {
         { content: 'Test test', value: '123' },
         { content: 'Test test', value: '123' },
     ],
+    defaultValue: 'Test defaultValue',
+    label: 'Test label',
 };
 
 export const TopRight = Template.bind({});
@@ -47,6 +51,8 @@ TopRight.args = {
         { content: 'Test test', value: '123' },
         { content: 'Test test', value: '123' },
     ],
+    defaultValue: 'Test defaultValue',
+    label: 'Test label',
 };
 
 export const BottomLeft = Template.bind({});
@@ -57,6 +63,8 @@ BottomLeft.args = {
         { content: 'Test test', value: '123' },
         { content: 'Test test', value: '123' },
     ],
+    defaultValue: 'Test defaultValue',
+    label: 'Test label',
 };
 
 export const BottomRight = Template.bind({});
@@ -67,4 +75,6 @@ BottomRight.args = {
         { content: 'Test test', value: '123' },
         { content: 'Test test', value: '123' },
     ],
+    defaultValue: 'Test defaultValue',
+    label: 'Test label',
 };

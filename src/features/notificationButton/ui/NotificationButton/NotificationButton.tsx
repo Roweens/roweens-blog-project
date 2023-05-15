@@ -27,7 +27,11 @@ export const NotificationButton: FC<NotificationButtonProps> = (props) => {
     }, []);
 
     const trigger = (
-        <Button theme={ThemeButton.CLEAR} onClick={onOpenHandle}>
+        <Button
+            theme={ThemeButton.CLEAR}
+            onClick={onOpenHandle}
+            data-testid="NotificationButton.trigger"
+        >
             <Icon Svg={NotificationIcon} inverted />
         </Button>
     );

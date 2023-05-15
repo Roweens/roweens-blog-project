@@ -1,4 +1,4 @@
-let currentArticleId = '';
+let currentArticleId: number;
 
 describe('User navigates to article page', () => {
     beforeEach(() => {

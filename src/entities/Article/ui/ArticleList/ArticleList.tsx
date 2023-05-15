@@ -28,8 +28,7 @@ interface ArticleListProps {
     articleViewIndex?: number;
 }
 
-const getSkeletons = (view: ArticleView) =>
-    new Array(view === 'Block' ? 9 : 3)
+const getSkeletons = (view: ArticleView) => new Array(view === 'Block' ? 9 : 3)
         .fill(0)
         .map((item, index) => (
             <ArticleListItemSkeleton

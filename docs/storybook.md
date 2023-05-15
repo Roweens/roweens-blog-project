@@ -1,4 +1,14 @@
-Пример:
+Для тестирования компонентов используются следующие декораторы:
+
+-   `StyleDecorator` - Применение стилей для компонента
+-   `ThemeDecorator` - Применение разных цветовых тем для компонента
+-   `RouterDecorator` - Для корректной работы роутинга
+-   `SuspenseDecorator` - Для lazy компонентов
+-   `StoreDecorator` - Для передачи нужного состояния в компоненты, а также указания динамически подгружаемых редьюсеров
+
+Пример стори-файла:
+
+##Storybook 6
 
 ```typescript jsx
 import React from 'react';
@@ -27,5 +37,59 @@ export const Clear = Template.bind({});
 Clear.args = {
     children: 'Text',
     theme: ButtonTheme.CLEAR,
+};
+```
+
+---
+
+##Storybook 7+
+
+```typescript jsx
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ArticleBlockType } from '../../model/consts/articleConsts';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
+
+export default {
+    title: 'entities/Article/ArticleCodeBlockComponent',
+    component: ArticleCodeBlockComponent,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+} as Meta<typeof ArticleCodeBlockComponent>;
+
+type Story = StoryObj<typeof ArticleCodeBlockComponent>;
+
+export const Normal: Story = {
+    args: {
+        block: {
+            id: 4,
+            type: ArticleBlockType.CODE,
+            code: '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;',
+        },
+    },
+    decorators: [StoreDecorator({})],
+};
+
+export const Dark: Story = {
+    args: {
+        block: {
+            id: 4,
+            type: ArticleBlockType.CODE,
+            code: '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;',
+        },
+    },
+    decorators: [StoreDecorator({}), ThemeDecorator(Theme.DARK)],
+};
+
+export const Red: Story = {
+    args: {
+        block: {
+            id: 4,
+            type: ArticleBlockType.CODE,
+            code: '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;',
+        },
+    },
+    decorators: [StoreDecorator({}), ThemeDecorator(Theme.RED)],
 };
 ```

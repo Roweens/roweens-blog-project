@@ -1,6 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Article } from '../../model/types/article';
 import { ArticleList } from './ArticleList';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'entities/Article/ArticleList',
@@ -122,3 +124,47 @@ NormalList.args = {
     })),
     view: 'List',
 };
+
+export const DarkBlock = Template.bind({});
+DarkBlock.args = {
+    isLoading: false,
+    articles: new Array(9).fill(0).map((item, index) => ({
+        ...article,
+        id: index,
+    })),
+    view: 'Block',
+};
+DarkBlock.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const DarkList = Template.bind({});
+DarkList.args = {
+    isLoading: false,
+    articles: new Array(9).fill(0).map((item, index) => ({
+        ...article,
+        id: index,
+    })),
+    view: 'List',
+};
+DarkList.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const RedBlock = Template.bind({});
+RedBlock.args = {
+    isLoading: false,
+    articles: new Array(9).fill(0).map((item, index) => ({
+        ...article,
+        id: index,
+    })),
+    view: 'Block',
+};
+RedBlock.decorators = [ThemeDecorator(Theme.RED)];
+
+export const RedList = Template.bind({});
+RedList.args = {
+    isLoading: false,
+    articles: new Array(9).fill(0).map((item, index) => ({
+        ...article,
+        id: index,
+    })),
+    view: 'List',
+};
+RedList.decorators = [ThemeDecorator(Theme.RED)];

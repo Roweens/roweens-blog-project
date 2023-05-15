@@ -1,4 +1,4 @@
-let profileId = '';
+let profileId: number;
 
 describe('Profile page visit', () => {
     beforeEach(() => {

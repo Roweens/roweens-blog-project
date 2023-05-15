@@ -63,6 +63,7 @@ module.exports = {
                     'as',
                     'border',
                     'testid',
+                    'feature',
                 ],
             },
         ],
@@ -103,6 +104,7 @@ module.exports = {
         'no-unsafe-optional-chaining': 'warn',
         'react/destructuring-assignment': 'warn',
         'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
+        'react/no-unstable-nested-components': 'warn',
     },
     globals: {
         __IS_DEV__: true,

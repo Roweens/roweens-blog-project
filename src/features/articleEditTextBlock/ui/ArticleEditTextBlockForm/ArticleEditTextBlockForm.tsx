@@ -25,7 +25,7 @@ export const ArticleEditTextBlockForm: FC<ArticleEditTextBlockFormProps> = (
         textBlock?.paragraphs?.join(' ') || '',
     );
 
-    const { t } = useTranslation();
+    const { t } = useTranslation('article-edit');
 
     const onTitleChange = useCallback((title: string) => {
         setTitle(title);
@@ -51,6 +51,7 @@ export const ArticleEditTextBlockForm: FC<ArticleEditTextBlockFormProps> = (
                 placeholder={t('Заголовок блока')}
                 onChange={onTitleChange}
                 readonly={readonly}
+                data-testid="ArticleEditTextBlockForm.Title"
             />
             <TextField
                 value={paragraphs}
@@ -58,8 +59,13 @@ export const ArticleEditTextBlockForm: FC<ArticleEditTextBlockFormProps> = (
                 cols={160}
                 rows={16}
                 readonly={readonly}
+                data-testid="ArticleEditTextBlockForm.Paragraphs"
             />
-            <Button onClick={onSaveHandle} disabled={readonly}>
+            <Button
+                onClick={onSaveHandle}
+                disabled={readonly}
+                data-testid="ArticleEditTextBlockForm.SaveButton"
+            >
                 {t('Сохранить')}
             </Button>
         </VStack>

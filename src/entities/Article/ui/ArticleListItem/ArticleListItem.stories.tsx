@@ -1,6 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Article } from '../../model/types/article';
 import { ArticleListItem } from './ArticleListItem';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'entities/Article/ArticleListItem',
@@ -100,3 +102,31 @@ Block.args = {
     view: 'Block',
     article,
 };
+
+export const DarkList = Template.bind({});
+DarkList.args = {
+    view: 'List',
+    article,
+};
+DarkList.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const DarkBlock = Template.bind({});
+DarkBlock.args = {
+    view: 'Block',
+    article,
+};
+DarkBlock.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const RedList = Template.bind({});
+RedList.args = {
+    view: 'List',
+    article,
+};
+RedList.decorators = [ThemeDecorator(Theme.RED)];
+
+export const RedBlock = Template.bind({});
+RedBlock.args = {
+    view: 'Block',
+    article,
+};
+RedBlock.decorators = [ThemeDecorator(Theme.RED)];

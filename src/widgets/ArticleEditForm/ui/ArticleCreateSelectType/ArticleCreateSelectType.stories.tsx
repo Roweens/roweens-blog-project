@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ArticleCreateSelectType } from './ArticleCreateSelectType';
 
 export default {
-    title: 'shared/ArticleCreateSelectType',
+    title: 'widget/ArticleCreateBlock/ArticleCreateSelectType',
     component: ArticleCreateSelectType,
     argTypes: {
         backgroundColor: { control: 'color' },

@@ -39,6 +39,7 @@ export const NotificationList: FC<NotificationListProps> = (props) => {
             className={classNames(cls.notificationList, {}, [className])}
             gap="16"
             max
+            data-testid="NotificationList"
         >
             {data?.map((item) => (
                 <NotificationItem key={item.id} item={item} />

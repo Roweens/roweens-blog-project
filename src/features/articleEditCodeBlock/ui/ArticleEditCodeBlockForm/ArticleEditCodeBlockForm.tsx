@@ -42,8 +42,13 @@ export const ArticleEditCodeBlockForm: FC<ArticleEditCodeBlockFormProps> = (
                 cols={160}
                 rows={16}
                 readonly={readonly}
+                data-testid="ArticleEditCodeBlockForm.CodeField"
             />
-            <Button onClick={onSaveHandle} disabled={readonly}>
+            <Button
+                onClick={onSaveHandle}
+                disabled={readonly}
+                data-testid="ArticleEditCodeBlockForm.SaveButton"
+            >
                 {t('Сохранить')}
             </Button>
         </VStack>

@@ -5,7 +5,7 @@ export const updateProfile = (firstname: string, lastname: string) => {
     cy.getByTestId('EditableProfileCardHeader.SaveBtn').click();
 };
 
-export const resetProfile = (profileId: string) => cy.request({
+export const resetProfile = (profileId: number) => cy.request({
         method: 'PUT',
         url: `http://localhost:8000/profile/${profileId}`,
         headers: { authorization: 'auth' },
@@ -26,7 +26,7 @@ declare global {
     namespace Cypress {
         interface Chainable {
             updateProfile(firstname: string, lastname: string): Chainable<void>;
-            resetProfile(profileId: string): Chainable<void>;
+            resetProfile(profileId: number): Chainable<void>;
         }
     }
 }

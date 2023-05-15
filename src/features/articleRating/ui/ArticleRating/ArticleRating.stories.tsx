@@ -33,7 +33,7 @@ Normal.decorators = [
 Normal.parameters = {
     mockData: [
         {
-            url: `${__API__}/article-ratings`,
+            url: `${__API__}/article-ratings?userId=1&articleId=1`,
             method: 'GET',
             status: 200,
             response: [rating],
@@ -51,7 +51,7 @@ WithoutRate.decorators = [
 WithoutRate.parameters = {
     mockData: [
         {
-            url: `${__API__}/article-ratings`,
+            url: `${__API__}/article-ratings?userId=1&articleId=1`,
             method: 'GET',
             status: 200,
             response: [],
@@ -70,7 +70,7 @@ Dark.decorators = [
 Dark.parameters = {
     mockData: [
         {
-            url: `${__API__}/article-ratings`,
+            url: `${__API__}/article-ratings?userId=1&articleId=1`,
             method: 'GET',
             status: 200,
             response: [rating],
@@ -89,7 +89,7 @@ Red.decorators = [
 Red.parameters = {
     mockData: [
         {
-            url: `${__API__}/article-ratings`,
+            url: `${__API__}/article-ratings?userId=1&articleId=1`,
             method: 'GET',
             status: 200,
             response: [rating],

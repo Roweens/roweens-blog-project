@@ -56,6 +56,18 @@ OnlyTextDark.args = {
 };
 OnlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];
 
+export const OnlyTitleRed = Template.bind({});
+OnlyTitleRed.args = {
+    title: 'Title test',
+};
+OnlyTitleRed.decorators = [ThemeDecorator(Theme.RED)];
+
+export const OnlyTextRed = Template.bind({});
+OnlyTextRed.args = {
+    text: 'Text test test test test test test test test',
+};
+OnlyTextRed.decorators = [ThemeDecorator(Theme.RED)];
+
 export const SizeL = Template.bind({});
 SizeL.args = {
     title: 'Title test',

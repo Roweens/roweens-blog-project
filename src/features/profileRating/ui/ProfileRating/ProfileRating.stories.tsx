@@ -24,14 +24,22 @@ const Template: ComponentStory<typeof ProfileRating> = (args) => (
 );
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+    profileId: 2,
+};
 Normal.decorators = [
     StoreDecorator({ user: { authData: { id: 1, username: 'ADMIN' } } }),
 ];
 Normal.parameters = {
     mockData: [
         {
-            url: `${__API__}/profile-ratings`,
+            url: `${__API__}/profile-ratings?profileId=2`,
+            method: 'GET',
+            status: 200,
+            response: [rating],
+        },
+        {
+            url: `${__API__}/profile-ratings?userId=1&profileId=2`,
             method: 'GET',
             status: 200,
             response: [rating],
@@ -40,7 +48,9 @@ Normal.parameters = {
 };
 
 export const Dark = Template.bind({});
-Dark.args = {};
+Dark.args = {
+    profileId: 2,
+};
 Dark.decorators = [
     StoreDecorator({ user: { authData: { id: 1, username: 'ADMIN' } } }),
     ThemeDecorator(Theme.DARK),
@@ -48,7 +58,13 @@ Dark.decorators = [
 Dark.parameters = {
     mockData: [
         {
-            url: `${__API__}/profile-ratings`,
+            url: `${__API__}/profile-ratings?profileId=2`,
+            method: 'GET',
+            status: 200,
+            response: [rating],
+        },
+        {
+            url: `${__API__}/profile-ratings?userId=1&profileId=2`,
             method: 'GET',
             status: 200,
             response: [rating],
@@ -57,7 +73,9 @@ Dark.parameters = {
 };
 
 export const Red = Template.bind({});
-Red.args = {};
+Red.args = {
+    profileId: 2,
+};
 Red.decorators = [
     StoreDecorator({ user: { authData: { id: 1, username: 'ADMIN' } } }),
     ThemeDecorator(Theme.RED),
@@ -65,7 +83,13 @@ Red.decorators = [
 Red.parameters = {
     mockData: [
         {
-            url: `${__API__}/article-ratings`,
+            url: `${__API__}/profile-ratings?profileId=2`,
+            method: 'GET',
+            status: 200,
+            response: [rating],
+        },
+        {
+            url: `${__API__}/profile-ratings?userId=1&profileId=2`,
             method: 'GET',
             status: 200,
             response: [rating],

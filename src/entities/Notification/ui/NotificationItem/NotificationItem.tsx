@@ -18,6 +18,7 @@ export const NotificationItem: FC<NotificationItemProps> = (props) => {
         <Card
             className={classNames(cls.notificationItem, {}, [className])}
             theme={CardTheme.OUTLINED}
+            data-testid="NotificationItem"
         >
             <Text title={item.title} text={item.description} />
         </Card>

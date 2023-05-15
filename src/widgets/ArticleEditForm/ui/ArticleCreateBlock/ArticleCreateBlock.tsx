@@ -80,12 +80,16 @@ export const ArticleCreateBlock: FC<ArticleCreateBlockProps> = (props) => {
 
     if (isLoading) {
         return (
-            <>
+            <VStack
+                className={classNames(cls.articleCreateBlock, {}, [className])}
+                gap="8"
+                max
+            >
                 <Skeleton width={180} height={50} />
                 <Skeleton width={280} height={50} />
-                <Skeleton width={'100%'} height={260} />
+                <Skeleton width="100%" height={260} />
                 <Skeleton width={180} height={50} />
-            </>
+            </VStack>
         );
     }
 
@@ -94,12 +98,14 @@ export const ArticleCreateBlock: FC<ArticleCreateBlockProps> = (props) => {
             className={classNames(cls.articleCreateBlock, {}, [className])}
             gap="8"
             max
+            data-testid="ArticleCreateBlock"
         >
             <ListBox<ArticleBlockType>
                 items={blockTypeOptions}
                 value={selectedType}
                 onChange={onBlockTypeChange}
                 readonly={isFilled}
+                testid="ArticleCreateBlock"
             />
             {content}
         </VStack>

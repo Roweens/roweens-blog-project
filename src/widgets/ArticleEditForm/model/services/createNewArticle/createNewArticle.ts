@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { format } from 'fecha';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
-import { selectArticleCreateData } from '../../selectors/selectArticleCreateData';
+import { selectArticleCreateData } from '../../selectors/selectArticleCreateData/selectArticleCreateData';
 import { selectUserAuthData } from '@/entities/User';
 import { Article } from '@/entities/Article';
 import { ValidateNewArticleError } from '../../consts/consts';

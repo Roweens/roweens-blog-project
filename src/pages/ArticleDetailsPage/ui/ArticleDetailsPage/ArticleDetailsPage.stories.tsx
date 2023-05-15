@@ -1,4 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { withRouter } from 'storybook-addon-react-router-v6';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import ArticleDetailsPage from './ArticleDetailsPage';
@@ -8,9 +9,15 @@ import { Theme } from '@/shared/const/theme';
 export default {
     title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
     component: ArticleDetailsPage,
-
     argTypes: {
         backgroundColor: { control: 'color' },
+    },
+    decorators: [withRouter],
+    parameters: {
+        reactRouter: {
+            routePath: '/profile/:id',
+            routeParams: { id: '1' },
+        },
     },
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
@@ -100,6 +107,7 @@ Light.decorators = [
         articleDetails: { data: article, error: undefined, isLoading: false },
     }),
 ];
+Light.parameters = [];
 
 export const Dark = Template.bind({});
 Dark.args = {};

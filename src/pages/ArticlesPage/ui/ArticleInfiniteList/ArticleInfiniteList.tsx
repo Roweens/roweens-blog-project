@@ -22,7 +22,7 @@ interface ArticleInfiniteListProps {
 
 export const ArticleInfiniteList: FC<ArticleInfiniteListProps> = (props) => {
     const { className, scrollRef } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('articles');
 
     const dispatch = useAppDispatch();
 

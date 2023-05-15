@@ -7,6 +7,7 @@ import { VStack } from '@/shared/ui/Stack';
 import { EditableProfileCard } from '@/features/editableProfileCard';
 import { ProfileRating } from '@/features/profileRating';
 import { Text } from '@/shared/ui/Text';
+import { getFeatureFlag } from '@/shared/features';
 
 interface ProfilePageProps {
     className?: string;
@@ -16,6 +17,7 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
     const { className } = props;
     const { id } = useParams<{ id: string }>();
     const { t } = useTranslation('profile');
+    const isProfileRatingEnabled = getFeatureFlag('isProfileRatingEnabled');
 
     if (!id) {
         return <Text title={t('Профиль не найден')} />;
@@ -28,7 +30,9 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
         >
             <VStack gap="16" max>
                 <EditableProfileCard id={id} />
-                <ProfileRating profileId={Number(id)} />
+                {isProfileRatingEnabled && (
+                    <ProfileRating profileId={Number(id)} />
+                )}
             </VStack>
         </Page>
     );

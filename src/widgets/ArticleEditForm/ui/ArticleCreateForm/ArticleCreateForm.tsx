@@ -10,7 +10,7 @@ import {
     articleCreateActions,
     articleCreateReducer,
 } from '../../model/slice/articleCreateSlice';
-import { selectArticleCreateData } from '../../model/selectors/selectArticleCreateData';
+import { selectArticleCreateData } from '../../model/selectors/selectArticleCreateData/selectArticleCreateData';
 import { selectArticleCreateBlockCount } from '../../model/selectors/selectArticleCreateBlockCount';
 import { Button } from '@/shared/ui/Button';
 import {
@@ -41,7 +41,7 @@ const reducers: ReducersList = {
 
 export const ArticleCreateForm: FC<ArticleCreateFormProps> = (props) => {
     const { className, articleId } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('article-edit');
     const dispatch = useAppDispatch();
 
     useInitialEffect(() => {
@@ -59,14 +59,11 @@ export const ArticleCreateForm: FC<ArticleCreateFormProps> = (props) => {
         [ValidateNewArticleError.SERVER_ERROR]: t('Серверная ошибка'),
         [ValidateNewArticleError.NO_DATA]: t('Данные отсутствуют'),
         [ValidateNewArticleError.INCORRECT_BLOCKS]: t(
-            'Количество блоков должно быть больше 3',
+            'Статья должна содержать хотя бы один блок',
         ),
         [ValidateNewArticleError.INCORRECT_IMAGE]: t(
             'Пожалуйста, добавьте ссылку на изображение',
         ),
-        // [ValidateNewArticleError.INCORRECT_IMAGE_URL]: t(
-        //     'Строка с изображением должна содержать ссылку',
-        // ),
         [ValidateNewArticleError.INCORRECT_SUBTITLE]: t(
             'Подзаголовок для статьи обязателен, минимум 30 символов',
         ),
@@ -150,6 +147,7 @@ export const ArticleCreateForm: FC<ArticleCreateFormProps> = (props) => {
                 className={classNames(cls.articleCreateForm, {}, [className])}
                 gap="16"
                 max
+                data-testid="ArticleCreateForm"
             >
                 {validateErrors?.length &&
                     validateErrors.map((err: string) => (
@@ -165,22 +163,36 @@ export const ArticleCreateForm: FC<ArticleCreateFormProps> = (props) => {
                         />
                     ))}
 
-                {!isLoading ? (
+                {isLoading ? (
+                    <>
+                        <Skeleton width={280} height={50} />
+                        <Skeleton width={280} height={50} />
+                        <Skeleton width={280} height={50} />
+                        <Skeleton width={280} height={50} />
+                        <Skeleton width="100%" height={300} />
+                        <Skeleton width="100%" height={300} />
+                        <Skeleton width="100%" height={300} />
+                        <Skeleton width={180} height={50} />
+                    </>
+                ) : (
                     <>
                         <Input
                             value={newArticle?.title}
                             onChange={onChangeTitle}
                             placeholder={t('Заголовок статьи')}
+                            data-testid="ArticleCreateForm.Title"
                         />
                         <Input
                             value={newArticle?.subtitle}
                             onChange={onChangeSubTitle}
                             placeholder={t('Подзаголовок статьи')}
+                            data-testid="ArticleCreateForm.Subtitle"
                         />
                         <Input
                             value={newArticle?.img}
                             onChange={onChangeImage}
                             placeholder={t('Изображение для статьи')}
+                            data-testid="ArticleCreateForm.Image"
                         />
                         <ArticleCreateSelectType
                             onTypeSelect={onTypeSelect}
@@ -194,6 +206,7 @@ export const ArticleCreateForm: FC<ArticleCreateFormProps> = (props) => {
                                     onBlockSave={onBlockChange}
                                     block={newArticle.blocks[count]}
                                     isLoading={isLoading}
+                                    key={count}
                                 />
                             ))}
                         <Button
@@ -202,23 +215,16 @@ export const ArticleCreateForm: FC<ArticleCreateFormProps> = (props) => {
                                     articleCreateActions.increaseBlockCount(),
                                 );
                             }}
+                            data-testid="ArticleCreateForm.AddBlockButton"
                         >
                             {t('Добавить блок')}
                         </Button>
-                        <Button onClick={onArticleCreate}>
+                        <Button
+                            onClick={onArticleCreate}
+                            data-testid="ArticleCreateForm.SaveButton"
+                        >
                             {t('Создать статью')}
                         </Button>
-                    </>
-                ) : (
-                    <>
-                        <Skeleton width={280} height={50} />
-                        <Skeleton width={280} height={50} />
-                        <Skeleton width={280} height={50} />
-                        <Skeleton width={280} height={50} />
-                        <Skeleton width={'100%'} height={300} />
-                        <Skeleton width={'100%'} height={300} />
-                        <Skeleton width={'100%'} height={300} />
-                        <Skeleton width={180} height={50} />
                     </>
                 )}
             </VStack>

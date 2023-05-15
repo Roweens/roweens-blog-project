@@ -25,7 +25,7 @@ export const EditableProfileCardHeader: FC<EditableProfileHeaderProps> = (
     const readonly = useSelector(selectProfileReadonly);
     const authData = useSelector(selectUserAuthData);
     const profileData = useSelector(selectProfileData);
-    const canEdit = authData?.id === profileData?.id;
+    const canEdit = Number(authData?.id) === Number(profileData?.id);
 
     const dispatch = useAppDispatch();
 

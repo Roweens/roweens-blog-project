@@ -25,6 +25,7 @@
     "test:ui:json": "node scripts/generate-visual-json-report.js",
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "postinstall": "node ./scripts/clear-cache.js",
+    "remove-feature": "ts-node ./scripts/remove-feature.ts",
     "prepare": "husky install"
   },
   "lint-staged": {
@@ -135,9 +136,11 @@
     "react-i18next": "^11.18.3",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.2.1",
-    "react-virtuoso": "^4.3.0"
+    "react-virtuoso": "^4.3.0",
+    "storybook-addon-react-router-v6": "^1.0.0"
   },
   "loki": {
+    "chromeSelector": "#storybook-root > *",
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.docker",

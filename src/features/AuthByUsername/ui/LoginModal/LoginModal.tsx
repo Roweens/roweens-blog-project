@@ -20,6 +20,7 @@ export const LoginModal: FC<LoginModalProps> = (props) => {
             isOpen={isOpen}
             onClose={onClose}
             lazy
+            data-testid="LoginModal"
         >
             <Suspense fallback={<Loader />}>
                 <LoginFormAsync onSuccess={onClose} />

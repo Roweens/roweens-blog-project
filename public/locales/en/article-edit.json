@@ -1,0 +1,24 @@
+{
+  "Редактор статьи": "Article editor",
+  "Создание статьи": "Create article",
+
+  "Серверная ошибка": "Server error",
+  "Данные отсутствуют": "Data is missing",
+  "Статья должна содержать хотя бы один блок": "Article should have at least one block",
+  "Пожалуйста, добавьте ссылку на изображение": "Please, add a link to article image",
+  "Подзаголовок для статьи обязателен, минимум 30 символов": "Subtitle is required, min 30 chars",
+  "Заголовок для статьи обязателен, минимум 10 символов": "Title is required, min 10 chars",
+  "Выберите хотя бы одну категорию для статьи": "Choose at least one article type",
+  "Пользователь не определен": "User not found",
+
+  "Заголовок статьи": "Article title",
+  "Подзаголовок статьи": "Article subtitle",
+  "Изображение для статьи": "Article image",
+  "Добавить блок": "Add block",
+  "Создать статью": "Create article",
+  "Выберите категории статьи": "Choose article type",
+  "Заголовок блока": "Block title",
+  "Ссылка на изображение": "Link to block image",
+  "Сохранить": "Save"
+}
+

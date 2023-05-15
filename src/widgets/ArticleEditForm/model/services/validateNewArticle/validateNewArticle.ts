@@ -28,7 +28,7 @@ export const validateNewArticleData = (newArticle?: Article) => {
         errors.push(ValidateNewArticleError.INCORRECT_TYPE);
     }
 
-    if (blocks.length < 3) {
+    if (blocks.length < 1) {
         errors.push(ValidateNewArticleError.INCORRECT_BLOCKS);
     }
 

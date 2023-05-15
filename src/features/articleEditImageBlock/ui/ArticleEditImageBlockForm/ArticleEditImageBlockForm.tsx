@@ -48,14 +48,20 @@ export const ArticleEditImageBlockForm: FC<ArticleEditImageBlockFormProps> = (
                 placeholder={t('Заголовок блока')}
                 onChange={onTitleChange}
                 readonly={readonly}
+                data-testid="ArticleEditImageBlockForm.Title"
             />
             <Input
                 value={imageUrl}
                 placeholder={t('Ссылка на изображение')}
                 onChange={onImageUrlChange}
                 readonly={readonly}
+                data-testid="ArticleEditImageBlockForm.ImgLink"
             />
-            <Button onClick={onSaveHandle} disabled={readonly}>
+            <Button
+                onClick={onSaveHandle}
+                disabled={readonly}
+                data-testid="ArticleEditImageBlockForm.SaveButton"
+            >
                 {t('Сохранить')}
             </Button>
         </VStack>

@@ -14,7 +14,7 @@ export const ArticleRecommendationsList: FC<ArticleRecommendationsListProps> = (
     props,
 ) => {
     const { className } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('article-details');
     const {
         data: articles,
         isLoading,

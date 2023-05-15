@@ -130,3 +130,23 @@ Dark.decorators = [
         },
     }),
 ];
+
+export const Red = Template.bind({});
+Red.args = {};
+Red.decorators = [
+    ThemeDecorator(Theme.RED),
+    StoreDecorator({
+        articlePage: {
+            view: 'Block',
+            isLoading: false,
+            ids: [1],
+            error: undefined,
+            hasMore: false,
+            limit: 5,
+            page: 1,
+            entities: {
+                1: article,
+            },
+        },
+    }),
+];

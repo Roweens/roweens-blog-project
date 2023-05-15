@@ -14,16 +14,27 @@ export const ArticleTypeTabs: FC<ArticleTypeTabsProps> = (props) => {
     const { className, value, onChangeType } = props;
     const { t } = useTranslation();
 
+    const getTypeTranslation = useCallback(
+        (type: ArticleType) =>
+            ({
+                [ArticleType.ALL]: t('Все статьи'),
+                [ArticleType.ECONOMICS]: t('Экономика'),
+                [ArticleType.IT]: t('Айти'),
+                [ArticleType.SCIENCE]: t('Наука'),
+            }[type]),
+        [t],
+    );
+
     const typeTabs = useMemo<TabItem<ArticleType>[]>(
         () =>
             Object.values(ArticleType).reduce(
                 (acc: TabItem<ArticleType>[], type) => [
                     ...acc,
-                    { value: type, content: t(type, { ns: 'articles' }) },
+                    { value: type, content: getTypeTranslation(type) },
                 ],
                 [],
             ),
-        [t],
+        [getTypeTranslation],
     );
 
     const onTabClick = useCallback(

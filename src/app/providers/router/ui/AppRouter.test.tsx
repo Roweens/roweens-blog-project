@@ -18,7 +18,7 @@ describe('app/router/AppRoute', () => {
         expect(page).toBeInTheDocument();
     });
 
-    test('Page nout found', async () => {
+    test('Page not found', async () => {
         ComponentRender(<AppRouter />, {
             route: '/ewr12312',
         });

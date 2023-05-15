@@ -44,3 +44,18 @@ CircleDark.args = {
 };
 
 CircleDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const NormalRed = Template.bind({});
+NormalRed.args = {
+    width: 100,
+    height: 100,
+};
+NormalRed.decorators = [ThemeDecorator(Theme.RED)];
+
+export const CircleRed = Template.bind({});
+CircleRed.args = {
+    border: '50%',
+    width: 100,
+    height: 100,
+};
+CircleRed.decorators = [ThemeDecorator(Theme.RED)];

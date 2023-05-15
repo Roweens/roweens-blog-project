@@ -14,16 +14,19 @@ interface ArticleEditPageProps {
 
 const ArticleEditPage: FC<ArticleEditPageProps> = (props) => {
     const { className } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('article-edit');
     const { id } = useParams<{ id: string }>();
     const isEdit = Boolean(id);
 
     return (
-        <Page className={classNames(cls.articleEditPage, {}, [className])}>
+        <Page
+            className={classNames(cls.articleEditPage, {}, [className])}
+            data-testid="ArticleEditPage"
+        >
             {isEdit ? (
                 <VStack gap="32">
                     <Text title={t('Редактор статьи')} />
-                    <ArticleCreateForm articleId={Number(id)}/>
+                    <ArticleCreateForm articleId={Number(id)} />
                 </VStack>
             ) : (
                 <VStack gap="32">

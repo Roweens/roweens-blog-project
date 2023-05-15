@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { FC, HTMLProps, ReactNode } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 
@@ -6,7 +6,7 @@ import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 import { Overlay } from '../Overlay/Overlay';
 
-interface ModalProps {
+interface ModalProps extends HTMLProps<HTMLDivElement> {
     className?: string;
     children?: ReactNode;
     isOpen?: boolean;
@@ -17,7 +17,7 @@ interface ModalProps {
 const ANIMATION_DELAY = 200;
 
 export const Modal: FC<ModalProps> = (props) => {
-    const { className, children, isOpen, onClose, lazy } = props;
+    const { className, children, isOpen, onClose, lazy, ...others } = props;
 
     const { isClosing, isMounted, close } = useModal({
         onClose,
@@ -38,7 +38,9 @@ export const Modal: FC<ModalProps> = (props) => {
         <Portal>
             <div className={classNames(cls.Modal, mods, [className])}>
                 <Overlay onClick={close} />
-                <div className={cls.content}>{children}</div>
+                <div className={cls.content} {...others}>
+                    {children}
+                </div>
             </div>
         </Portal>
     );

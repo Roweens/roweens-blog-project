@@ -4,7 +4,7 @@ import { ThemeSwitcher } from './ThemeSwitcher';
 import { Theme } from '@/shared/const/theme';
 
 export default {
-    title: 'widget/ThemeSwitcher',
+    title: 'features/ThemeSwitcher',
     component: ThemeSwitcher,
 
     argTypes: {
@@ -23,3 +23,7 @@ Light.args = {};
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Red = Template.bind({});
+Red.args = {};
+Red.decorators = [ThemeDecorator(Theme.RED)];
