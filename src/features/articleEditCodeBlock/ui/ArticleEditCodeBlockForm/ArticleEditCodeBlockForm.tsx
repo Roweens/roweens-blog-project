@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/Stack';
 import { TextField } from '@/shared/ui/TextField';
-import { Button } from '@/shared/ui/Button';
+import { Button } from '@/shared/ui/button';
 import { ArticleBlockType, ArticleCodeBlock } from '@/entities/Article';
 
 interface ArticleEditCodeBlockFormProps {

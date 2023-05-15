@@ -10,6 +10,5 @@ export function buildResolvers(options: BuildOptions): ResolveOptions {
         alias: {
             '@': options.paths.src,
         },
-        symlinks: false
     };
 }

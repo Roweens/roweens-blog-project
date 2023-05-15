@@ -1,7 +1,7 @@
 import { memo, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonSize, ThemeButton } from '@/shared/ui/Button';
+import { Button, ButtonSize, ThemeButton } from '@/shared/ui/button';
 import { VStack } from '@/shared/ui/Stack';
 import { selectSidebarItems } from '../../model/selectors/selectSidebarItems';
 import cls from './Sidebar.module.scss';
@@ -23,7 +23,8 @@ export const Sidebar = memo((props: SidebarProps) => {
     };
 
     const itemsList = useMemo(
-        () => sidebarItemList.map((item) => (
+        () =>
+            sidebarItemList.map((item) => (
                 <SidebarItem
                     item={item}
                     collapsed={collapsed}

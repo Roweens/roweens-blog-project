@@ -8,7 +8,7 @@ import { Text } from '@/shared/ui/Text';
 import { StarRating } from '@/shared/ui/StarRating';
 import { Modal } from '@/shared/ui/Modal';
 import { Input } from '@/shared/ui/Input';
-import { Button, ThemeButton } from '@/shared/ui/Button/index';
+import { Button, ThemeButton } from '@/shared/ui/button/index';
 import { Drawer } from '@/shared/ui/Drawer';
 
 interface RatingCardProps {

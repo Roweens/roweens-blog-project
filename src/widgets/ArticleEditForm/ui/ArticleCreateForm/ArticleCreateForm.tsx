@@ -12,7 +12,7 @@ import {
 } from '../../model/slice/articleCreateSlice';
 import { selectArticleCreateData } from '../../model/selectors/selectArticleCreateData/selectArticleCreateData';
 import { selectArticleCreateBlockCount } from '../../model/selectors/selectArticleCreateBlockCount';
-import { Button } from '@/shared/ui/Button';
+import { Button } from '@/shared/ui/button';
 import {
     DynamicModuleLoader,
     ReducersList,

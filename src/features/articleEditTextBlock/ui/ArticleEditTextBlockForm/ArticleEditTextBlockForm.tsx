@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/Stack';
 import { Input } from '@/shared/ui/Input';
 import { TextField } from '@/shared/ui/TextField';
-import { Button } from '@/shared/ui/Button';
+import { Button } from '@/shared/ui/button';
 import { ArticleBlockType, ArticleTextBlock } from '@/entities/Article';
 
 interface ArticleEditTextBlockFormProps {
