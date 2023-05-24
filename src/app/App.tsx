@@ -7,28 +7,67 @@ import { selectUserMounted, initAuthData } from '@/entities/User';
 import { AppRouter } from './providers/router';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { PageLoader } from '@/widgets/PageLoader';
+import { ToggleFeatures } from '@/shared/features';
+import { MainLayout } from '@/shared/layouts/MainLayout';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
+import { useAppToolbar } from './lib/useAppToolbar';
 
 export const App = () => {
     const dispatch = useAppDispatch();
     const mounted = useSelector(selectUserMounted);
 
+    const toolbar = useAppToolbar();
+
     useEffect(() => {
-        dispatch(initAuthData());
-    }, [dispatch]);
+        if (!mounted) {
+            dispatch(initAuthData());
+        }
+    }, [dispatch, mounted]);
 
     if (!mounted) {
-        return <PageLoader />;
+        return (
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={
+                    <div className={classNames('app_redesigned')}>
+                        <AppLoaderLayout />
+                    </div>
+                }
+                off={
+                    <div className={classNames('app')}>
+                        <PageLoader />
+                    </div>
+                }
+            />
+        );
     }
 
     return (
-        <div className={classNames('app')}>
-            <Suspense fallback="">
-                <Navbar />
-                <div className="content-page">
-                    <Sidebar />
-                    {mounted && <AppRouter />}
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            off={
+                <div className={classNames('app')}>
+                    <Suspense fallback="">
+                        <Navbar />
+                        <div className="content-page">
+                            <Sidebar />
+                            <AppRouter />
+                        </div>
+                    </Suspense>
                 </div>
-            </Suspense>
-        </div>
+            }
+            on={
+                <div className={classNames('app_redesigned')}>
+                    <Suspense fallback="">
+                        <MainLayout
+                            header={<Navbar />}
+                            content={<AppRouter />}
+                            sidebar={<Sidebar />}
+                            toolbar={toolbar}
+                        />
+                    </Suspense>
+                </div>
+            }
+        />
     );
 };

@@ -1140,10 +1140,11 @@
       ],
       "features": {
         "isArticleRatingEnabled": true,
-        "isProfileRatingEnabled": false
+        "isProfileRatingEnabled": false,
+        "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_red_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": false,
         "settingsPageHasBeenOpen": false,
         "isArticlesPageWasVisited": true
@@ -1159,7 +1160,8 @@
       ],
       "features": {
         "isArticleRatingEnabled": true,
-        "isProfileRatingEnabled": true
+        "isProfileRatingEnabled": true,
+        "isAppRedesigned": false
       },
       "jsonSettings": {
         "theme": "app_dark_theme",
@@ -1177,7 +1179,8 @@
       ],
       "features": {
         "isArticleRatingEnabled": false,
-        "isProfileRatingEnabled": false
+        "isProfileRatingEnabled": false,
+        "isAppRedesigned": false
       },
       "jsonSettings": {
         "theme": "app_red_theme",
@@ -1195,7 +1198,8 @@
       ],
       "features": {
         "isArticleRatingEnabled": false,
-        "isProfileRatingEnabled": true
+        "isProfileRatingEnabled": true,
+        "isAppRedesigned": false
       },
       "jsonSettings": {
         "theme": "app_light_theme",

@@ -1,9 +1,9 @@
 import { FC, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { VStack } from '@/shared/ui/Stack';
-import { TextField } from '@/shared/ui/TextField';
-import { Button } from '@/shared/ui/button';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { TextField } from '@/shared/ui/deprecated/TextField';
+import { Button } from '@/shared/ui/deprecated/button';
 import { ArticleBlockType, ArticleCodeBlock } from '@/entities/Article';
 
 interface ArticleEditCodeBlockFormProps {

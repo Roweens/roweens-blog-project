@@ -1,6 +1,6 @@
 import { FC, Suspense, lazy } from 'react';
 import { ArticleRatingProps } from './ArticleRating';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 
 export const ArticleRatingLazy = lazy<FC<ArticleRatingProps>>(
     () => import('./ArticleRating'),

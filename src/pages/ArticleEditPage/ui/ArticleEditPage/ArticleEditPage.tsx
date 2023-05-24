@@ -5,8 +5,8 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/widgets/Page';
 import cls from './ArticleEditPage.module.scss';
 import { ArticleCreateForm } from '@/widgets/ArticleEditForm';
-import { VStack } from '@/shared/ui/Stack';
-import { Text } from '@/shared/ui/Text';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/deprecated/Text';
 
 interface ArticleEditPageProps {
     className?: string;

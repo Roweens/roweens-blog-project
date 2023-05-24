@@ -6,6 +6,17 @@
     --inverted-primary-color: rgb(36 14 231);
     --inverted-secondary-color: rgb(44 12 255);
 
+    // redesigned
+    --dark-bg-redesigned: #090f11;
+    --bg-redesigned: #0c1214;
+    --light-bg-redesigned: #151c1f;
+    --text-redesigned: #dbdbdb;
+    --hint-redesigned: #555;
+    --cancel-redesigned: #d95757;
+    --save-redesigned: #6cd98b;
+    --icon-redesigned: #74a2b2;
+    --accent-redesigned: #5ed3f3;
+
     // skeleton
 
     --skeleton-color: #1515ad;
@@ -14,7 +25,11 @@
     // code
 
     --code-bg: rgb(32 32 182);
+
+    // card
     --card-bg: rgb(20 20 169);
+
+    // listbox
     --listbox-bg: rgb(20 20 169);
     --dropdown-bg: rgb(20 20 169);
 }

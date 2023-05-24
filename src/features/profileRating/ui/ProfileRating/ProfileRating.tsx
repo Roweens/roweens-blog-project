@@ -4,14 +4,14 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { RatingCard } from '@/entities/Rating';
 import { selectUserAuthData } from '@/entities/User';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import {
     useGetProfileRating,
     useGetProfileUserRating,
     useRateProfile,
 } from '../../api/profileRatingApi';
-import { Card } from '@/shared/ui/Card';
-import { Text } from '@/shared/ui/Text';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { Text } from '@/shared/ui/deprecated/Text';
 
 export interface ProfileRatingProps {
     className?: string;

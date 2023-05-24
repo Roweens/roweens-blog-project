@@ -9,11 +9,6 @@
         margin-left: auto;
     }
 
-    .header {
-        display: flex;
-        align-items: center;
-    }
-
     .username {
         margin-left: 8px;
     }
@@ -37,11 +32,6 @@
         margin-bottom: 16px;
         max-height: 200px;
         overflow-y: hidden;
-    }
-
-    .footer {
-        display: flex;
-        align-items: center;
     }
 }
 
@@ -102,5 +92,16 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+}
+
+.articleListItemRedesigned {
+    &.List {
+        width: 100%;
+    }
+
+    &.Block {
+        width: 240px;
+        height: 350px;
     }
 }

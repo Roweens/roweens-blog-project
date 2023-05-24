@@ -1,9 +1,9 @@
 import { FC, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { VStack } from '@/shared/ui/Stack';
-import { Input } from '@/shared/ui/Input';
-import { Button } from '@/shared/ui/button';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Input } from '@/shared/ui/deprecated/Input';
+import { Button } from '@/shared/ui/deprecated/button';
 import { ArticleBlockType, ArticleImageBlock } from '@/entities/Article';
 
 interface ArticleEditImageBlockFormProps {

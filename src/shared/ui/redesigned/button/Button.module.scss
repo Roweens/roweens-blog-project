@@ -1,0 +1,132 @@
+.addonLeft svg,
+.addonRight svg {
+    color: var(--hint-redesigned);
+}
+
+.Button {
+    cursor: pointer;
+    color: var(--text-redesigned);
+    padding: 6px 16px;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        color: var(--accent-redesigned);
+
+        .withLeftAddon svg,
+        .withRightAddon svg {
+            color: var(--accent-redesigned);
+        }
+    }
+}
+
+.withAddon {
+    padding: 0 16px;
+}
+
+.addonLeft,
+.addonRight {
+    display: flex;
+}
+
+.clear {
+    padding: 0;
+    border: none;
+    background: none;
+    outline: none;
+
+    &.normal {
+        color: var(--text-redesigned);
+    }
+
+    &.success {
+        color: var(--save-redesigned);
+    }
+
+    &.error {
+        color: var(--cancel-redesigned);
+    }
+}
+
+.filled {
+    background-color: var(--light-bg-redesigned);
+    border: none;
+    outline: none;
+    border-radius: 34px;
+
+    &.normal {
+        border: 2px solid var(--icon-redesigned);
+        color: var(--text-redesigned);
+    }
+
+    &.success {
+        border: 2px solid var(--save-redesigned);
+        color: var(--save-redesigned);
+    }
+
+    &.error {
+        border: 2px solid var(--cancel-redesigned);
+        color: var(--cancel-redesigned);
+    }
+}
+
+.outlined {
+    background-color: unset;
+    border: 2px solid var(--icon-redesigned);
+    outline: none;
+    border-radius: 34px;
+
+    &:hover {
+        border: 2px solid var(--accent-redesigned);
+    }
+
+    &.normal {
+        border: 2px solid var(--icon-redesigned);
+    }
+
+    &.success {
+        border: 2px solid var(--save-redesigned);
+    }
+
+    &.error {
+        border: 2px solid var(--cancel-redesigned);
+    }
+}
+
+.square {
+    padding: 0;
+}
+
+.square.m {
+    width: var(--font-line-m);
+    height: var(--font-line-m);
+    font: var(--font-m-redesigned);
+}
+
+.square.l {
+    width: var(--font-line-l);
+    height: var(--font-line-l);
+    font: var(--font-l-redesigned);
+}
+
+.square.xl {
+    width: var(--font-line-xl);
+    height: var(--font-line-xl);
+    font: var(--font-xl-redesigned);
+}
+
+.m {
+    font: var(--font-m-redesigned);
+}
+
+.l {
+    font: var(--font-l-redesigned);
+}
+
+.xl {
+    font: var(--font-xl-redesigned);
+}
+
+.disabled {
+    opacity: 0.5;
+}

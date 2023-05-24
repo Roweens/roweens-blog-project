@@ -1,3 +1,11 @@
-.selected {
-    fill: var(--secondary-color);
+.articleViewSelector {
+    .selected {
+        fill: var(--secondary-color);
+    }
+}
+
+.articleViewSelectorRedesigned {
+    .notSelected {
+        color: var(--light-bg-redesigned);
+    }
 }

@@ -2,8 +2,8 @@ import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Dropdown } from '@/shared/ui/Popups';
-import { Avatar } from '@/shared/ui/Avatar';
+import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups';
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     isUserAdmin,
@@ -12,7 +12,14 @@ import {
     userActions,
 } from '@/entities/User';
 import cls from './AvatarDropdown.module.scss';
-import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
+import {
+    getRouteAdmin,
+    getRouteProfile,
+    getRouteSettings,
+} from '@/shared/const/router';
+import { ToggleFeatures } from '@/shared/features';
+import { Dropdown } from '@/shared/ui/redesigned/Popups';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
 
 interface AvatarDropdownProps {
     className?: string;
@@ -40,36 +47,63 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = (props) => {
         return null;
     }
 
-    return (
-        <Dropdown
-            direction="bottom left"
-            className={classNames(cls.avatarDropdown, {}, [className])}
-            data-testid="AvatarDropdown.Dropdown"
-            items={[
-                ...(isAdminPanelAvailable
-                    ? [
-                          {
-                              content: t('Админ'),
-                              href: getRouteAdmin(),
-                          },
-                      ]
-                    : []),
-                {
-                    content: t('Выйти'),
-                    onClick: onLogout,
-                },
+    const items = [
+        ...(isAdminPanelAvailable
+            ? [
+                  {
+                      content: t('Админ'),
+                      href: getRouteAdmin(),
+                  },
+              ]
+            : []),
 
-                {
-                    content: t('Профиль'),
-                    href: getRouteProfile(authData.id),
-                },
-            ]}
-            trigger={
-                <Avatar
-                    size={30}
-                    src={authData.avatar}
-                    fallbackInverted
-                    data-testid="AvatarDropdown.trigger"
+        {
+            content: t('Профиль'),
+            href: getRouteProfile(authData.id),
+        },
+
+        {
+            content: t('Настройки'),
+            href: getRouteSettings(),
+        },
+        {
+            content: t('Выйти'),
+            onClick: onLogout,
+        },
+    ];
+
+    return (
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <Dropdown
+                    direction="bottom left"
+                    className={classNames(cls.avatarDropdown, {}, [className])}
+                    data-testid="AvatarDropdown.Dropdown"
+                    items={items}
+                    trigger={
+                        <Avatar
+                            size={42}
+                            src={authData.avatar}
+                            data-testid="AvatarDropdown.trigger"
+                        />
+                    }
+                />
+            }
+            off={
+                <DropdownDeprecated
+                    direction="bottom left"
+                    className={classNames(cls.avatarDropdown, {}, [className])}
+                    data-testid="AvatarDropdown.Dropdown"
+                    items={items}
+                    trigger={
+                        <AvatarDeprecated
+                            size={30}
+                            src={authData.avatar}
+                            fallbackInverted
+                            data-testid="AvatarDropdown.trigger"
+                        />
+                    }
                 />
             }
         />

@@ -1,0 +1,62 @@
+.InputWrapper {
+    display: flex;
+    align-items: center;
+    border-radius: 48px;
+    padding: 8px 16px;
+    border: 2px solid var(--icon-redesigned);
+    width: 100%;
+}
+
+.focused {
+    border: 2px solid var(--accent-redesigned);
+
+    .withLeftAddon svg,
+    .withRightAddon svg {
+        color: var(--accent-redesigned);
+    }
+}
+
+.withLeftAddon,
+.withRightAddon {
+    display: flex;
+}
+
+.withLeftAddon {
+    padding-left: 8px;
+}
+
+.withRightAddon {
+    padding-right: 8px;
+}
+
+.input {
+    border: none;
+    outline: none;
+    width: 100%;
+    color: var(--text-redesigned);
+    background: none;
+
+    &:focus {
+        outline: none;
+    }
+
+    &::placeholder {
+        color: var(--hint-redesigned);
+    }
+}
+
+.readonly {
+    opacity: 0.7;
+}
+
+.m {
+    height: 38px;
+}
+
+.s {
+    height: 32px;
+}
+
+.l {
+    height: 44px;
+}

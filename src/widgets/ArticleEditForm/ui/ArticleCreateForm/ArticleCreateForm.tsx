@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleCreateForm.module.scss';
-import { VStack } from '@/shared/ui/Stack';
-import { Input } from '@/shared/ui/Input';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Input } from '@/shared/ui/deprecated/Input';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     articleCreateActions,
@@ -12,7 +12,7 @@ import {
 } from '../../model/slice/articleCreateSlice';
 import { selectArticleCreateData } from '../../model/selectors/selectArticleCreateData/selectArticleCreateData';
 import { selectArticleCreateBlockCount } from '../../model/selectors/selectArticleCreateBlockCount';
-import { Button } from '@/shared/ui/button';
+import { Button } from '@/shared/ui/deprecated/button';
 import {
     DynamicModuleLoader,
     ReducersList,
@@ -23,12 +23,13 @@ import { createNewArticle } from '../../model/services/createNewArticle/createNe
 import { ArticleCreateSelectType } from '../ArticleCreateSelectType/ArticleCreateSelectType';
 import { ValidateNewArticleError } from '../../model/consts/consts';
 import { selectArticleCreateValidateErrors } from '../../model/selectors/selectArticleCreateValidateErrors';
-import { Text, TextTheme } from '@/shared/ui/Text';
+
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { fetchEditArticleById } from '../../model/services/fetchEditArticleById/fetchEditArticleById';
 import { updateArticle } from '../../model/services/updateArticle/updateArticle';
 import { selectArticleCreateIsLoading } from '../../model/selectors/selectArticleCreateIsLoading';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 
 interface ArticleCreateFormProps {
     className?: string;

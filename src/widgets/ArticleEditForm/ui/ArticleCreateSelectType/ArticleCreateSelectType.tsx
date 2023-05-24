@@ -2,9 +2,9 @@ import { FC, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleCreateSelectType.module.scss';
-import { TabItem } from '@/shared/ui/Tabs';
+import { TabItem } from '@/shared/ui/deprecated/Tabs';
 import { ArticleType } from '@/entities/Article';
-import { ListBox } from '@/shared/ui/Popups';
+import { ListBox } from '@/shared/ui/deprecated/Popups';
 
 interface ArticleCreateSelectTypeProps {
     className?: string;

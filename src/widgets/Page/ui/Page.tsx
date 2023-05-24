@@ -11,28 +11,36 @@ import { selectScrollSaveByPath } from '../model/selectors/ScrollSaveSelectors';
 import { scrollSaveActions } from '../model/slice/ScrollSaveSlice';
 import cls from './Page.module.scss';
 import { TestProps } from '@/shared/types/tests';
+import { toggleFeatures } from '@/shared/features';
 
 interface PageProps extends TestProps {
     className?: string;
     scrollRef?: MutableRefObject<HTMLDivElement>;
     children: ReactNode;
     onScrollEnd?: () => void;
+    allowOverflow?: boolean;
 }
 
 export const PAGE_ID = 'PAGE_ID';
 
 export const Page: FC<PageProps> = (props) => {
-    const { className, children, onScrollEnd, scrollRef } = props;
+    const { className, children, onScrollEnd, scrollRef, allowOverflow } =
+        props;
     const wrapperRef = useRef() as MutableRefObject<HTMLElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
-    const scrollPosition = useSelector((state: StateSchema) => selectScrollSaveByPath(state, pathname),
+    const scrollPosition = useSelector((state: StateSchema) =>
+        selectScrollSaveByPath(state, pathname),
     );
 
     useInifiniteScroll({
         triggerRef,
-        wrapperRef,
+        wrapperRef: toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => undefined,
+            off: () => wrapperRef,
+        }),
         callback: onScrollEnd,
     });
 
@@ -52,6 +60,12 @@ export const Page: FC<PageProps> = (props) => {
         550,
     );
 
+    const pageClass = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => cls.pageRedesigned,
+        off: () => cls.page,
+    });
+
     return (
         <main
             ref={(el: HTMLDivElement) => {
@@ -60,7 +74,13 @@ export const Page: FC<PageProps> = (props) => {
                     scrollRef.current = el;
                 }
             }}
-            className={classNames(cls.page, {}, [className])}
+            className={classNames(
+                pageClass,
+                {
+                    [cls.allowOverflow]: allowOverflow,
+                },
+                [className],
+            )}
             onScroll={onScroll}
             id={PAGE_ID}
             data-testid={props['data-testid'] ?? 'Page'}

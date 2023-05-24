@@ -124,15 +124,16 @@ const replaceComponent = (node: Node) => {
 };
 
 files.forEach((sourceFile) => {
+    // eslint-disable-next-line consistent-return
     sourceFile.forEachDescendant((node) => {
         if (node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node)) {
-            replaceToggleFunction(node);
+            return replaceToggleFunction(node);
         }
         if (
             node.isKind(SyntaxKind.JsxSelfClosingElement) &&
             isToggleComponent(node)
         ) {
-            replaceComponent(node);
+           return replaceComponent(node);
         }
     });
 });

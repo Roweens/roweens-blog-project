@@ -8,12 +8,12 @@ import { ProfileCard } from '@/entities/Profile';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Currencies } from '@/entities/Currency';
 import { Countries } from '@/entities/Country';
-import { Text, TextTheme } from '@/shared/ui/Text';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { selectProfileForm } from '../../model/selectors/selectProfileForm/selectProfileForm';
 import { selectProfileIsLoading } from '../../model/selectors/selectProfileIsLoading/selectProfileIsLoading';
 import { selectProfileError } from '../../model/selectors/selectProfileError/selectProfileError';
@@ -145,7 +145,7 @@ export const EditableProfileCard = memo((props: editableProfileCardProps) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <VStack
-                gap="8"
+                gap="16"
                 max
                 className={classNames(cls.editableProfileCard, {}, [className])}
             >

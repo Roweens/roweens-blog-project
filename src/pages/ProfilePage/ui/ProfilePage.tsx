@@ -3,11 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/widgets/Page';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { EditableProfileCard } from '@/features/editableProfileCard';
 import { ProfileRating } from '@/features/profileRating';
-import { Text } from '@/shared/ui/Text';
+
 import { getFeatureFlag } from '@/shared/features';
+import { Text } from '@/shared/ui/deprecated/Text';
 
 interface ProfilePageProps {
     className?: string;
@@ -27,6 +28,7 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
         <Page
             className={classNames('', {}, [className])}
             data-testid="ProfilePage"
+            allowOverflow
         >
             <VStack gap="16" max>
                 <EditableProfileCard id={id} />

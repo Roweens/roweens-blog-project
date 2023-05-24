@@ -1,0 +1,51 @@
+.card {
+    border-radius: 16px;
+}
+
+.dark {
+    background-color: var(--dark-bg-redesigned);
+}
+
+.outlined {
+    border: 1px solid var(--accent-redesigned);
+}
+
+.light {
+    background-color: var(--light-bg-redesigned);
+}
+
+.normal {
+    border-radius: 12px;
+}
+
+.round {
+    border-radius: 40px;
+}
+
+.intermediate {
+    border-radius: 20px;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+.fullHeight {
+    height: 100%;
+}
+
+.gap_0 {
+    padding: 0;
+}
+
+.gap_8 {
+    padding: 8px;
+}
+
+.gap_16 {
+    padding: 16px;
+}
+
+.gap_24 {
+    padding: 24px;
+}

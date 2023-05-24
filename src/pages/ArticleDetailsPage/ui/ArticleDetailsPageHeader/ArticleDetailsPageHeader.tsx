@@ -4,10 +4,11 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { selectArticleDetailsData } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/button';
-import { HStack } from '@/shared/ui/Stack';
+import { Button } from '@/shared/ui/deprecated/button';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { selectUserIsAuthor } from '../../model/selectors/article';
-import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
+import { getRouteArticles } from '@/shared/const/router';
+import { ArticleEditButton } from '@/features/articleEditButton';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string;
@@ -26,12 +27,6 @@ export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = (
         navigate(getRouteArticles());
     }, [navigate]);
 
-    const onEditList = useCallback(() => {
-        if (article) {
-            navigate(getRouteArticleEdit(article?.id));
-        }
-    }, [navigate, article]);
-
     return (
         <HStack
             className={classNames('', {}, [className])}
@@ -39,9 +34,7 @@ export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = (
             justify="between"
         >
             <Button onClick={onBackToList}>{t('Назад к списку')}</Button>
-            {isAuthor && (
-                <Button onClick={onEditList}>{t('Редактировать')}</Button>
-            )}
+            {isAuthor && <ArticleEditButton articleId={article?.id} />}
         </HStack>
     );
 };

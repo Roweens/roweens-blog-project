@@ -1,13 +1,20 @@
 import { FC, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Popover } from '@/shared/ui/Popups';
-import { Button, ThemeButton } from '@/shared/ui/button';
-import { Icon } from '@/shared/ui/Icon';
+import { Popover as PopoverDeprecated } from '@/shared/ui/deprecated/Popups';
+import {
+    Button as ButtonDeprecated,
+    ThemeButton,
+} from '@/shared/ui/deprecated/button';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 import { NotificationList } from '@/entities/Notification';
-import { Drawer } from '@/shared/ui/Drawer';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
 import cls from './NotificationButton.module.scss';
-import NotificationIcon from '../../../../shared/assets/icons/notification-20-20.svg';
+import NotificationIconDeprecated from '../../../../shared/assets/icons/notification-20-20.svg';
+import NotificationIcon from '../../../../shared/assets/icons/notification.svg';
+import { ToggleFeatures } from '@/shared/features';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import { Popover } from '@/shared/ui/redesigned/Popups';
 
 interface NotificationButtonProps {
     className?: string;
@@ -27,13 +34,26 @@ export const NotificationButton: FC<NotificationButtonProps> = (props) => {
     }, []);
 
     const trigger = (
-        <Button
-            theme={ThemeButton.CLEAR}
-            onClick={onOpenHandle}
-            data-testid="NotificationButton.trigger"
-        >
-            <Icon Svg={NotificationIcon} inverted />
-        </Button>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <Icon
+                    Svg={NotificationIcon}
+                    interactive
+                    onClick={onOpenHandle}
+                    data-testid="NotificationButton.trigger"
+                />
+            }
+            off={
+                <ButtonDeprecated
+                    theme={ThemeButton.CLEAR}
+                    onClick={onOpenHandle}
+                    data-testid="NotificationButton.trigger"
+                >
+                    <IconDeprecated Svg={NotificationIconDeprecated} inverted />
+                </ButtonDeprecated>
+            }
+        />
     );
 
     return (
@@ -46,15 +66,31 @@ export const NotificationButton: FC<NotificationButtonProps> = (props) => {
                 </Drawer>
             </MobileView>
             <BrowserView>
-                <Popover
-                    trigger={trigger}
-                    direction="bottom left"
-                    className={classNames(cls.NotificationButton, {}, [
-                        className,
-                    ])}
-                >
-                    <NotificationList className={cls.notifications} />
-                </Popover>
+                <ToggleFeatures
+                    feature="isAppRedesigned"
+                    on={
+                        <Popover
+                            trigger={trigger}
+                            direction="bottom left"
+                            className={classNames(cls.NotificationButton, {}, [
+                                className,
+                            ])}
+                        >
+                            <NotificationList className={cls.notifications} />
+                        </Popover>
+                    }
+                    off={
+                        <PopoverDeprecated
+                            trigger={trigger}
+                            direction="bottom left"
+                            className={classNames(cls.NotificationButton, {}, [
+                                className,
+                            ])}
+                        >
+                            <NotificationList className={cls.notifications} />
+                        </PopoverDeprecated>
+                    }
+                />
             </BrowserView>
         </div>
     );

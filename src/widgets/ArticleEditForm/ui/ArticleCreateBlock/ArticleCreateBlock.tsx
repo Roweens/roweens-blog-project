@@ -2,7 +2,7 @@ import { FC, useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleCreateBlock.module.scss';
-import { ListBox, ListBoxItem } from '@/shared/ui/Popups';
+import { ListBox, ListBoxItem } from '@/shared/ui/deprecated/Popups';
 import {
     ArticleBlock,
     ArticleBlockType,
@@ -10,11 +10,11 @@ import {
     ArticleImageBlock,
     ArticleTextBlock,
 } from '@/entities/Article';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { ArticleEditTextBlockForm } from '@/features/articleEditTextBlock';
 import { ArticleEditCodeBlockForm } from '@/features/articleEditCodeBlock';
 import { ArticleEditImageBlockForm } from '@/features/articleEditImageBlock';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 
 interface ArticleCreateBlockProps {
     className?: string;

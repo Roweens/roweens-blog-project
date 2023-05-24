@@ -10,11 +10,13 @@ import {
 import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text, TextSize } from '@/shared/ui/Text';
+import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import cls from './ArticleList.module.scss';
+import { ToggleFeatures } from '@/shared/features';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleListProps {
     className?: string;
@@ -28,7 +30,8 @@ interface ArticleListProps {
     articleViewIndex?: number;
 }
 
-const getSkeletons = (view: ArticleView) => new Array(view === 'Block' ? 9 : 3)
+const getSkeletons = (view: ArticleView) =>
+    new Array(view === 'Block' ? 9 : 3)
         .fill(0)
         .map((item, index) => (
             <ArticleListItemSkeleton
@@ -167,26 +170,59 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
     }
 
     return (
-        <div
-            className={classNames(cls.articleList, {}, [className, cls[view]])}
-            data-testid="ArticleList"
-        >
-            {virtualized ? (
-                virtualizedList
-            ) : (
-                <>
-                    {articles.map((article) => (
-                        <ArticleListItem
-                            article={article}
-                            view={view}
-                            target={target}
-                            key={article.id}
-                            className={cls.card}
-                        />
-                    ))}
-                    {isLoading && getSkeletons(view)}
-                </>
-            )}
-        </div>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <HStack
+                    wrap="wrap"
+                    className={classNames(cls.articleListRedesigned, {}, [])}
+                    data-testid="ArticleList"
+                    gap="16"
+                >
+                    {virtualized ? (
+                        virtualizedList
+                    ) : (
+                        <>
+                            {articles.map((article) => (
+                                <ArticleListItem
+                                    article={article}
+                                    view={view}
+                                    target={target}
+                                    key={article.id}
+                                    className={cls.card}
+                                />
+                            ))}
+                            {isLoading && getSkeletons(view)}
+                        </>
+                    )}
+                </HStack>
+            }
+            off={
+                <div
+                    className={classNames(cls.articleList, {}, [
+                        className,
+                        cls[view],
+                    ])}
+                    data-testid="ArticleList"
+                >
+                    {virtualized ? (
+                        virtualizedList
+                    ) : (
+                        <>
+                            {articles.map((article) => (
+                                <ArticleListItem
+                                    article={article}
+                                    view={view}
+                                    target={target}
+                                    key={article.id}
+                                    className={cls.card}
+                                />
+                            ))}
+                            {isLoading && getSkeletons(view)}
+                        </>
+                    )}
+                </div>
+            }
+        />
     );
 };

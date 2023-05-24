@@ -46,6 +46,7 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
+        'arrow-body-style': 'off',
         'i18next/no-literal-string': [
             'error',
             {
@@ -64,6 +65,10 @@ module.exports = {
                     'border',
                     'testid',
                     'feature',
+                    'variant',
+                    'size',
+                    'color',
+                    'wrap',
                 ],
             },
         ],
