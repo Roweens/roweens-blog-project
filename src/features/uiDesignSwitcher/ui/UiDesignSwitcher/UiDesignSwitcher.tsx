@@ -25,7 +25,7 @@ interface UiDesignSwitcherProps {
 
 export const UiDesignSwitcher: FC<UiDesignSwitcherProps> = (props) => {
     const { className } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('settings');
     const isAppRedesigned = getFeatureFlag('isAppRedesigned');
     const dispatch = useAppDispatch();
     const authData = useSelector(selectUserAuthData);

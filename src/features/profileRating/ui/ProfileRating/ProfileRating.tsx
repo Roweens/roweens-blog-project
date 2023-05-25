@@ -4,7 +4,9 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { RatingCard } from '@/entities/Rating';
 import { selectUserAuthData } from '@/entities/User';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
+
 import {
     useGetProfileRating,
     useGetProfileUserRating,
@@ -12,6 +14,7 @@ import {
 } from '../../api/profileRatingApi';
 import { Card } from '@/shared/ui/deprecated/Card';
 import { Text } from '@/shared/ui/deprecated/Text';
+import { toggleFeatures } from '@/shared/features';
 
 export interface ProfileRatingProps {
     className?: string;
@@ -20,7 +23,7 @@ export interface ProfileRatingProps {
 
 const ProfileRating: FC<ProfileRatingProps> = (props) => {
     const { className, profileId } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('profile');
 
     const authData = useSelector(selectUserAuthData);
 
@@ -80,8 +83,14 @@ const ProfileRating: FC<ProfileRatingProps> = (props) => {
         [handleProfileRate],
     );
 
+    const Skeleton = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => SkeletonRedesigned,
+        off: () => SkeletonDeprecated,
+    });
+
     if (profileUserRatingIsLoading || profileRatingIsLoading) {
-        return <Skeleton width="100%" height={120} />;
+        return <Skeleton width="100%" height={120} border="16px" />;
     }
 
     return (

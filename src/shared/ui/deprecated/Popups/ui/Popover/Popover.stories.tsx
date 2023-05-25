@@ -6,7 +6,7 @@ import { Theme } from '@/shared/const/theme';
 import { Text } from '../../../Text';
 
 export default {
-    title: 'shared/Popover',
+    title: 'shared/deprecated/Popover',
     component: Popover,
     argTypes: {
         backgroundColor: { control: 'color' },

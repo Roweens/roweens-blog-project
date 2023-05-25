@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { UiDesignSwitcher } from './UiDesignSwitcher';
 
 export default {
-    title: 'shared/UiDesignSwitcher',
+    title: 'features/UiDesignSwitcher',
     component: UiDesignSwitcher,
     argTypes: {
         backgroundColor: { control: 'color' },

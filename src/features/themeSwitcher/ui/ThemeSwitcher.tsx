@@ -22,6 +22,7 @@ export const ThemeSwitcher = memo((props: ThemeSwitcherProps) => {
     const dispatch = useAppDispatch();
 
     const onToggleHandler = useCallback(() => {
+        console.log('123123');
         toggleTheme((newTheme: Theme) => {
             dispatch(saveJsonSettings({ theme: newTheme }));
         });
@@ -35,6 +36,7 @@ export const ThemeSwitcher = memo((props: ThemeSwitcherProps) => {
                     Svg={ThemeIcon}
                     width={50}
                     height={50}
+                    interactive
                     className={classNames('', {}, [className])}
                     onClick={onToggleHandler}
                     data-testid="ThemeSwitcher"

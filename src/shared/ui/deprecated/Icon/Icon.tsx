@@ -26,8 +26,8 @@ export const Icon = memo((props: IconProps) => {
     } = props;
 
     const styles: CSSProperties = {
-        width: width || 40,
-        height: height || 40,
+        width: width || 26,
+        height: height || 26,
     };
 
     return (

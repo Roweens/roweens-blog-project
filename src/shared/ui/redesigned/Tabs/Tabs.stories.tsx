@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Tabs } from './Tabs';
 
 export default {
-    title: 'shared/Tabs',
+    title: 'shared/redesigned/Tabs',
     component: Tabs,
     argTypes: {
         backgroundColor: { control: 'color' },

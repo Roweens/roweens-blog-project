@@ -1,14 +1,9 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Page } from '@/widgets/Page';
 
 const MainPage: FC = () => {
     const { t } = useTranslation('main');
-    const [value, setValue] = useState('');
-
-    const onChange = (val: string) => {
-        setValue(val);
-    };
 
     return <Page data-testid="MainPage">{t('Главная страница')}</Page>;
 };

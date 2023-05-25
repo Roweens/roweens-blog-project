@@ -1,13 +1,14 @@
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/deprecated/button';
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/button';
+import { Button } from '@/shared/ui/redesigned/button';
 import cls from './PageError.module.scss';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { ToggleFeatures } from '@/shared/features';
 
-interface PageErrorProps {
-    className?: string;
-}
-
-export const PageError: React.FC<PageErrorProps> = (props) => {
+export const PageError = memo(() => {
     const { t } = useTranslation();
 
     const reloadPage = () => {
@@ -16,9 +17,29 @@ export const PageError: React.FC<PageErrorProps> = (props) => {
     };
 
     return (
-        <div className={classNames(cls.pageError)}>
-            <p>{t('Произошла непредвиденная ошибка')}</p>
-            <Button onClick={reloadPage}>{t('Обновить страницу')}</Button>
-        </div>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <div className={classNames(cls.pageError)}>
+                    <Text
+                        text={t('Произошла непредвиденная ошибка')}
+                        variant="accent"
+                    />
+                    <Button onClick={reloadPage} variant="filled" color="error">
+                        {t('Обновить страницу')}
+                    </Button>
+                </div>
+            }
+            off={
+                <div className={classNames(cls.pageError)}>
+                    <TextDeprecated
+                        text={t('Произошла непредвиденная ошибка')}
+                    />
+                    <ButtonDeprecated onClick={reloadPage}>
+                        {t('Обновить страницу')}
+                    </ButtonDeprecated>
+                </div>
+            }
+        />
     );
-};
+});

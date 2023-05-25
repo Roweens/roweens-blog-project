@@ -4,7 +4,9 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleCreateSelectType.module.scss';
 import { TabItem } from '@/shared/ui/deprecated/Tabs';
 import { ArticleType } from '@/entities/Article';
-import { ListBox } from '@/shared/ui/deprecated/Popups';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
+import { ToggleFeatures } from '@/shared/features';
 
 interface ArticleCreateSelectTypeProps {
     className?: string;
@@ -16,7 +18,7 @@ export const ArticleCreateSelectType: FC<ArticleCreateSelectTypeProps> = (
     props,
 ) => {
     const { className, onTypeSelect, types } = props;
-    const { t } = useTranslation('article-edit');
+    const { t } = useTranslation();
 
     const getTypeTranslation = useCallback(
         (type: ArticleType) =>
@@ -42,20 +44,46 @@ export const ArticleCreateSelectType: FC<ArticleCreateSelectTypeProps> = (
     );
 
     return (
-        <div
-            className={classNames(cls.articleCreateSelectType, {}, [className])}
-        >
-            <ListBox
-                // @ts-ignore
-                value={types}
-                items={typeOptions}
-                multiple
-                label={t('Выберите категории статьи')}
-                defaultValue={t('Выберите категории статьи')}
-                testid="ArticleCreateSelectType"
-                // @ts-ignore
-                onChange={onTypeSelect}
-            />
-        </div>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <div
+                    className={classNames(cls.articleCreateSelectType, {}, [
+                        className,
+                    ])}
+                >
+                    <ListBox
+                        // @ts-ignore
+                        value={types}
+                        items={typeOptions}
+                        multiple
+                        label={t('Выберите категории статьи')}
+                        defaultValue={t('Выберите категории статьи')}
+                        testid="ArticleCreateSelectType"
+                        // @ts-ignore
+                        onChange={onTypeSelect}
+                    />
+                </div>
+            }
+            off={
+                <div
+                    className={classNames(cls.articleCreateSelectType, {}, [
+                        className,
+                    ])}
+                >
+                    <ListBoxDeprecated
+                        // @ts-ignore
+                        value={types}
+                        items={typeOptions}
+                        multiple
+                        label={t('Выберите категории статьи')}
+                        defaultValue={t('Выберите категории статьи')}
+                        testid="ArticleCreateSelectType"
+                        // @ts-ignore
+                        onChange={onTypeSelect}
+                    />
+                </div>
+            }
+        />
     );
 };

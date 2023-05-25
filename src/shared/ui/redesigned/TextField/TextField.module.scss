@@ -1,0 +1,23 @@
+.textField {
+    background-color: transparent;
+    border: 2px solid var(--icon-redesigned);
+    width: 100%;
+    color: transparent;
+    text-shadow: 0 0 0 var(--icon-redesigned);
+    border-radius: 16px;
+    padding: 4px;
+
+    &:focus {
+        outline: none;
+        border: 2px solid var(--accent-redesigned);
+    }
+}
+
+.readonly {
+    opacity: 0.7;
+
+    &:focus {
+        outline: none;
+        border: 1px solid var(--icon-redesigned);
+    }
+}

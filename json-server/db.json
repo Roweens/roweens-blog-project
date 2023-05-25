@@ -196,6 +196,17 @@
         "roles": [
           "ADMIN"
         ],
+        "features": {
+          "isArticleRatingEnabled": true,
+          "isProfileRatingEnabled": true,
+          "isAppRedesigned": true
+        },
+        "jsonSettings": {
+          "theme": "app_dark_theme",
+          "isFirstVisit": false,
+          "settingsPageHasBeenOpen": false,
+          "isArticlesPageWasVisited": true
+        },
         "avatar": "https://us.123rf.com/450wm/anatolir/anatolir2011/anatolir201105528/159470802-jurist-avatar-icon-flat-style.jpg?ver=6"
       }
     },
@@ -1140,7 +1151,7 @@
       ],
       "features": {
         "isArticleRatingEnabled": true,
-        "isProfileRatingEnabled": false,
+        "isProfileRatingEnabled": true,
         "isAppRedesigned": true
       },
       "jsonSettings": {

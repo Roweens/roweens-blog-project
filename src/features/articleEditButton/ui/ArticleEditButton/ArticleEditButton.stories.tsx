@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ArticleEditButton } from './ArticleEditButton';
 
 export default {
-    title: 'shared/ArticleEditButton',
+    title: 'features/ArticleEditButton',
     component: ArticleEditButton,
     argTypes: {
         backgroundColor: { control: 'color' },

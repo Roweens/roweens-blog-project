@@ -2,9 +2,12 @@ import { FC, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/redesigned/Stack';
-import { TextField } from '@/shared/ui/deprecated/TextField';
-import { Button } from '@/shared/ui/deprecated/button';
+import { TextField as TextFieldDeprecated } from '@/shared/ui/deprecated/TextField';
+import { TextField } from '@/shared/ui/redesigned/TextField';
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/button';
+import { Button } from '@/shared/ui/redesigned/button';
 import { ArticleBlockType, ArticleCodeBlock } from '@/entities/Article';
+import { ToggleFeatures } from '@/shared/features';
 
 interface ArticleEditCodeBlockFormProps {
     className?: string;
@@ -35,22 +38,46 @@ export const ArticleEditCodeBlockForm: FC<ArticleEditCodeBlockFormProps> = (
     }, [code, onSave, setReadOnly]);
 
     return (
-        <VStack className={classNames('', {}, [className])} gap="16">
-            <TextField
-                value={code}
-                onChange={onCodeChange}
-                cols={160}
-                rows={16}
-                readonly={readonly}
-                data-testid="ArticleEditCodeBlockForm.CodeField"
-            />
-            <Button
-                onClick={onSaveHandle}
-                disabled={readonly}
-                data-testid="ArticleEditCodeBlockForm.SaveButton"
-            >
-                {t('Сохранить')}
-            </Button>
-        </VStack>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <VStack className={classNames('', {}, [className])} gap="16">
+                    <TextField
+                        value={code}
+                        onChange={onCodeChange}
+                        cols={160}
+                        rows={16}
+                        readonly={readonly}
+                        data-testid="ArticleEditCodeBlockForm.CodeField"
+                    />
+                    <Button
+                        onClick={onSaveHandle}
+                        disabled={readonly}
+                        data-testid="ArticleEditCodeBlockForm.SaveButton"
+                    >
+                        {t('Сохранить')}
+                    </Button>
+                </VStack>
+            }
+            off={
+                <VStack className={classNames('', {}, [className])} gap="16">
+                    <TextFieldDeprecated
+                        value={code}
+                        onChange={onCodeChange}
+                        cols={160}
+                        rows={16}
+                        readonly={readonly}
+                        data-testid="ArticleEditCodeBlockForm.CodeField"
+                    />
+                    <ButtonDeprecated
+                        onClick={onSaveHandle}
+                        disabled={readonly}
+                        data-testid="ArticleEditCodeBlockForm.SaveButton"
+                    >
+                        {t('Сохранить')}
+                    </ButtonDeprecated>
+                </VStack>
+            }
+        />
     );
 };

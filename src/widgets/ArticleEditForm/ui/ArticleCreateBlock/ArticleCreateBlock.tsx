@@ -2,7 +2,11 @@ import { FC, useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleCreateBlock.module.scss';
-import { ListBox, ListBoxItem } from '@/shared/ui/deprecated/Popups';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
+import {
+    ListBox as ListBoxRedesigned,
+    ListBoxItem,
+} from '@/shared/ui/redesigned/Popups';
 import {
     ArticleBlock,
     ArticleBlockType,
@@ -14,7 +18,9 @@ import { VStack } from '@/shared/ui/redesigned/Stack';
 import { ArticleEditTextBlockForm } from '@/features/articleEditTextBlock';
 import { ArticleEditCodeBlockForm } from '@/features/articleEditCodeBlock';
 import { ArticleEditImageBlockForm } from '@/features/articleEditImageBlock';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
+import { toggleFeatures } from '@/shared/features';
 
 interface ArticleCreateBlockProps {
     className?: string;
@@ -78,10 +84,28 @@ export const ArticleCreateBlock: FC<ArticleCreateBlockProps> = (props) => {
         );
     }
 
+    const Skeleton = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => SkeletonRedesigned,
+        off: () => SkeletonDeprecated,
+    });
+
+    const ListBox = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => ListBoxRedesigned,
+        off: () => ListBoxDeprecated,
+    });
+
+    const mainClass = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => cls.articleCreateBlockRedesigned,
+        off: () => cls.articleCreateBlock,
+    });
+
     if (isLoading) {
         return (
             <VStack
-                className={classNames(cls.articleCreateBlock, {}, [className])}
+                className={classNames(mainClass, {}, [className])}
                 gap="8"
                 max
             >
@@ -95,7 +119,7 @@ export const ArticleCreateBlock: FC<ArticleCreateBlockProps> = (props) => {
 
     return (
         <VStack
-            className={classNames(cls.articleCreateBlock, {}, [className])}
+            className={classNames(mainClass, {}, [className])}
             gap="8"
             max
             data-testid="ArticleCreateBlock"

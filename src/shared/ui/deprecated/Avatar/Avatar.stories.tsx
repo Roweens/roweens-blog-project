@@ -3,7 +3,7 @@ import AvatarImg from '@/shared/assets/tests/test.jpg';
 import { Avatar } from './Avatar';
 
 export default {
-    title: 'shared/Avatar',
+    title: 'shared/deprecated/Avatar',
     component: Avatar,
 
     argTypes: {

@@ -1,9 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Icon } from './Icon';
-import TestIcon from '../../assets/icons/article-20-20.svg';
+import TestIcon from '@/shared/assets/icons/article.svg';
 
 export default {
-    title: 'shared/Icon',
+    title: 'shared/deprecated/Icon',
     component: Icon,
     argTypes: {
         backgroundColor: { control: 'color' },

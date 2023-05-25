@@ -109,6 +109,7 @@ export const Sidebar = memo((props: SidebarProps) => {
                     </VStack>
                     <Icon
                         Svg={ArrowIcon}
+                        interactive
                         onClick={onToggle}
                         data-testid="sidebar-toggle"
                         className={newCls.collapsedBtn}

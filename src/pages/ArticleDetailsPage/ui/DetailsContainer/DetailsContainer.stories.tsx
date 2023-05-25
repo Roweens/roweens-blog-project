@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { DetailsContainer } from './DetailsContainer';
 
 export default {
-    title: 'shared/DetailsContainer',
+    title: 'pages/ArticleDetailsPage/DetailsContainer',
     component: DetailsContainer,
     argTypes: {
         backgroundColor: { control: 'color' },

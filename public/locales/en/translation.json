@@ -26,11 +26,16 @@
   "Укажите валюту": "Your currency",
   "Укажите страну": "Your country",
   "Админ": "Admin",
+  "Настройки": "Settings",
   "Оцените статью": "Rate article",
   "Комментарии": "Comments",
   "Статьи не найдены": "Articles not found",
   "Айти": "IT",
   "Экономика": "Economics",
   "Все статьи": "All articles",
-  "Наука": "Science"
+  "Наука": "Science",
+  "Код": "Code",
+  "Текст": "Text",
+  "Картинка": "Image",
+  "Сохранить": "Save"
 }

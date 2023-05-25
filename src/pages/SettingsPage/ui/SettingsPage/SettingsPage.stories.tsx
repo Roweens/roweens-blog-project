@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { SettingsPage } from './SettingsPage';
 
 export default {
-    title: 'shared/SettingsPage',
+    title: 'pages/SettingsPage',
     component: SettingsPage,
     argTypes: {
         backgroundColor: { control: 'color' },

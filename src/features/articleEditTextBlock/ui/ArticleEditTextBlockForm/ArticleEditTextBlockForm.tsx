@@ -2,10 +2,14 @@ import { FC, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/redesigned/Stack';
-import { Input } from '@/shared/ui/deprecated/Input';
-import { TextField } from '@/shared/ui/deprecated/TextField';
-import { Button } from '@/shared/ui/deprecated/button';
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
+import { Input } from '@/shared/ui/redesigned/Input';
+import { TextField as TextFieldDeprecated } from '@/shared/ui/deprecated/TextField';
+import { TextField } from '@/shared/ui/redesigned/TextField';
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/button';
+import { Button } from '@/shared/ui/redesigned/button';
 import { ArticleBlockType, ArticleTextBlock } from '@/entities/Article';
+import { ToggleFeatures } from '@/shared/features';
 
 interface ArticleEditTextBlockFormProps {
     className?: string;
@@ -45,29 +49,60 @@ export const ArticleEditTextBlockForm: FC<ArticleEditTextBlockFormProps> = (
     }, [onSave, paragraphs, setReadOnly, title]);
 
     return (
-        <VStack className={classNames('', {}, [className])} gap="16">
-            <Input
-                value={title}
-                placeholder={t('Заголовок блока')}
-                onChange={onTitleChange}
-                readonly={readonly}
-                data-testid="ArticleEditTextBlockForm.Title"
-            />
-            <TextField
-                value={paragraphs}
-                onChange={onParagraphsChange}
-                cols={160}
-                rows={16}
-                readonly={readonly}
-                data-testid="ArticleEditTextBlockForm.Paragraphs"
-            />
-            <Button
-                onClick={onSaveHandle}
-                disabled={readonly}
-                data-testid="ArticleEditTextBlockForm.SaveButton"
-            >
-                {t('Сохранить')}
-            </Button>
-        </VStack>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <VStack className={classNames('', {}, [className])} gap="16">
+                    <Input
+                        value={title}
+                        label={t('Заголовок блока')}
+                        onChange={onTitleChange}
+                        readonly={readonly}
+                        data-testid="ArticleEditTextBlockForm.Title"
+                    />
+                    <TextField
+                        value={paragraphs}
+                        onChange={onParagraphsChange}
+                        cols={160}
+                        rows={16}
+                        readonly={readonly}
+                        data-testid="ArticleEditTextBlockForm.Paragraphs"
+                    />
+                    <Button
+                        onClick={onSaveHandle}
+                        disabled={readonly}
+                        data-testid="ArticleEditTextBlockForm.SaveButton"
+                    >
+                        {t('Сохранить')}
+                    </Button>
+                </VStack>
+            }
+            off={
+                <VStack className={classNames('', {}, [className])} gap="16">
+                    <InputDeprecated
+                        value={title}
+                        placeholder={t('Заголовок блока')}
+                        onChange={onTitleChange}
+                        readonly={readonly}
+                        data-testid="ArticleEditTextBlockForm.Title"
+                    />
+                    <TextFieldDeprecated
+                        value={paragraphs}
+                        onChange={onParagraphsChange}
+                        cols={160}
+                        rows={16}
+                        readonly={readonly}
+                        data-testid="ArticleEditTextBlockForm.Paragraphs"
+                    />
+                    <ButtonDeprecated
+                        onClick={onSaveHandle}
+                        disabled={readonly}
+                        data-testid="ArticleEditTextBlockForm.SaveButton"
+                    >
+                        {t('Сохранить')}
+                    </ButtonDeprecated>
+                </VStack>
+            }
+        />
     );
 };

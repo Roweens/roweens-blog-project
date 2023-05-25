@@ -14,6 +14,7 @@ export const ScrollToolbar: FC<ScrollToolbarProps> = (props) => {
     return (
         <VStack
             max
+            fullHeight
             justify="center"
             align="center"
             className={classNames(cls.scrollToolbar, {}, [className])}

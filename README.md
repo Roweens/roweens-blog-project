@@ -115,6 +115,16 @@
 
 ---
 
+## Feature Flags
+
+В проекте реализован механизм нереактивных Feature флагов, которые хранятся на сервере отдельно для каждого пользователя.
+Флаги могут быть использованы для тестирования новых фичей (в данном проекте используются для смены нового и старого вариантов интерфейса)
+Для удобной работы с фичами реализованы хелперы [ToggleFeatures](/src/shared/features/components/ToggleFeatures/ToggleFeatures.tsx) и [toggleFeatures](/src/shared/features/lib/toggleFeatures.ts), позволяющие удобно отрисовывать разные компоненты, менять содержимое переменной и.т.д. в зависимости от значения в фича флаге.
+Написан скрипт [remove-features](/scripts/remove-feature.ts) для удобного раскатывания фичей в проекте.
+Скрипт удаляет лишний код, связанный с feature флагами (ToggleFeatures и toggleFeatures), позволяя не удалять его руками при выкатывании фичи в продакшн.
+
+---
+
 ## Конфигурация проекта
 
 Для конфигурации и сборки проекта используется Webpack.
@@ -140,7 +150,7 @@
 
 Конфигурация github actions находится в /.github/workflows.
 В ci прогоняются все виды тестов, сборка проекта и сторибука, линтинг.
-Для ускорения линтинга при коммите используется **lint-staged**.
+Для ускорения линтинга при коммите используется **[lint-staged](https://www.npmjs.com/package/lint-staged)**.
 
 ---
 
@@ -171,6 +181,7 @@
 ## Фичи (features)
 
 -   [addCommentForm](/src/features/addCommentForm/README.md)
+-   [articleEditButton](/src/features/articleEditButton/README.md)
 -   [articleEditCodeBlock](/src/features/articleEditCodeBlock/README.md)
 -   [articleEditImageBlock](/src/features/articleEditImageBlock/README.md)
 -   [articleEditTextBlock](/src/features/articleEditTextBlock/README.md)
@@ -187,3 +198,4 @@
 -   [notificationButton](/src/features/notificationButton/README.md)
 -   [profileRating](/src/features/profileRating/README.md)
 -   [ThemeSwitcher](/src/features/ThemeSwitcher/README.md)
+-   [uiDesignSwitcher](/src/features/uiDesignSwitcher/README.md)

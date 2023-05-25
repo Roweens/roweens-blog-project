@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Code } from './Code';
 
 export default {
-    title: 'shared/Code',
+    title: 'shared/redesigned/Code',
     component: Code,
     argTypes: {
         backgroundColor: { control: 'color' },

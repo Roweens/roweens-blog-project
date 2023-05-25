@@ -12,7 +12,7 @@ interface SettingsPageProps {
 
 export const SettingsPage: FC<SettingsPageProps> = (props) => {
     const { className } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('settings');
 
     return (
         <Page className={classNames('', {}, [className])}>
