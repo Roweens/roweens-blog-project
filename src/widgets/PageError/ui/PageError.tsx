@@ -25,7 +25,11 @@ export const PageError = memo(() => {
                         text={t('Произошла непредвиденная ошибка')}
                         variant="accent"
                     />
-                    <Button onClick={reloadPage} variant="filled" color="error">
+                    <Button
+                        onClick={reloadPage}
+                        variant="filled"
+                        color="normal"
+                    >
                         {t('Обновить страницу')}
                     </Button>
                 </div>

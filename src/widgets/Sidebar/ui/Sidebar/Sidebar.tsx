@@ -2,7 +2,7 @@ import { memo, useMemo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonSize, ThemeButton } from '@/shared/ui/deprecated/button';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
-import { useSidebarItems } from '../../model/selectors/selectSidebarItems';
+import { useSidebarItems } from '../../model/selectors/useSidebarItems';
 import cls from './Sidebar.module.scss';
 import newCls from './Sidebar.new.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';

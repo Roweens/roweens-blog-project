@@ -1,3 +1,5 @@
 {
-  "О сайте": "About website"
+  "О сайте": "About website",
+  "Данный проект был разработан для портфолио Roweens на github. Первостепенной целями при разработке являлись: ознакомление с новыми подходами и методиками для написания кода, изучение библиотек и архитектуры FSD, различных видов тестирования": "This project was developed was Roweens portfolio on Github. The primary goals in the development were: familiarization with new approaches and techniques for writing code, studying FSD, various types of testing",
+  "Ознакомиться с подробной документацией и исходным кодом": "View detailed documentation and source code"
 }

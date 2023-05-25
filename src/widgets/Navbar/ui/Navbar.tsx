@@ -11,13 +11,17 @@ import {
     Button as ButtonDeprecated,
     ThemeButton,
 } from '@/shared/ui/deprecated/button';
-import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import cls from './Navbar.module.scss';
 import newCls from './Navbar.new.module.scss';
 import { getRouteArticleCreate } from '@/shared/const/router';
 import { ToggleFeatures, toggleFeatures } from '@/shared/features';
 import { Button } from '@/shared/ui/redesigned/button';
+import { Card } from '@/shared/ui/redesigned/Card';
+import LoginIcon from '@/shared/assets/icons/login.svg';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 
 interface NavbarProps {
     className?: string;
@@ -28,7 +32,7 @@ const AuthNavbarDeprecated = ({ className }: NavbarProps) => {
 
     return (
         <header className={classNames(cls.Navbar, {}, [className])}>
-            <Text
+            <TextDeprecated
                 className={cls.appName}
                 title={t('Cognus app')}
                 theme={TextTheme.INVERTED}
@@ -64,8 +68,8 @@ export const Navbar = memo((props: NavbarProps) => {
 
     const mainClass = toggleFeatures({
         name: 'isAppRedesigned',
-        on: () => cls.NavbarRedesigned,
-        off: () => cls.Navbar
+        on: () => newCls.NavbarRedesigned,
+        off: () => cls.Navbar,
     });
 
     if (authData) {
@@ -92,14 +96,24 @@ export const Navbar = memo((props: NavbarProps) => {
             <ToggleFeatures
                 feature="isAppRedesigned"
                 on={
-                    <Button
-                        className={cls.links}
-                        variant="clear"
-                        onClick={onOpenModal}
-                        data-testid="Navbar.loginBtn"
-                    >
-                        {t('Войти')}
-                    </Button>
+                    <Card padding="16">
+                        <Button
+                            className={cls.links}
+                            variant="clear"
+                            onClick={onOpenModal}
+                            data-testid="Navbar.loginBtn"
+                            addonLeft={
+                                <Icon
+                                    Svg={LoginIcon}
+                                    width={20}
+                                    height={20}
+                                    className={newCls.icon}
+                                />
+                            }
+                        >
+                            <Text bold text={t('Войти')} />
+                        </Button>
+                    </Card>
                 }
                 off={
                     <ButtonDeprecated
