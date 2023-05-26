@@ -1,7 +1,6 @@
 import { FC, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './ArticleCreateSelectType.module.scss';
 import { TabItem } from '@/shared/ui/deprecated/Tabs';
 import { ArticleType } from '@/entities/Article';
 import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
@@ -67,7 +66,7 @@ export const ArticleCreateSelectType: FC<ArticleCreateSelectTypeProps> = (
             }
             off={
                 <div
-                    className={classNames(cls.articleCreateSelectType, {}, [
+                    className={classNames('', {}, [
                         className,
                     ])}
                 >

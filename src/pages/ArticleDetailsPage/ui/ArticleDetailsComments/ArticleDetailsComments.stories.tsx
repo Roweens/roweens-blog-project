@@ -4,6 +4,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
 
 export default {
     title: 'pages/ArticleDetailsPage/ArticleDetailsComments',
@@ -11,6 +12,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [RouterDecorator()],
 } as ComponentMeta<typeof ArticleDetailsComments>;
 
 const Template: ComponentStory<typeof ArticleDetailsComments> = (args) => (

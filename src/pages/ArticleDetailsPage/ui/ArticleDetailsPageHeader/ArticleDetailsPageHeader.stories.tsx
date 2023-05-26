@@ -3,6 +3,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { Article, ArticleBlockType, ArticleType } from '@/entities/Article';
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
 import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
 
 export default {
     title: 'pages/ArticleDetailsPage/ArticleDetailsPageHeader',
@@ -10,6 +11,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [RouterDecorator()],
 } as ComponentMeta<typeof ArticleDetailsPageHeader>;
 
 const Template: ComponentStory<typeof ArticleDetailsPageHeader> = (args) => (

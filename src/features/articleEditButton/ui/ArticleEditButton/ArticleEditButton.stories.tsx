@@ -3,6 +3,7 @@ import { ArticleEditButton } from './ArticleEditButton';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
 
 export default {
     title: 'features/ArticleEditButton',
@@ -10,6 +11,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [RouterDecorator()],
 } as ComponentMeta<typeof ArticleEditButton>;
 
 const Template: ComponentStory<typeof ArticleEditButton> = (args) => (

@@ -3,6 +3,7 @@ import { CommentList } from './CommentList';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
 
 export default {
     title: 'entities/Comment/CommentList',
@@ -10,6 +11,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [RouterDecorator()],
 } as ComponentMeta<typeof CommentList>;
 
 const Template: ComponentStory<typeof CommentList> = (args) => (

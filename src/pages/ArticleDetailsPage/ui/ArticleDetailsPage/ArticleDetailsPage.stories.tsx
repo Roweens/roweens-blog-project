@@ -129,23 +129,51 @@ const Template: ComponentStory<typeof ArticleDetailsPage> = () => (
     <ArticleDetailsPage />
 );
 
+const defaultParams = [
+    {
+        url: `${__API__}/articles?_limit=3&_expand=user`,
+        method: 'GET',
+        status: 200,
+        response: [
+            { ...article, id: '1' },
+            { ...article, id: '2' },
+            { ...article, id: '3' },
+        ],
+    },
+    {
+        url: `${__API__}/article-ratings?userId=1&articleId=1`,
+        method: 'GET',
+        status: 200,
+        response: [
+            {
+                id: 1,
+                rating: 4,
+                feedback: 'Nice article',
+            },
+        ],
+    },
+];
+
 export const Light = Template.bind({});
 Light.args = {};
 Light.decorators = [StoreDecorator(defaultState)];
-Light.parameters = [];
+Light.parameters = defaultParams;
 
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(defaultState)];
+Dark.parameters = defaultParams;
 
 export const Red = Template.bind({});
 Red.args = {};
 Red.decorators = [ThemeDecorator(Theme.RED), StoreDecorator(defaultState)];
+Red.parameters = defaultParams;
 
 export const LightRedesigned = Template.bind({});
 LightRedesigned.args = {};
 LightRedesigned.decorators = [NewDesignDecorator, StoreDecorator(defaultState)];
 LightRedesigned.parameters = [];
+LightRedesigned.parameters = defaultParams;
 
 export const DarkRedesigned = Template.bind({});
 DarkRedesigned.args = {};
@@ -154,6 +182,7 @@ DarkRedesigned.decorators = [
     ThemeDecorator(Theme.DARK),
     StoreDecorator(defaultState),
 ];
+DarkRedesigned.parameters = defaultParams;
 
 export const RedRedesigned = Template.bind({});
 RedRedesigned.args = {};
@@ -162,3 +191,4 @@ RedRedesigned.decorators = [
     ThemeDecorator(Theme.RED),
     StoreDecorator(defaultState),
 ];
+RedRedesigned.parameters = defaultParams;
