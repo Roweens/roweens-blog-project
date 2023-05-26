@@ -4,7 +4,8 @@ import { Drawer } from './Drawer';
 import { Button } from '../button';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
-import { Text } from '../Text';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
+import { HStack } from '../Stack';
 
 export default {
     title: 'shared/redesigned/Drawer',
@@ -15,41 +16,24 @@ export default {
 } as ComponentMeta<typeof Drawer>;
 
 const Template: ComponentStory<typeof Drawer> = (args) => <Drawer {...args} />;
+const defaultArgs = {
+    isOpen: true,
+    onClose: action('onClose action'),
+    children: (
+        <HStack max justify="center">
+            <Button>Swipe me down</Button>
+        </HStack>
+    ),
+};
 
 export const Normal = Template.bind({});
-Normal.args = {
-    isOpen: true,
-    onClose: action('onClose action'),
-    children: (
-        <>
-            <Button>Drawer button</Button>
-            <Text title="Drawer text" />
-        </>
-    ),
-};
+Normal.args = defaultArgs;
+Normal.decorators = [NewDesignDecorator];
 
 export const Dark = Template.bind({});
-Dark.args = {
-    isOpen: true,
-    onClose: action('onClose action'),
-    children: (
-        <>
-            <Button>Drawer button</Button>
-            <Text title="Drawer text" />
-        </>
-    ),
-};
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+Dark.args = defaultArgs;
+Dark.decorators = [NewDesignDecorator, ThemeDecorator(Theme.DARK)];
 
 export const Red = Template.bind({});
-Red.args = {
-    isOpen: true,
-    onClose: action('onClose action'),
-    children: (
-        <>
-            <Button>Drawer button</Button>
-            <Text title="Drawer text" />
-        </>
-    ),
-};
-Red.decorators = [ThemeDecorator(Theme.RED)];
+Red.args = defaultArgs;
+Red.decorators = [NewDesignDecorator, ThemeDecorator(Theme.RED)];

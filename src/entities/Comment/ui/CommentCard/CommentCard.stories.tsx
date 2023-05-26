@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { CommentCard } from './CommentCard';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
-import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'entities/Comment/CommentCard',
@@ -30,47 +30,33 @@ const normalArgs = {
 export const Normal = Template.bind({});
 Normal.args = normalArgs;
 
-export const NormalRedesigned = Template.bind({});
-NormalRedesigned.args = normalArgs;
-NormalRedesigned.decorators = [
-    FeatureFlagsDecorator({ isAppRedesigned: true }),
-];
-
 export const Dark = Template.bind({});
-Dark.args = {
-    comment: {
-        id: '1',
-        text: 'some text',
-        user: {
-            id: 1,
-            username: 'User',
-        },
-    },
-};
+Dark.args = normalArgs;
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Red = Template.bind({});
-Red.args = {
-    comment: {
-        id: '1',
-        text: 'some text',
-        user: {
-            id: 1,
-            username: 'User',
-        },
-    },
-};
+Red.args = normalArgs;
 Red.decorators = [ThemeDecorator(Theme.RED)];
 
 export const Loading = Template.bind({});
 Loading.args = {
     isLoading: true,
-    comment: {
-        id: '1',
-        text: 'some text',
-        user: {
-            id: 1,
-            username: 'User',
-        },
-    },
 };
+
+export const NormalRedesigned = Template.bind({});
+NormalRedesigned.args = normalArgs;
+NormalRedesigned.decorators = [NewDesignDecorator];
+
+export const DarkRedesigned = Template.bind({});
+DarkRedesigned.args = normalArgs;
+DarkRedesigned.decorators = [NewDesignDecorator, ThemeDecorator(Theme.DARK)];
+
+export const RedRedesigned = Template.bind({});
+RedRedesigned.args = normalArgs;
+RedRedesigned.decorators = [NewDesignDecorator, ThemeDecorator(Theme.RED)];
+
+export const LoadingRedesigned = Template.bind({});
+LoadingRedesigned.args = {
+    isLoading: true,
+};
+LoadingRedesigned.decorators = [NewDesignDecorator];

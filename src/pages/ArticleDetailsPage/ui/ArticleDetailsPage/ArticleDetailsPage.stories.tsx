@@ -1,10 +1,12 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { withRouter } from 'storybook-addon-react-router-v6';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import ArticleDetailsPage from './ArticleDetailsPage';
 import { Article, ArticleBlockType, ArticleType } from '@/entities/Article';
 import { Theme } from '@/shared/const/theme';
+import { getRouteArticleDetails } from '@/shared/const/router';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
@@ -12,13 +14,12 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [withRouter],
-    parameters: {
-        reactRouter: {
-            routePath: '/profile/:id',
-            routeParams: { id: '1' },
-        },
-    },
+    decorators: [
+        RouterDecorator(
+            [getRouteArticleDetails(1)],
+            getRouteArticleDetails(':id'),
+        ),
+    ],
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
 const article: Article = {
@@ -96,24 +97,68 @@ const article: Article = {
     ],
 };
 
+const defaultState = {
+    articleDetails: { data: article, error: undefined, isLoading: false },
+    articleDetailsPage: {
+        comments: {
+            isLoading: false,
+            error: undefined,
+            ids: [1, 2, 3],
+            entities: {
+                1: {
+                    id: '1',
+                    text: 'Comment text',
+                    user: { id: 1, username: 'Admin' },
+                },
+                2: {
+                    id: '3',
+                    text: 'Comment text',
+                    user: { id: 1, username: 'Admin' },
+                },
+                3: {
+                    id: '3',
+                    text: 'Comment text',
+                    user: { id: 1, username: 'Admin' },
+                },
+            },
+        },
+    },
+};
+
 const Template: ComponentStory<typeof ArticleDetailsPage> = () => (
     <ArticleDetailsPage />
 );
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [
-    StoreDecorator({
-        articleDetails: { data: article, error: undefined, isLoading: false },
-    }),
-];
+Light.decorators = [StoreDecorator(defaultState)];
 Light.parameters = [];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(defaultState)];
+
+export const Red = Template.bind({});
+Red.args = {};
+Red.decorators = [ThemeDecorator(Theme.RED), StoreDecorator(defaultState)];
+
+export const LightRedesigned = Template.bind({});
+LightRedesigned.args = {};
+LightRedesigned.decorators = [NewDesignDecorator, StoreDecorator(defaultState)];
+LightRedesigned.parameters = [];
+
+export const DarkRedesigned = Template.bind({});
+DarkRedesigned.args = {};
+DarkRedesigned.decorators = [
+    NewDesignDecorator,
     ThemeDecorator(Theme.DARK),
-    StoreDecorator({
-        articleDetails: { data: article, error: undefined, isLoading: false },
-    }),
+    StoreDecorator(defaultState),
+];
+
+export const RedRedesigned = Template.bind({});
+RedRedesigned.args = {};
+RedRedesigned.decorators = [
+    NewDesignDecorator,
+    ThemeDecorator(Theme.RED),
+    StoreDecorator(defaultState),
 ];

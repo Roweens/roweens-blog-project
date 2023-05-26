@@ -2,6 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Article, ArticleBlockType, ArticleType } from '@/entities/Article';
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'pages/ArticleDetailsPage/ArticleDetailsPageHeader',
@@ -104,6 +105,30 @@ CanEdit.decorators = [
 export const NoEdit = Template.bind({});
 NoEdit.args = {};
 NoEdit.decorators = [
+    StoreDecorator({
+        user: { authData: { id: 2, username: 'Cognus' } },
+        articleDetails: {
+            data: article,
+        },
+    }),
+];
+
+export const CanEditRedesigned = Template.bind({});
+CanEditRedesigned.args = {};
+CanEditRedesigned.decorators = [
+    NewDesignDecorator,
+    StoreDecorator({
+        user: { authData: { id: 1, username: 'Cognus' } },
+        articleDetails: {
+            data: article,
+        },
+    }),
+];
+
+export const NoEditRedesigned = Template.bind({});
+NoEditRedesigned.args = {};
+NoEditRedesigned.decorators = [
+    NewDesignDecorator,
     StoreDecorator({
         user: { authData: { id: 2, username: 'Cognus' } },
         articleDetails: {

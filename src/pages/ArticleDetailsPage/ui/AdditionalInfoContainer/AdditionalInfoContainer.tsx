@@ -10,14 +10,14 @@ export const AdditionalInfoContainer = () => {
 
     if (!article) {
         return (
-            <Card padding="8" border="round">
+            <Card padding="8" border="intermediate">
                 <Skeleton height={208} width={264} border="16px" />
             </Card>
         );
     }
 
     return (
-        <Card className={cls.card} padding="24" border="round">
+        <Card className={cls.card} padding="24" border="intermediate">
             <ArticleAdditionalInfo
                 author={article.user}
                 createdAt={article.createdAt}

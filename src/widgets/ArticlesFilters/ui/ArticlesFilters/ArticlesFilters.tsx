@@ -40,6 +40,7 @@ export const ArticlesFilters: FC<ArticlesFiltersProps> = (props) => {
 
     return (
         <Card
+            border="intermediate"
             className={classNames(cls.articlesFilters, {}, [className])}
             padding="24"
         >

@@ -6,9 +6,9 @@ import { useMainPageItems } from '../../model/selectors/useMainPageItems';
 import { LoginModal } from '@/features/AuthByUsername';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Icon } from '@/shared/ui/redesigned/Icon';
-import { Text } from '@/shared/ui/redesigned/Text';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { selectUserAuthData } from '@/entities/User';
+import { Button } from '@/shared/ui/redesigned/button';
 
 interface MainPageItemsProps {
     className?: string;
@@ -59,7 +59,15 @@ export const MainPageItems: FC<MainPageItemsProps> = (props) => {
                                     item.authOnly,
                                 )}
                             />
-                            <Text text={item.text} align="center" />
+                            <Button
+                                variant="clear"
+                                onClick={onItemClick(
+                                    item.onClick,
+                                    item.authOnly,
+                                )}
+                            >
+                                {item.text}
+                            </Button>
                         </VStack>
                     </Card>
                 );

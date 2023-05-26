@@ -26,3 +26,10 @@ Small.args = {
     src: AvatarImg,
     alt: 'test image',
 };
+
+export const ErrorFallback = Template.bind({});
+ErrorFallback.args = {
+    size: 50,
+    src: '',
+    alt: 'test image',
+};

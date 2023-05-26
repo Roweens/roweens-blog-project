@@ -55,6 +55,7 @@ export const ArticleEditImageBlockForm: FC<ArticleEditImageBlockFormProps> = (
                         onChange={onTitleChange}
                         readonly={readonly}
                         data-testid="ArticleEditImageBlockForm.Title"
+                        fullWidth
                     />
                     <Input
                         value={imageUrl}
@@ -62,6 +63,7 @@ export const ArticleEditImageBlockForm: FC<ArticleEditImageBlockFormProps> = (
                         onChange={onImageUrlChange}
                         readonly={readonly}
                         data-testid="ArticleEditImageBlockForm.ImgLink"
+                        fullWidth
                     />
                     <Button
                         onClick={onSaveHandle}

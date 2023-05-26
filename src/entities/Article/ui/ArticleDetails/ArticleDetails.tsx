@@ -127,7 +127,6 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     const dispatch = useAppDispatch();
     const isLoading = useSelector(selectArticleDetailsIsLoading);
     const error = useSelector(selectArticleDetailsError);
-    const article = useSelector(selectArticleDetailsData);
 
     useInitialEffect(() => {
         dispatch(fetchArticleById(id));

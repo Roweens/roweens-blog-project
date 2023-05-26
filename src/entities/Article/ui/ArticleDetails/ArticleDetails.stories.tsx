@@ -8,6 +8,7 @@ import {
 } from '../../model/consts/articleConsts';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'entities/Article/ArticleDetails',
@@ -148,5 +149,67 @@ export const Error: Story = {
                 error: 'some error',
             },
         }),
+    ],
+};
+
+export const NormalRedesigned: Story = {
+    args: {},
+    decorators: [
+        StoreDecorator({
+            articleDetails: {
+                data: article,
+            },
+        }),
+        NewDesignDecorator,
+    ],
+};
+
+export const DarkRedesigned: Story = {
+    args: {},
+    decorators: [
+        StoreDecorator({
+            articleDetails: {
+                data: article,
+            },
+        }),
+        NewDesignDecorator,
+        ThemeDecorator(Theme.DARK),
+    ],
+};
+
+export const RedRedesigned: Story = {
+    args: {},
+    decorators: [
+        StoreDecorator({
+            articleDetails: {
+                data: article,
+            },
+        }),
+        NewDesignDecorator,
+        ThemeDecorator(Theme.RED),
+    ],
+};
+
+export const LoadingRedesigned: Story = {
+    args: {},
+    decorators: [
+        StoreDecorator({
+            articleDetails: {
+                isLoading: true,
+            },
+        }),
+        NewDesignDecorator,
+    ],
+};
+
+export const ErrorRedesigned: Story = {
+    args: {},
+    decorators: [
+        StoreDecorator({
+            articleDetails: {
+                error: 'some error',
+            },
+        }),
+        NewDesignDecorator,
     ],
 };

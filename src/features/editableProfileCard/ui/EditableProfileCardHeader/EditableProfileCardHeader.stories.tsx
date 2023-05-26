@@ -6,6 +6,7 @@ import { Countries } from '@/entities/Country';
 import { Currencies } from '@/entities/Currency';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'features/editableProfileHeader',
@@ -30,60 +31,74 @@ const Template: ComponentStory<typeof EditableProfileCardHeader> = (args) => (
     <EditableProfileCardHeader {...args} />
 );
 
+const readOnlyArgs = {
+    editableProfileCard: {
+        data: profile,
+        error: undefined,
+        readonly: true,
+        form: profile,
+        isLoading: false,
+    },
+};
+
+const editableArgs = {
+    editableProfileCard: {
+        data: profile,
+        error: undefined,
+        readonly: false,
+        form: profile,
+        isLoading: false,
+    },
+};
+
 export const ReadonlyLight = Template.bind({});
 ReadonlyLight.args = {};
-ReadonlyLight.decorators = [
-    StoreDecorator({
-        editableProfileCard: {
-            data: profile,
-            error: undefined,
-            readonly: true,
-            form: profile,
-            isLoading: false,
-        },
-    }),
-];
+ReadonlyLight.decorators = [StoreDecorator(readOnlyArgs)];
 
 export const ReadonlyDark = Template.bind({});
 ReadonlyDark.args = {};
 ReadonlyDark.decorators = [
-    StoreDecorator({
-        editableProfileCard: {
-            data: profile,
-            error: undefined,
-            readonly: true,
-            form: profile,
-            isLoading: false,
-        },
-    }),
+    StoreDecorator(readOnlyArgs),
     ThemeDecorator(Theme.DARK),
 ];
 
 export const EditableLight = Template.bind({});
 EditableLight.args = {};
-EditableLight.decorators = [
-    StoreDecorator({
-        editableProfileCard: {
-            data: profile,
-            error: undefined,
-            readonly: false,
-            form: profile,
-            isLoading: false,
-        },
-    }),
-];
+EditableLight.decorators = [StoreDecorator(editableArgs)];
 
 export const EditableDark = Template.bind({});
 EditableDark.args = {};
 EditableDark.decorators = [
-    StoreDecorator({
-        editableProfileCard: {
-            data: profile,
-            error: undefined,
-            readonly: false,
-            form: profile,
-            isLoading: false,
-        },
-    }),
+    StoreDecorator(editableArgs),
+    ThemeDecorator(Theme.DARK),
+];
+
+export const ReadonlyLightRedesigned = Template.bind({});
+ReadonlyLightRedesigned.args = {};
+ReadonlyLightRedesigned.decorators = [
+    NewDesignDecorator,
+    StoreDecorator(readOnlyArgs),
+];
+
+export const ReadonlyDarkRedesigned = Template.bind({});
+ReadonlyDarkRedesigned.args = {};
+ReadonlyDarkRedesigned.decorators = [
+    NewDesignDecorator,
+    StoreDecorator(readOnlyArgs),
+    ThemeDecorator(Theme.DARK),
+];
+
+export const EditableLightRedesigned = Template.bind({});
+EditableLightRedesigned.args = {};
+EditableLightRedesigned.decorators = [
+    NewDesignDecorator,
+    StoreDecorator(editableArgs),
+];
+
+export const EditableDarkRedesigned = Template.bind({});
+EditableDarkRedesigned.args = {};
+EditableDarkRedesigned.decorators = [
+    NewDesignDecorator,
+    StoreDecorator(editableArgs),
     ThemeDecorator(Theme.DARK),
 ];

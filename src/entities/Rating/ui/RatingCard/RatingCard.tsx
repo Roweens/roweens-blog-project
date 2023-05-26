@@ -201,7 +201,7 @@ export const RatingCard: FC<RatingCardProps> = (props) => {
                     fullWidth
                     data-testid="RatingCard"
                     padding="24"
-                    border="round"
+                    border="intermediate"
                 >
                     {content}
                 </Card>

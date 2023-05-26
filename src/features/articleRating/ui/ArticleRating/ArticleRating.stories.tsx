@@ -4,6 +4,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { Rating } from '@/entities/Rating';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'features/ArticleRating',
@@ -19,6 +20,17 @@ const rating: Rating = {
     feedback: 'Nice article',
 };
 
+const defaultArgs = {
+    mockData: [
+        {
+            url: `${__API__}/article-ratings?userId=1&articleId=1`,
+            method: 'GET',
+            status: 200,
+            response: [rating],
+        },
+    ],
+};
+
 const Template: ComponentStory<typeof ArticleRating> = (args) => (
     <ArticleRating {...args} />
 );
@@ -30,16 +42,7 @@ Normal.args = {
 Normal.decorators = [
     StoreDecorator({ user: { authData: { id: 1, username: 'ADMIN' } } }),
 ];
-Normal.parameters = {
-    mockData: [
-        {
-            url: `${__API__}/article-ratings?userId=1&articleId=1`,
-            method: 'GET',
-            status: 200,
-            response: [rating],
-        },
-    ],
-};
+Normal.parameters = defaultArgs;
 
 export const WithoutRate = Template.bind({});
 WithoutRate.args = {
@@ -67,16 +70,7 @@ Dark.decorators = [
     StoreDecorator({ user: { authData: { id: 1, username: 'ADMIN' } } }),
     ThemeDecorator(Theme.DARK),
 ];
-Dark.parameters = {
-    mockData: [
-        {
-            url: `${__API__}/article-ratings?userId=1&articleId=1`,
-            method: 'GET',
-            status: 200,
-            response: [rating],
-        },
-    ],
-};
+Dark.parameters = defaultArgs;
 
 export const Red = Template.bind({});
 Red.args = {
@@ -86,13 +80,36 @@ Red.decorators = [
     StoreDecorator({ user: { authData: { id: 1, username: 'ADMIN' } } }),
     ThemeDecorator(Theme.RED),
 ];
-Red.parameters = {
-    mockData: [
-        {
-            url: `${__API__}/article-ratings?userId=1&articleId=1`,
-            method: 'GET',
-            status: 200,
-            response: [rating],
-        },
-    ],
+Red.parameters = defaultArgs;
+
+export const NormalRedesigned = Template.bind({});
+NormalRedesigned.args = {
+    articleId: '1',
 };
+NormalRedesigned.decorators = [
+    NewDesignDecorator,
+    StoreDecorator({ user: { authData: { id: 1, username: 'ADMIN' } } }),
+];
+NormalRedesigned.parameters = defaultArgs;
+
+export const DarkRedesigned = Template.bind({});
+DarkRedesigned.args = {
+    articleId: '1',
+};
+DarkRedesigned.decorators = [
+    NewDesignDecorator,
+    StoreDecorator({ user: { authData: { id: 1, username: 'ADMIN' } } }),
+    ThemeDecorator(Theme.DARK),
+];
+DarkRedesigned.parameters = defaultArgs;
+
+export const RedRedesigned = Template.bind({});
+RedRedesigned.args = {
+    articleId: '1',
+};
+RedRedesigned.decorators = [
+    NewDesignDecorator,
+    StoreDecorator({ user: { authData: { id: 1, username: 'ADMIN' } } }),
+    ThemeDecorator(Theme.RED),
+];
+RedRedesigned.parameters = defaultArgs;

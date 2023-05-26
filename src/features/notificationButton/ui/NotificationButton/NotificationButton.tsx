@@ -42,6 +42,8 @@ export const NotificationButton: FC<NotificationButtonProps> = (props) => {
                     interactive
                     onClick={onOpenHandle}
                     data-testid="NotificationButton.trigger"
+                    width={40}
+                    height={40}
                 />
             }
             off={

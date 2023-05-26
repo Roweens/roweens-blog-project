@@ -17,7 +17,7 @@ export const DetailsContainer: FC<DetailsContainerProps> = (props) => {
         <Card
             className={classNames('', {}, [className])}
             padding="24"
-            border="round"
+            border="intermediate"
             fullWidth
             fullHeight
         >

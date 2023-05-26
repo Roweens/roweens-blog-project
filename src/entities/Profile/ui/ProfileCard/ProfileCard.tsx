@@ -9,6 +9,11 @@ import newCls from './ProfileCard.new.module.scss';
 import { ToggleFeatures } from '@/shared/features';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { Text } from '@/shared/ui/redesigned/Text';
+import {
+    TextAlign,
+    Text as TextDeprecated,
+    TextTheme,
+} from '@/shared/ui/deprecated/Text';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import {
@@ -112,7 +117,23 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
             <ToggleFeatures
                 feature="isAppRedesigned"
                 on={<ProfileCardRedesignedError />}
-                off={<ProfileCardDeprecated />}
+                off={
+                    <HStack
+                        className={classNames(
+                            newCls.ProfileCard,
+                            { [newCls.loading]: true },
+                            [newCls.error],
+                        )}
+                        justify="center"
+                    >
+                        <TextDeprecated
+                            title={t('Произошла неожиданная ошибка')}
+                            text={t('Попробуйте обновить страницу')}
+                            theme={TextTheme.ERROR}
+                            align={TextAlign.CENTER}
+                        />
+                    </HStack>
+                }
             />
         );
     }
@@ -145,6 +166,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                                 onChange={onChangeFirstname}
                                 readonly={readonly}
                                 data-testid="ProfileCard.firstname"
+                                fullWidth
                             />
                             <Input
                                 value={data?.lastname}
@@ -152,6 +174,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                                 onChange={onChangeLastname}
                                 readonly={readonly}
                                 data-testid="ProfileCard.lastname"
+                                fullWidth
                             />
                             <Input
                                 type="number"
@@ -160,6 +183,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                                 onChange={onChangeAge}
                                 readonly={readonly}
                                 data-testid="ProfileCard.age"
+                                fullWidth
                             />
                             <Input
                                 value={data?.city}
@@ -167,6 +191,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                                 onChange={onChangeCity}
                                 readonly={readonly}
                                 data-testid="ProfileCard.city"
+                                fullWidth
                             />
                         </VStack>
                         <VStack gap="16" max>
@@ -177,6 +202,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                                 onChange={onChangeUsername}
                                 readonly={readonly}
                                 data-testid="ProfileCard.username"
+                                fullWidth
                             />
                             <Input
                                 value={data?.avatar}
@@ -184,6 +210,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                                 onChange={onChangeAvatar}
                                 readonly={readonly}
                                 data-testid="ProfileCard.avatar"
+                                fullWidth
                             />
                             <CurrencySelect
                                 value={data?.currency}

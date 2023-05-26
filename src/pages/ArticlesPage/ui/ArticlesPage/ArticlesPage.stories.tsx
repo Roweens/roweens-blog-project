@@ -4,14 +4,18 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import ArticlesPage from './ArticlesPage';
 import { Theme } from '@/shared/const/theme';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
+import { ArticlePageSchema } from '../../model/types/articlePageSchema';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
-    title: 'pages/ArticlesPage',
+    title: 'pages/ArticlesPage/ArticlesPage',
     component: ArticlesPage,
 
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [RouterDecorator()],
 } as ComponentMeta<typeof ArticlesPage>;
 
 const Template: ComponentStory<typeof ArticlesPage> = () => <ArticlesPage />;
@@ -91,62 +95,50 @@ const article = {
     ],
 } as Article;
 
-export const Light = Template.bind({});
-
-Light.args = {};
-Light.decorators = [
-    StoreDecorator({
-        articlePage: {
-            view: 'Block',
-            isLoading: false,
-            ids: ['1'],
-            error: undefined,
-            hasMore: false,
-            limit: 5,
-            page: 1,
-            entities: {
-                1: article,
-            },
+const defaultState = {
+    articlePage: {
+        view: 'Block',
+        isLoading: false,
+        ids: ['1', '2'],
+        error: undefined,
+        hasMore: false,
+        limit: 5,
+        page: 1,
+        entities: {
+            1: article,
+            2: article,
         },
-    }),
-];
+    } as DeepPartial<ArticlePageSchema>,
+};
+
+export const Light = Template.bind({});
+Light.args = {};
+Light.decorators = [StoreDecorator(defaultState)];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [
-    ThemeDecorator(Theme.DARK),
-    StoreDecorator({
-        articlePage: {
-            view: 'Block',
-            isLoading: false,
-            ids: [1],
-            error: undefined,
-            hasMore: false,
-            limit: 5,
-            page: 1,
-            entities: {
-                1: article,
-            },
-        },
-    }),
-];
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(defaultState)];
 
 export const Red = Template.bind({});
 Red.args = {};
-Red.decorators = [
+Red.decorators = [ThemeDecorator(Theme.RED), StoreDecorator(defaultState)];
+
+export const LightRedesigned = Template.bind({});
+LightRedesigned.args = {};
+LightRedesigned.decorators = [NewDesignDecorator, StoreDecorator(defaultState)];
+
+export const DarkRedesigned = Template.bind({});
+DarkRedesigned.args = {};
+DarkRedesigned.decorators = [
+    NewDesignDecorator,
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator(defaultState),
+];
+
+export const RedRedesigned = Template.bind({});
+RedRedesigned.args = {};
+RedRedesigned.decorators = [
+    NewDesignDecorator,
     ThemeDecorator(Theme.RED),
-    StoreDecorator({
-        articlePage: {
-            view: 'Block',
-            isLoading: false,
-            ids: [1],
-            error: undefined,
-            hasMore: false,
-            limit: 5,
-            page: 1,
-            entities: {
-                1: article,
-            },
-        },
-    }),
+    StoreDecorator(defaultState),
 ];

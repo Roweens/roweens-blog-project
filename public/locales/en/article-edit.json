@@ -11,9 +11,9 @@
   "Выберите хотя бы одну категорию для статьи": "Choose at least one article type",
   "Пользователь не определен": "User not found",
 
-  "Заголовок статьи": "Article title",
-  "Подзаголовок статьи": "Article subtitle",
-  "Изображение для статьи": "Article image",
+  "Заголовок статьи:": "Article title:",
+  "Подзаголовок статьи:": "Article subtitle:",
+  "Изображение для статьи:": "Article image:",
   "Добавить блок": "Add block",
   "Создать статью": "Create article",
   "Выберите категории статьи": "Choose article type",

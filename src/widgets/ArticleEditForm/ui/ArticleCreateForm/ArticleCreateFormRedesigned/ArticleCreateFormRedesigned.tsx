@@ -180,20 +180,23 @@ export const ArticleCreateFormRedesigned: FC<ArticleCreateFormProps> = (
                         <Input
                             value={newArticle?.title}
                             onChange={onChangeTitle}
-                            label={t('Заголовок статьи')}
+                            label={t('Заголовок статьи:')}
                             data-testid="ArticleCreateForm.Title"
+                            fullWidth
                         />
                         <Input
                             value={newArticle?.subtitle}
                             onChange={onChangeSubTitle}
-                            label={t('Подзаголовок статьи')}
+                            label={t('Подзаголовок статьи:')}
                             data-testid="ArticleCreateForm.Subtitle"
+                            fullWidth
                         />
                         <Input
                             value={newArticle?.img}
                             onChange={onChangeImage}
-                            label={t('Изображение для статьи')}
+                            label={t('Изображение для статьи:')}
                             data-testid="ArticleCreateForm.Image"
+                            fullWidth
                         />
                         <ArticleCreateSelectType
                             onTypeSelect={onTypeSelect}
@@ -223,6 +226,8 @@ export const ArticleCreateFormRedesigned: FC<ArticleCreateFormProps> = (
                         <Button
                             onClick={onArticleCreate}
                             data-testid="ArticleCreateForm.SaveButton"
+                            variant="filled"
+                            color="success"
                         >
                             {t('Создать статью')}
                         </Button>

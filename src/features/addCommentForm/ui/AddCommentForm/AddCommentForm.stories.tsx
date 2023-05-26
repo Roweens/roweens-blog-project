@@ -4,6 +4,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import AddCommentForm from './AddCommentForm';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'features/addCommentForm',
@@ -24,9 +25,39 @@ Normal.args = {
 Normal.decorators = [StoreDecorator({})];
 
 export const Dark = Template.bind({});
-Dark.args = {};
+Dark.args = {
+    onSendComment: action('onSendComment'),
+};
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
 
 export const Red = Template.bind({});
-Red.args = {};
+Red.args = {
+    onSendComment: action('onSendComment'),
+};
 Red.decorators = [ThemeDecorator(Theme.RED), StoreDecorator({})];
+
+export const NormalRedesigned = Template.bind({});
+NormalRedesigned.args = {
+    onSendComment: action('onSendComment'),
+};
+NormalRedesigned.decorators = [NewDesignDecorator, StoreDecorator({})];
+
+export const DarkRedesigned = Template.bind({});
+DarkRedesigned.args = {
+    onSendComment: action('onSendComment'),
+};
+DarkRedesigned.decorators = [
+    NewDesignDecorator,
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({}),
+];
+
+export const RedRedesigned = Template.bind({});
+RedRedesigned.args = {
+    onSendComment: action('onSendComment'),
+};
+RedRedesigned.decorators = [
+    NewDesignDecorator,
+    ThemeDecorator(Theme.RED),
+    StoreDecorator({}),
+];

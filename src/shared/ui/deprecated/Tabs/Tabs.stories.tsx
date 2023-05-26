@@ -1,6 +1,8 @@
 import { action } from '@storybook/addon-actions';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Tabs } from './Tabs';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'shared/deprecated/Tabs',
@@ -12,8 +14,7 @@ export default {
 
 const Template: ComponentStory<typeof Tabs> = (args) => <Tabs {...args} />;
 
-export const Normal = Template.bind({});
-Normal.args = {
+const defaultArgs = {
     tabs: [
         {
             value: 'tab 1',
@@ -35,3 +36,14 @@ Normal.args = {
     value: 'tab 2',
     onTabClick: action('onTabClick'),
 };
+
+export const Normal = Template.bind({});
+Normal.args = defaultArgs;
+
+export const Dark = Template.bind({});
+Dark.args = defaultArgs;
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Red = Template.bind({});
+Red.args = defaultArgs;
+Red.decorators = [ThemeDecorator(Theme.RED)];

@@ -2,6 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { AvatarDropdown } from './AvatarDropdown';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { UserRole } from '@/entities/User';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'features/AvatarDropdown',
@@ -55,6 +56,22 @@ Manager.decorators = [
                 username: 'User',
                 avatar: 'https://img.freepik.com/free-icon/user_318-159711.jpg',
                 roles: [UserRole.MANAGER],
+            },
+        },
+    }),
+];
+
+export const UserRedesigned = Template.bind({});
+UserRedesigned.args = {};
+UserRedesigned.decorators = [
+    NewDesignDecorator,
+    StoreDecorator({
+        user: {
+            authData: {
+                id: 1,
+                username: 'User',
+                avatar: 'https://us.123rf.com/450wm/anatolir/anatolir2011/anatolir201105528/159470802-jurist-avatar-icon-flat-style.jpg?ver=6',
+                roles: [UserRole.USER],
             },
         },
     }),

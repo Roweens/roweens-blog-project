@@ -59,6 +59,7 @@ export const ArticleEditTextBlockForm: FC<ArticleEditTextBlockFormProps> = (
                         onChange={onTitleChange}
                         readonly={readonly}
                         data-testid="ArticleEditTextBlockForm.Title"
+                        fullWidth
                     />
                     <TextField
                         value={paragraphs}

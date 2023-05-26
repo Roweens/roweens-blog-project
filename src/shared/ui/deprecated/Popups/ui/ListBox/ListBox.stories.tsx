@@ -1,5 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ListBox } from './ListBox';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'shared/deprecated/ListBox',
@@ -30,6 +32,30 @@ Normal.args = {
     defaultValue: 'Test defaultValue',
     label: 'Test label',
 };
+
+export const Dark = Template.bind({});
+Dark.args = {
+    items: [
+        { content: 'Test test', value: '123' },
+        { content: 'Test test', value: '123' },
+        { content: 'Test test', value: '123' },
+    ],
+    defaultValue: 'Test defaultValue',
+    label: 'Test label',
+};
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Red = Template.bind({});
+Red.args = {
+    items: [
+        { content: 'Test test', value: '123' },
+        { content: 'Test test', value: '123' },
+        { content: 'Test test', value: '123' },
+    ],
+    defaultValue: 'Test defaultValue',
+    label: 'Test label',
+};
+Red.decorators = [ThemeDecorator(Theme.RED)];
 
 export const TopLeft = Template.bind({});
 TopLeft.args = {

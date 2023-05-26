@@ -21,4 +21,13 @@ export const Interactive = Template.bind({});
 Interactive.args = {
     Svg: TestIcon,
     interactive: true,
+    width: 50,
+    height: 50,
+};
+
+export const Big = Template.bind({});
+Big.args = {
+    Svg: TestIcon,
+    width: 80,
+    height: 80,
 };

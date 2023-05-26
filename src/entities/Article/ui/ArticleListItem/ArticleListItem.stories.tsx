@@ -3,6 +3,7 @@ import { Article } from '../../model/types/article';
 import { ArticleListItem } from './ArticleListItem';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'entities/Article/ArticleListItem',
@@ -103,6 +104,20 @@ Block.args = {
     article,
 };
 
+export const ListRedesigned = Template.bind({});
+ListRedesigned.args = {
+    view: 'List',
+    article,
+};
+ListRedesigned.decorators = [NewDesignDecorator];
+
+export const BlockRedesigned = Template.bind({});
+BlockRedesigned.args = {
+    view: 'Block',
+    article,
+};
+BlockRedesigned.decorators = [NewDesignDecorator];
+
 export const DarkList = Template.bind({});
 DarkList.args = {
     view: 'List',
@@ -117,6 +132,26 @@ DarkBlock.args = {
 };
 DarkBlock.decorators = [ThemeDecorator(Theme.DARK)];
 
+export const DarkListRedesigned = Template.bind({});
+DarkListRedesigned.args = {
+    view: 'List',
+    article,
+};
+DarkListRedesigned.decorators = [
+    NewDesignDecorator,
+    ThemeDecorator(Theme.DARK),
+];
+
+export const DarkBlockRedesigned = Template.bind({});
+DarkBlockRedesigned.args = {
+    view: 'Block',
+    article,
+};
+DarkBlockRedesigned.decorators = [
+    NewDesignDecorator,
+    ThemeDecorator(Theme.DARK),
+];
+
 export const RedList = Template.bind({});
 RedList.args = {
     view: 'List',
@@ -130,3 +165,17 @@ RedBlock.args = {
     article,
 };
 RedBlock.decorators = [ThemeDecorator(Theme.RED)];
+
+export const RedListRedesigned = Template.bind({});
+RedListRedesigned.args = {
+    view: 'List',
+    article,
+};
+RedListRedesigned.decorators = [NewDesignDecorator, ThemeDecorator(Theme.RED)];
+
+export const RedBlockRedesigned = Template.bind({});
+RedBlockRedesigned.args = {
+    view: 'Block',
+    article,
+};
+RedBlockRedesigned.decorators = [NewDesignDecorator, ThemeDecorator(Theme.RED)];

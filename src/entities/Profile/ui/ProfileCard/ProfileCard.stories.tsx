@@ -4,6 +4,7 @@ import { Currencies } from '@/entities/Currency';
 import { ProfileCard } from './ProfileCard';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'entities/Profile/ProfileCard',
@@ -18,9 +19,7 @@ const Template: ComponentStory<typeof ProfileCard> = (args) => (
     <ProfileCard {...args} />
 );
 
-export const Primary = Template.bind({});
-
-Primary.args = {
+const defaultArgs = {
     data: {
         firstname: 'Roweens',
         lastname: 'Roweens',
@@ -33,12 +32,15 @@ Primary.args = {
     },
 };
 
+export const Primary = Template.bind({});
+Primary.args = defaultArgs;
+
 export const Dark = Template.bind({});
-Dark.args = {};
+Dark.args = defaultArgs;
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Red = Template.bind({});
-Red.args = {};
+Red.args = defaultArgs;
 Red.decorators = [ThemeDecorator(Theme.RED)];
 
 export const Loading = Template.bind({});
@@ -50,3 +52,27 @@ export const Error = Template.bind({});
 Error.args = {
     error: 'true',
 };
+
+export const PrimaryRedesigned = Template.bind({});
+PrimaryRedesigned.args = defaultArgs;
+PrimaryRedesigned.decorators = [NewDesignDecorator];
+
+export const DarkRedesigned = Template.bind({});
+DarkRedesigned.args = defaultArgs;
+DarkRedesigned.decorators = [NewDesignDecorator, ThemeDecorator(Theme.DARK)];
+
+export const RedRedesigned = Template.bind({});
+RedRedesigned.args = defaultArgs;
+RedRedesigned.decorators = [NewDesignDecorator, ThemeDecorator(Theme.RED)];
+
+export const LoadingRedesigned = Template.bind({});
+LoadingRedesigned.args = {
+    isLoading: true,
+};
+LoadingRedesigned.decorators = [NewDesignDecorator];
+
+export const ErrorRedesigned = Template.bind({});
+ErrorRedesigned.args = {
+    error: 'true',
+};
+ErrorRedesigned.decorators = [NewDesignDecorator];

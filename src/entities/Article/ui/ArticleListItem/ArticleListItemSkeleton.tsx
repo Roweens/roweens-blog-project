@@ -43,7 +43,7 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (
                             [className, cls[view]],
                         )}
                     >
-                        <Card>
+                        <Card border="intermediate" fullWidth>
                             <VStack gap="16">
                                 <HStack gap="16">
                                     <Skeleton
@@ -101,7 +101,7 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (
                             cls[view],
                         ])}
                     >
-                        <Card>
+                        <Card border="intermediate" fullWidth>
                             <HStack>
                                 <Skeleton height={30} width={30} border="50%" />
                                 <Skeleton
@@ -141,7 +141,12 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (
                         cls[view],
                     ])}
                 >
-                    <Card padding="16" fullWidth fullHeight border="round">
+                    <Card
+                        padding="16"
+                        fullWidth
+                        fullHeight
+                        border="intermediate"
+                    >
                         <VStack gap="16" justify="between" max fullHeight>
                             <Skeleton width="100%" height={240} border="16px" />
                             <VStack fullHeight justify="between" max>
@@ -174,7 +179,7 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (
                         cls[view],
                     ])}
                 >
-                    <Card>
+                    <Card border='intermediate'>
                         <div className={cls.imageWrapper}>
                             <Skeleton
                                 className={cls.img}

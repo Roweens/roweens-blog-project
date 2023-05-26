@@ -6,6 +6,7 @@ import { Countries } from '@/entities/Country';
 import { Currencies } from '@/entities/Currency';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'features/editableProfileCard',
@@ -62,6 +63,53 @@ Dark.decorators = [
 export const Red = Template.bind({});
 Red.args = {};
 Red.decorators = [
+    StoreDecorator({
+        editableProfileCard: {
+            data: profile,
+            error: undefined,
+            readonly: true,
+            form: profile,
+            isLoading: false,
+        },
+    }),
+    ThemeDecorator(Theme.RED),
+];
+
+export const LightRedesigned = Template.bind({});
+LightRedesigned.args = {};
+LightRedesigned.decorators = [
+    NewDesignDecorator,
+    StoreDecorator({
+        editableProfileCard: {
+            data: profile,
+            error: undefined,
+            readonly: true,
+            form: profile,
+            isLoading: false,
+        },
+    }),
+];
+
+export const DarkRedesigned = Template.bind({});
+DarkRedesigned.args = {};
+DarkRedesigned.decorators = [
+    NewDesignDecorator,
+    StoreDecorator({
+        editableProfileCard: {
+            data: profile,
+            error: undefined,
+            readonly: true,
+            form: profile,
+            isLoading: false,
+        },
+    }),
+    ThemeDecorator(Theme.DARK),
+];
+
+export const RedRedesigned = Template.bind({});
+RedRedesigned.args = {};
+RedRedesigned.decorators = [
+    NewDesignDecorator,
     StoreDecorator({
         editableProfileCard: {
             data: profile,

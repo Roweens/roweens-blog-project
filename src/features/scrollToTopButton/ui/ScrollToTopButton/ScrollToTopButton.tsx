@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ScrollToTopButton.module.scss';
 import { Icon } from '@/shared/ui/redesigned/Icon';
@@ -10,8 +9,6 @@ interface ScrollToTopButtonProps {
 }
 
 export const ScrollToTopButton = memo(() => {
-    const { t } = useTranslation();
-
     const onClick = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };

@@ -2,6 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { NotificationItem } from './NotificationItem';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'entities/Notification/NotificationItem',
@@ -37,3 +38,21 @@ Red.args = {
     item,
 };
 Red.decorators = [ThemeDecorator(Theme.RED)];
+
+export const NormalRedesigned = Template.bind({});
+NormalRedesigned.args = {
+    item,
+};
+NormalRedesigned.decorators = [NewDesignDecorator];
+
+export const DarkRedesigned = Template.bind({});
+DarkRedesigned.args = {
+    item,
+};
+DarkRedesigned.decorators = [NewDesignDecorator, ThemeDecorator(Theme.DARK)];
+
+export const RedRedesigned = Template.bind({});
+RedRedesigned.args = {
+    item,
+};
+RedRedesigned.decorators = [NewDesignDecorator, ThemeDecorator(Theme.RED)];

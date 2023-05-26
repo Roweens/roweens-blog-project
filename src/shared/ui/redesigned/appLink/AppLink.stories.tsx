@@ -2,6 +2,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { AppLink } from './AppLink';
 import { Theme } from '@/shared/const/theme';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'shared/redesigned/AppLink',
@@ -10,6 +12,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [RouterDecorator()],
     args: {
         to: '/',
     },
@@ -25,6 +28,7 @@ Primary.args = {
     children: 'Text',
     variant: 'primary',
 };
+Primary.decorators = [NewDesignDecorator];
 
 export const PrimaryDark = Template.bind({});
 
@@ -33,7 +37,7 @@ PrimaryDark.args = {
     variant: 'primary',
 };
 
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+PrimaryDark.decorators = [NewDesignDecorator, ThemeDecorator(Theme.DARK)];
 
 export const PrimaryRed = Template.bind({});
 
@@ -42,7 +46,7 @@ PrimaryRed.args = {
     variant: 'primary',
 };
 
-PrimaryRed.decorators = [ThemeDecorator(Theme.RED)];
+PrimaryRed.decorators = [NewDesignDecorator, ThemeDecorator(Theme.RED)];
 
 export const Red = Template.bind({});
 Red.args = {
@@ -55,11 +59,11 @@ RedDark.args = {
     children: 'Text',
     variant: 'red',
 };
-RedDark.decorators = [ThemeDecorator(Theme.DARK)];
+RedDark.decorators = [NewDesignDecorator, ThemeDecorator(Theme.DARK)];
 
 export const RedRed = Template.bind({});
 RedRed.args = {
     children: 'Text',
     variant: 'red',
 };
-RedRed.decorators = [ThemeDecorator(Theme.RED)];
+RedRed.decorators = [NewDesignDecorator, ThemeDecorator(Theme.RED)];

@@ -7,7 +7,6 @@ import {
     useRef,
     useState,
 } from 'react';
-
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 import { HStack } from '../Stack';
@@ -30,6 +29,7 @@ interface InputProps extends HTMLInputProps {
     addonLeft?: ReactNode;
     addonRight?: ReactNode;
     size?: InputSize;
+    fullWidth?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -45,6 +45,7 @@ export const Input = memo((props: InputProps) => {
         addonLeft,
         label,
         size = 'm',
+        fullWidth,
         ...others
     } = props;
 
@@ -75,6 +76,7 @@ export const Input = memo((props: InputProps) => {
         [cls.focused]: isFocused,
         [cls.withLeftAddon]: Boolean(addonLeft),
         [cls.withRightAddon]: Boolean(addonRight),
+        [cls.fullWidth]: fullWidth,
     };
 
     const input = (

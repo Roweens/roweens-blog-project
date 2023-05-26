@@ -55,6 +55,7 @@ export const ArticleListItemRedesigned: FC<ArticleListItemProps> = (props) => {
 
         return (
             <Card
+                border="intermediate"
                 padding="24"
                 fullWidth
                 className={classNames(cls.articleListItem, {}, [
@@ -111,7 +112,7 @@ export const ArticleListItemRedesigned: FC<ArticleListItemProps> = (props) => {
                 cls[view],
             ])}
         >
-            <Card className={cls.card} border="round" padding="0">
+            <Card className={cls.card} border="intermediate" padding="0">
                 <AppImage
                     fallback={<Skeleton width="100%" height={200} />}
                     src={article.img}

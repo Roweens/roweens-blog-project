@@ -3,6 +3,7 @@ import { Article } from '../../model/types/article';
 import { ArticleList } from './ArticleList';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'entities/Article/ArticleList',
@@ -105,6 +106,24 @@ isLoadingList.args = {
     view: 'List',
 };
 
+export const isLoadingBlockRedesigned = Template.bind({});
+isLoadingBlockRedesigned.args = {
+    isLoading: true,
+    articles: [],
+    view: 'Block',
+};
+
+isLoadingBlockRedesigned.decorators = [NewDesignDecorator];
+
+export const isLoadingListRedesigned = Template.bind({});
+isLoadingListRedesigned.args = {
+    isLoading: true,
+    articles: [],
+    view: 'List',
+};
+
+isLoadingListRedesigned.decorators = [NewDesignDecorator];
+
 export const NormalBlock = Template.bind({});
 NormalBlock.args = {
     isLoading: false,
@@ -124,6 +143,30 @@ NormalList.args = {
     })),
     view: 'List',
 };
+
+export const NormalBlockRedesigned = Template.bind({});
+NormalBlockRedesigned.args = {
+    isLoading: false,
+    articles: new Array(9).fill(0).map((item, index) => ({
+        ...article,
+        id: index,
+    })),
+    view: 'Block',
+};
+
+NormalBlockRedesigned.decorators = [NewDesignDecorator];
+
+export const NormalListRedesigned = Template.bind({});
+NormalListRedesigned.args = {
+    isLoading: false,
+    articles: new Array(9).fill(0).map((item, index) => ({
+        ...article,
+        id: index,
+    })),
+    view: 'List',
+};
+
+NormalListRedesigned.decorators = [NewDesignDecorator];
 
 export const DarkBlock = Template.bind({});
 DarkBlock.args = {
@@ -147,6 +190,34 @@ DarkList.args = {
 };
 DarkList.decorators = [ThemeDecorator(Theme.DARK)];
 
+export const DarkBlockRedesigned = Template.bind({});
+DarkBlockRedesigned.args = {
+    isLoading: false,
+    articles: new Array(9).fill(0).map((item, index) => ({
+        ...article,
+        id: index,
+    })),
+    view: 'Block',
+};
+DarkBlockRedesigned.decorators = [
+    NewDesignDecorator,
+    ThemeDecorator(Theme.DARK),
+];
+
+export const DarkListRedesigned = Template.bind({});
+DarkListRedesigned.args = {
+    isLoading: false,
+    articles: new Array(9).fill(0).map((item, index) => ({
+        ...article,
+        id: index,
+    })),
+    view: 'List',
+};
+DarkListRedesigned.decorators = [
+    NewDesignDecorator,
+    ThemeDecorator(Theme.DARK),
+];
+
 export const RedBlock = Template.bind({});
 RedBlock.args = {
     isLoading: false,
@@ -168,3 +239,25 @@ RedList.args = {
     view: 'List',
 };
 RedList.decorators = [ThemeDecorator(Theme.RED)];
+
+export const RedBlockRedesigned = Template.bind({});
+RedBlockRedesigned.args = {
+    isLoading: false,
+    articles: new Array(9).fill(0).map((item, index) => ({
+        ...article,
+        id: index,
+    })),
+    view: 'Block',
+};
+RedBlockRedesigned.decorators = [NewDesignDecorator, ThemeDecorator(Theme.RED)];
+
+export const RedListRedesigned = Template.bind({});
+RedListRedesigned.args = {
+    isLoading: false,
+    articles: new Array(9).fill(0).map((item, index) => ({
+        ...article,
+        id: index,
+    })),
+    view: 'List',
+};
+RedListRedesigned.decorators = [NewDesignDecorator, ThemeDecorator(Theme.RED)];

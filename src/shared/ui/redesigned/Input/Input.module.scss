@@ -4,7 +4,7 @@
     border-radius: 48px;
     padding: 8px 16px;
     border: 2px solid var(--icon-redesigned);
-    width: 100%;
+    width: fit-content;
 }
 
 .focused {
@@ -63,4 +63,8 @@
 
 .label {
     white-space: nowrap;
+}
+
+.fullWidth {
+    width: 100%;
 }

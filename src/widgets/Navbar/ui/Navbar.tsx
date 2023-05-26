@@ -12,16 +12,12 @@ import {
     ThemeButton,
 } from '@/shared/ui/deprecated/button';
 import { Text as TextDeprecated, TextTheme } from '@/shared/ui/deprecated/Text';
-import { Text } from '@/shared/ui/redesigned/Text';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import cls from './Navbar.module.scss';
 import newCls from './Navbar.new.module.scss';
 import { getRouteArticleCreate } from '@/shared/const/router';
 import { ToggleFeatures, toggleFeatures } from '@/shared/features';
 import { Button } from '@/shared/ui/redesigned/button';
-import { Card } from '@/shared/ui/redesigned/Card';
-import LoginIcon from '@/shared/assets/icons/login.svg';
-import { Icon } from '@/shared/ui/redesigned/Icon';
 
 interface NavbarProps {
     className?: string;
@@ -96,24 +92,14 @@ export const Navbar = memo((props: NavbarProps) => {
             <ToggleFeatures
                 feature="isAppRedesigned"
                 on={
-                    <Card padding="16">
-                        <Button
-                            className={cls.links}
-                            variant="clear"
-                            onClick={onOpenModal}
-                            data-testid="Navbar.loginBtn"
-                            addonLeft={
-                                <Icon
-                                    Svg={LoginIcon}
-                                    width={20}
-                                    height={20}
-                                    className={newCls.icon}
-                                />
-                            }
-                        >
-                            <Text bold text={t('Войти')} />
-                        </Button>
-                    </Card>
+                    <Button
+                        className={newCls.loginBtn}
+                        variant="filled"
+                        onClick={onOpenModal}
+                        data-testid="Navbar.loginBtn"
+                    >
+                        {t('Войти')}
+                    </Button>
                 }
                 off={
                     <ButtonDeprecated

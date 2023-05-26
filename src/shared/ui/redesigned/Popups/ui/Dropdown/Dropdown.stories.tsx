@@ -1,6 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Dropdown } from './Dropdown';
 import { Button } from '../../../button/index';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'shared/redesigned/Dropdown',
@@ -36,6 +39,40 @@ Normal.args = {
         },
     ],
 };
+
+export const Dark = Template.bind({});
+Dark.args = {
+    trigger: <Button>Open</Button>,
+    items: [
+        {
+            content: 'first',
+        },
+        {
+            content: 'second',
+        },
+        {
+            content: 'third',
+        },
+    ],
+};
+Dark.decorators = [NewDesignDecorator, ThemeDecorator(Theme.DARK)];
+
+export const Red = Template.bind({});
+Red.args = {
+    trigger: <Button>Open</Button>,
+    items: [
+        {
+            content: 'first',
+        },
+        {
+            content: 'second',
+        },
+        {
+            content: 'third',
+        },
+    ],
+};
+Red.decorators = [NewDesignDecorator, ThemeDecorator(Theme.RED)];
 
 export const TopLeft = Template.bind({});
 TopLeft.args = {

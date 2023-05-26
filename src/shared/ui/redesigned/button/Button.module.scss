@@ -56,17 +56,14 @@
 
     &.normal {
         border: 2px solid var(--icon-redesigned);
-        color: var(--text-redesigned);
     }
 
     &.success {
         border: 2px solid var(--save-redesigned);
-        color: var(--save-redesigned);
     }
 
     &.error {
         border: 2px solid var(--cancel-redesigned);
-        color: var(--cancel-redesigned);
     }
 }
 

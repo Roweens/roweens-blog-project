@@ -22,3 +22,10 @@ Inverted.args = {
     Svg: TestIcon,
     inverted: true,
 };
+
+export const Big = Template.bind({});
+Big.args = {
+    Svg: TestIcon,
+    height: 80,
+    width: 80,
+};
