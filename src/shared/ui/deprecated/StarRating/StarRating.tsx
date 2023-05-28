@@ -79,6 +79,7 @@ export const StarRating: FC<StarRatingProps> = (props) => {
 
                 return (
                     <ToggleFeatures
+                        key={starNumber}
                         feature="isAppRedesigned"
                         on={<Icon interactive={!isSelected} {...iconProps} />}
                         off={<IconDeprecated {...iconProps} />}
