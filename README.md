@@ -1,5 +1,10 @@
 [Ссылка на деплой Netlify](https://stellular-fairy-5ce2cb.netlify.app/)
 
+## Данные для логина
+
+Логин: admin
+Пароль: 123
+
 ## Запуск проекта
 
 `npm install` - устанавливаем зависимости

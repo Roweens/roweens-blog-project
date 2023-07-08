@@ -46,11 +46,7 @@ export const ArticleCreateSelectType: FC<ArticleCreateSelectTypeProps> = (
         <ToggleFeatures
             feature="isAppRedesigned"
             on={
-                <div
-                    className={classNames(cls.articleCreateSelectType, {}, [
-                        className,
-                    ])}
-                >
+                <div className={classNames('', {}, [className])}>
                     <ListBox
                         // @ts-ignore
                         value={types}
@@ -65,11 +61,7 @@ export const ArticleCreateSelectType: FC<ArticleCreateSelectTypeProps> = (
                 </div>
             }
             off={
-                <div
-                    className={classNames('', {}, [
-                        className,
-                    ])}
-                >
+                <div className={classNames('', {}, [className])}>
                     <ListBoxDeprecated
                         // @ts-ignore
                         value={types}
