@@ -69,8 +69,10 @@ export const articlePageSlice = createSlice({
             const view = localStorage.getItem(
                 ARTICLE_VIEW_LOCALSTORAGE_KEY || 'Block',
             ) as ArticleView;
-            state.view = view;
-            state.limit = view === 'Block' ? 9 : 4;
+            if (view) {
+                state.view = view;
+                state.limit = view === 'Block' ? 9 : 4;
+            }
             state._inited = true;
         },
     },
