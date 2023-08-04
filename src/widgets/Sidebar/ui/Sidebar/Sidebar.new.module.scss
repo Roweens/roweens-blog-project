@@ -21,8 +21,12 @@
 
 .switchers {
     position: absolute;
-    bottom: 180px;
+    bottom: 40px;
     width: 100%;
+
+    @include sm {
+        bottom: 180px;
+    }
 }
 
 .appLogo {
