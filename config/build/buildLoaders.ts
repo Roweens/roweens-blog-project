@@ -4,7 +4,7 @@ import { buildCssLoader } from './loaders/buildCssLoader';
 import { BuildOptions } from './types/config';
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
-    const { isDev } = options;
+    const { isDev, paths } = options;
 
     const assetLoader = {
         test: /\.(png|jpg|jpeg|gif)$/i,
@@ -31,10 +31,11 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         }],
     };
 
+
     const babelLoader = buildBabelLoader({ ...options, isTsx: false });
     const tsxBabelLoader = buildBabelLoader({ ...options, isTsx: true });
 
-    const cssLoader = buildCssLoader(isDev);
+    const cssLoader = buildCssLoader(isDev, paths.mixins);
 
     // const typescriptLoader = {
     //     test: /\.tsx?$/,

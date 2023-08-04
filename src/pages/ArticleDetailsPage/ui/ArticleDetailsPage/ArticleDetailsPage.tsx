@@ -1,6 +1,7 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
+import { BrowserView, MobileView } from 'react-device-detect';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { ArticleDetails } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -21,6 +22,7 @@ import { Card } from '@/shared/ui/deprecated/Card';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { DetailsContainer } from '../DetailsContainer/DetailsContainer';
 import { AdditionalInfoContainer } from '../AdditionalInfoContainer/AdditionalInfoContainer';
+import { MobileLayout } from '@/shared/layouts/MobileLayout/MobileLayout';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -44,25 +46,50 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
             <ToggleFeatures
                 feature="isAppRedesigned"
                 on={
-                    <StickyContentLayout
-                        right={<AdditionalInfoContainer />}
-                        content={
-                            <Page
-                                className={classNames(
-                                    cls.articleDetailsPage,
-                                    {},
-                                    [className],
-                                )}
-                            >
-                                <VStack gap="16" max>
-                                    <DetailsContainer />
-                                    <ArticleRating articleId={id} />
-                                    <ArticleRecommendationsList />
-                                    <ArticleDetailsComments id={id} />
-                                </VStack>
-                            </Page>
-                        }
-                    />
+                    <>
+                        <BrowserView>
+                            <StickyContentLayout
+                                right={<AdditionalInfoContainer />}
+                                content={
+                                    <Page
+                                        className={classNames(
+                                            cls.articleDetailsPage,
+                                            {},
+                                            [className],
+                                        )}
+                                    >
+                                        <VStack gap="16" max>
+                                            <DetailsContainer />
+                                            <ArticleRating articleId={id} />
+                                            <ArticleRecommendationsList />
+                                            <ArticleDetailsComments id={id} />
+                                        </VStack>
+                                    </Page>
+                                }
+                            />
+                        </BrowserView>
+                        <MobileView>
+                            <MobileLayout
+                                content={
+                                    <Page
+                                        className={classNames(
+                                            cls.articleDetailsPage,
+                                            {},
+                                            [className],
+                                        )}
+                                    >
+                                        <VStack gap="16" max>
+                                            <AdditionalInfoContainer />
+                                            <DetailsContainer />
+                                            <ArticleRating articleId={id} />
+                                            <ArticleRecommendationsList />
+                                            <ArticleDetailsComments id={id} />
+                                        </VStack>
+                                    </Page>
+                                }
+                            />
+                        </MobileView>
+                    </>
                 }
                 off={
                     <Page

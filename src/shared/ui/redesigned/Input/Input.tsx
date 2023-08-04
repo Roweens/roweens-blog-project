@@ -7,6 +7,7 @@ import {
     useRef,
     useState,
 } from 'react';
+import { isMobile } from 'react-device-detect';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 import { HStack } from '../Stack';
@@ -44,7 +45,7 @@ export const Input = memo((props: InputProps) => {
         addonRight,
         addonLeft,
         label,
-        size = 'm',
+        size = isMobile ? 's' : 'm',
         fullWidth,
         ...others
     } = props;

@@ -7,6 +7,7 @@
     z-index: 100;
     display: flex;
     align-items: flex-end;
+    justify-content: center;
 }
 
 .opened {
@@ -22,11 +23,14 @@
 .sheet {
     z-index: var(--modal-z-index);
     position: fixed;
-    left: 2vw;
     height: calc(100vh + 100px);
     width: 96vw;
     border-radius: 12px 12px 0;
     background: var(--light-bg-redesigned);
     touch-action: none;
     padding: 15px;
+
+    @include sm {
+        width: fit-content;
+    }
 }

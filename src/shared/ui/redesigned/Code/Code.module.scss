@@ -10,9 +10,10 @@
     padding: 20px;
     position: relative;
     background: var(--light-bg-redesigned);
-    overflow: auto;
+    overflow-y: scroll;
     border: 1px solid var(--accent-redesigned);
     border-radius: 16px;
+    max-width: 100%;
 }
 
 .copyBtn {

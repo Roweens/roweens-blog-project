@@ -1,12 +1,10 @@
 import { Suspense, memo, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { BrowserView, MobileView } from 'react-device-detect';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Navbar } from '@/widgets/Navbar';
+import { Navbar, MobileNavbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
-import {
-    selectUserMounted,
-    initAuthData,
-} from '@/entities/User';
+import { selectUserMounted, initAuthData } from '@/entities/User';
 import { AppRouter } from './providers/router';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { PageLoader } from '@/widgets/PageLoader';
@@ -15,6 +13,7 @@ import { MainLayout } from '@/shared/layouts/MainLayout';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { useAppToolbar } from './lib/useAppToolbar';
 import { withTheme } from './providers/themeProvider';
+import { MobileLayout } from '@/shared/layouts/MobileLayout/MobileLayout';
 
 export const App = memo(() => {
     const dispatch = useAppDispatch();
@@ -63,12 +62,20 @@ export const App = memo(() => {
             on={
                 <div className={classNames('app_redesigned')}>
                     <Suspense fallback="">
-                        <MainLayout
-                            header={<Navbar />}
-                            content={<AppRouter />}
-                            sidebar={<Sidebar />}
-                            toolbar={toolbar}
-                        />
+                        <MobileView>
+                            <MobileLayout
+                                content={<AppRouter />}
+                                header={<MobileNavbar />}
+                            />
+                        </MobileView>
+                        <BrowserView>
+                            <MainLayout
+                                header={<Navbar />}
+                                content={<AppRouter />}
+                                sidebar={<Sidebar />}
+                                toolbar={toolbar}
+                            />
+                        </BrowserView>
                     </Suspense>
                 </div>
             }

@@ -8,7 +8,7 @@ import {
 } from '@/shared/ui/deprecated/button';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 import { NotificationList } from '@/entities/Notification';
-import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
 import cls from './NotificationButton.module.scss';
 import NotificationIconDeprecated from '../../../../shared/assets/icons/notification-20-20.svg';
 import NotificationIcon from '../../../../shared/assets/icons/notification.svg';
@@ -59,10 +59,9 @@ export const NotificationButton: FC<NotificationButtonProps> = (props) => {
     );
 
     return (
-        <div>
+        <>
             <MobileView>
                 {trigger}
-
                 <Drawer isOpen={isOpen} onClose={onCloseHandle}>
                     <NotificationList className={cls.notifications} />
                 </Drawer>
@@ -94,6 +93,6 @@ export const NotificationButton: FC<NotificationButtonProps> = (props) => {
                     }
                 />
             </BrowserView>
-        </div>
+        </>
     );
 };

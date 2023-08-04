@@ -1,0 +1,14 @@
+.mobileLayout {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    height: fit-content;
+}
+
+.content {
+    padding: 8px 16px 8px 8px;
+    height: 100%;
+}

@@ -26,7 +26,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
     const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
     const { theme } = useTheme();
 
-    const { className, children, onClose, isOpen, lazy } = props;
+    const { className, children, onClose, isOpen } = props;
 
     const openDrawer = useCallback(() => {
         api.start({ y: 0, immediate: false });

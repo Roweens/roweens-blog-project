@@ -27,6 +27,7 @@ export const NotificationItem: FC<NotificationItemProps> = (props) => {
                     ])}
                     data-testid="NotificationItem"
                     border="intermediate"
+                    fullWidth
                 >
                     <Text title={item.title} text={item.description} />
                 </Card>

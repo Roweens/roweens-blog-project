@@ -6,6 +6,7 @@ import { ArticleType } from '@/entities/Article';
 import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
 import { ToggleFeatures } from '@/shared/features';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface ArticleCreateSelectTypeProps {
     className?: string;
@@ -53,10 +54,13 @@ export const ArticleCreateSelectType: FC<ArticleCreateSelectTypeProps> = (
                         items={typeOptions}
                         multiple
                         label={t('Выберите категории статьи')}
-                        defaultValue={t('Выберите категории статьи')}
+                        defaultValue={
+                            <Text text={t('Выберите категории статьи')} />
+                        }
                         testid="ArticleCreateSelectType"
                         // @ts-ignore
                         onChange={onTypeSelect}
+                        direction="bottom left"
                     />
                 </div>
             }

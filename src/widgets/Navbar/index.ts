@@ -1,3 +1,4 @@
-import { Navbar } from './ui/Navbar';
+import { Navbar } from './ui/DesktopNavbar/Navbar';
+import { MobileNavbar } from './ui/MobileNavbar/MobileNavbar';
 
-export { Navbar };
+export { Navbar, MobileNavbar };

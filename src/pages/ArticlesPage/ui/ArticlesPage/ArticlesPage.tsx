@@ -1,5 +1,6 @@
 import { FC, MutableRefObject, memo, useCallback, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { BrowserView, MobileView } from 'react-device-detect';
 import {
     DynamicModuleLoader,
     ReducersList,
@@ -19,6 +20,8 @@ import { ToggleFeatures } from '@/shared/features';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
 import { FiltersContainer } from '../FiltersContainer/FiltersContainer';
+import { MobileLayout } from '@/shared/layouts/MobileLayout/MobileLayout';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticlesPageProps {
     className?: string;
@@ -49,23 +52,49 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
         <ToggleFeatures
             feature="isAppRedesigned"
             on={
-                <StickyContentLayout
-                    left={<ViewSelectorContainer />}
-                    right={<FiltersContainer />}
-                    content={
-                        <Page
-                            scrollRef={scrollRef}
-                            onScrollEnd={onNextPageLoad}
-                            data-testid="ArticlesPage"
-                        >
-                            <ArticleInfiniteList
-                                className={newCls.list}
-                                scrollRef={scrollRef}
-                            />
-                            <ArticlePageGreeting />
-                        </Page>
-                    }
-                />
+                <>
+                    <BrowserView>
+                        <StickyContentLayout
+                            left={<ViewSelectorContainer />}
+                            right={<FiltersContainer />}
+                            content={
+                                <Page
+                                    scrollRef={scrollRef}
+                                    onScrollEnd={onNextPageLoad}
+                                    data-testid="ArticlesPage"
+                                >
+                                    <ArticleInfiniteList
+                                        className={newCls.list}
+                                        scrollRef={scrollRef}
+                                    />
+                                    <ArticlePageGreeting />
+                                </Page>
+                            }
+                        />
+                    </BrowserView>
+                    <MobileView>
+                        <MobileLayout
+                            content={
+                                <Page
+                                    scrollRef={scrollRef}
+                                    onScrollEnd={onNextPageLoad}
+                                    data-testid="ArticlesPage"
+                                >
+                                    <VStack gap="8">
+                                        <ViewSelectorContainer />
+                                        <FiltersContainer />
+
+                                        <ArticleInfiniteList
+                                            className={newCls.list}
+                                            scrollRef={scrollRef}
+                                        />
+                                        <ArticlePageGreeting />
+                                    </VStack>
+                                </Page>
+                            }
+                        />
+                    </MobileView>
+                </>
             }
             off={
                 <Page

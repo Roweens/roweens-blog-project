@@ -4,6 +4,7 @@ import {
     forwardRef,
     ReactNode,
 } from 'react';
+import { isMobile } from 'react-device-detect';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
@@ -31,7 +32,7 @@ export const Button = forwardRef(
             children,
             variant = 'outlined',
             square,
-            size = 'm',
+            size = isMobile ? 's' : 'm',
             disabled,
             addonLeft,
             addonRight,

@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { isMobile } from 'react-device-detect';
 import { Currencies, CurrencySelect } from '@/entities/Currency';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Countries, CountrySelect } from '@/entities/Country';
@@ -102,6 +103,8 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
     } = props;
     const { t } = useTranslation('profile');
 
+    const Stack = isMobile ? VStack : HStack;
+
     if (isLoading) {
         return (
             <ToggleFeatures
@@ -157,7 +160,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                             <Avatar src={data?.avatar} size={128} />
                         </HStack>
                     )}
-                    <HStack gap="24" max>
+                    <Stack gap="24" max>
                         <VStack gap="16" max>
                             {' '}
                             <Input
@@ -223,7 +226,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                                 readonly={readonly}
                             />
                         </VStack>
-                    </HStack>
+                    </Stack>
                 </Card>
             }
             off={<ProfileCardDeprecated {...props} />}

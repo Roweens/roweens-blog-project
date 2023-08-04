@@ -10,6 +10,13 @@
     display: flex;
     align-items: center;
 
+    & p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 60px;
+    }
+
     &:hover {
         color: var(--accent-redesigned);
 
@@ -17,6 +24,10 @@
         .withRightAddon svg {
             color: var(--accent-redesigned);
         }
+    }
+
+    @include sm {
+        padding: 4px 12px;
     }
 }
 

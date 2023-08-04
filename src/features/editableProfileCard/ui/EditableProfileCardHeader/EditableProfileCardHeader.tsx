@@ -1,9 +1,10 @@
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { isMobile } from 'react-device-detect';
 import { selectUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { HStack } from '@/shared/ui/redesigned/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
@@ -36,6 +37,8 @@ export const EditableProfileCardHeader: FC<EditableProfileHeaderProps> = (
 
     const dispatch = useAppDispatch();
 
+    const Stack = isMobile ? VStack : HStack;
+
     const onEdit = useCallback(() => {
         dispatch(editableProfileCardActions.setReadonly(false));
     }, [dispatch]);
@@ -53,10 +56,11 @@ export const EditableProfileCardHeader: FC<EditableProfileHeaderProps> = (
             feature="isAppRedesigned"
             on={
                 <Card padding="24" fullWidth border="intermediate">
-                    <HStack
+                    <Stack
                         className={classNames('', {}, [className])}
                         justify="between"
                         max
+                        gap="8"
                     >
                         <Text title={t('Профиль')} />
                         {canEdit && (
@@ -91,7 +95,7 @@ export const EditableProfileCardHeader: FC<EditableProfileHeaderProps> = (
                                 )}
                             </>
                         )}
-                    </HStack>
+                    </Stack>
                 </Card>
             }
             off={

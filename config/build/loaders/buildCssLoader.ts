@@ -1,6 +1,6 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-export function buildCssLoader(isDev: boolean) {
+export function buildCssLoader(isDev: boolean, resourcesPath:string) {
     return {
         test: /\.s[ac]ss$/i,
         exclude: /node_modules/,
@@ -18,6 +18,12 @@ export function buildCssLoader(isDev: boolean) {
                 },
             },
             'sass-loader',
+                    {
+          loader: 'sass-resources-loader',
+          options: {
+            resources: resourcesPath,
+          },
+        },
         ],
     };
 }
